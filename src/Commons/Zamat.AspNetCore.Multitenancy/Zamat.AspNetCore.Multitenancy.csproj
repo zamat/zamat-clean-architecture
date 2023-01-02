@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>Common AspNetCore Multitenancy</Description>
+		<PackageTags>Multitenancy</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Common.Multitenancy\Zamat.Common.Multitenancy.csproj" />
+	</ItemGroup>
+</Project>

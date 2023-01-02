@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Zamat Mateusz Zawada",
+  "classifications": [ "Project" ],
+  "name": "Sample project with DDD,CQRS approach",
+  "identity": "Zamat.Sample",
+  "sourceName": "Zamat.Sample",
+  "shortName": "zamat-clean-architecture",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true
+}

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>UserService Infrastructure Package</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Sample.BuildingBlocks.Infrastructure\Zamat.Sample.BuildingBlocks.Infrastructure.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\MassTransit.Transport.InMemory\MassTransit.Transport.InMemory.csproj" />
+		<ProjectReference Include="..\Zamat.Sample.Services.Users.Core\Zamat.Sample.Services.Users.Core.csproj" />
+	</ItemGroup>
+	
+</Project>
+

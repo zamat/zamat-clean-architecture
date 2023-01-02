@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>Console Package</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ConsoleAppFramework" Version="4.2.4" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Sample.Services.Users.Infrastructure\Zamat.Sample.Services.Users.Infrastructure.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\EFCore.PostgreSQL\EFCore.PostgreSQL.csproj" />
+	</ItemGroup>
+
+</Project>

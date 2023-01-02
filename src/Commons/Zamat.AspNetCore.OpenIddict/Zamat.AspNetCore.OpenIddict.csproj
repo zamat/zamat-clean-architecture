@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>Common AspNetCore OpenIddict</Description>
+		<PackageTags>OpenIdConnect;OAuth2.0</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OpenIddict.AspNetCore" Version="4.0.0" />
+		<PackageReference Include="OpenIddict.Validation.SystemNetHttp" Version="4.0.0" />
+	</ItemGroup>
+
+</Project>

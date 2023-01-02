@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>MassTransit InMemory Package</Description>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="MassTransit" Version="8.0.9" />
+		<PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.0.9" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>Common Query Package</Description>
+		<PackageTags>Query;CQRS</PackageTags>
+	</PropertyGroup>
+
+</Project>

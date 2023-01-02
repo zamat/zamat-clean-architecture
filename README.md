@@ -1,5 +1,6 @@
 # zamat-clean-architecture
 
+[![.NET build and tests](https://github.com/zamat/zamat-clean-architecture/actions/workflows/dotnet-build-and-tests.yml/badge.svg?branch=main)](https://github.com/zamat/zamat-clean-architecture/actions/workflows/dotnet-build-and-tests.yml)
 <br/>
 
 This is a solution template for creating a application following the principles of Clean Architecture. Create a new project based on this template by clicking the above **Use this template** button or by installing and running the associated NuGet package (see Getting Started for full details). 

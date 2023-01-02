@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using OpenIddict.Validation;
 using System;
 
 namespace Zamat.AspNetCore.OpenIddict;
@@ -8,21 +7,37 @@ public static class IServiceCollectionExtensions
 {
     const string Schema = "OpenIddict.Validation.AspNetCore";
 
-    public static IServiceCollection AddOpenIddictValidation(this IServiceCollection services, Action<OpenIddictValidationOptions> configureOptions)
+    public static IServiceCollection AddOidcAuthentication(this IServiceCollection services, Action<OidcAuthOptions> configureOptions)
     {
-        services.AddAuthentication(options =>
+        services.AddAuthentication(o =>
         {
-            options.DefaultScheme = Schema;
-            options.DefaultChallengeScheme = Schema;
-            options.DefaultForbidScheme = Schema;
-            options.DefaultAuthenticateScheme = Schema;
+            o.DefaultScheme = Schema;
+            o.DefaultChallengeScheme = Schema;
+            o.DefaultForbidScheme = Schema;
+            o.DefaultAuthenticateScheme = Schema;
         });
 
-        services.AddOpenIddict().AddValidation(options =>
+        var opt = new OidcAuthOptions();
+        configureOptions(opt);
+
+        services.AddOpenIddict().AddValidation(o =>
         {
-            _ = options.Configure(configureOptions);
-            _ = options.UseSystemNetHttp();
-            _ = options.UseAspNetCore();
+            o.UseAspNetCore();
+            o.UseSystemNetHttp();
+
+            o.SetIssuer(opt.Issuer);
+
+            if (opt.Audiences is not null)
+                o.AddAudiences(opt.Audiences);
+
+            if (opt.UseIntrospection)
+            {
+                o.UseIntrospection();
+                if (opt.ClientId is not null)
+                    o.SetClientId(opt.ClientId);
+                if (opt.ClientSecret is not null)
+                    o.SetClientSecret(opt.ClientSecret);
+            }
         });
 
         return services;

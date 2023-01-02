@@ -1,0 +1,14 @@
+﻿{
+  "SwaggerEndPoints": [
+    {
+      "Key": "Users",
+      "Config": [
+        {
+          "Name": "Users WebApi",
+          "Version": "v1",
+          "Url": "https://localhost:7209/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}

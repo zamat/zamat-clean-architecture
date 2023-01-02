@@ -19,6 +19,14 @@ using Zamat.AspNetCore.OpenIddict;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddOcelotWithSwaggerSupport((o) =>
+{
+    o.FileOfSwaggerEndPoints = "ocelot.swagger";
+    o.Folder = "Ocelot";
+    o.HostEnvironment = builder.Environment;
+    o.PrimaryOcelotConfigFileName = $"ocelot.{builder.Environment.EnvironmentName}.json";
+});
+
 builder.Services
     .AddOcelot()
     .AddPolly()
@@ -44,14 +52,6 @@ builder.Services.AddSwaggerForOcelot(builder.Configuration, (opt) =>
         pathItemDoc.RemoveParam("X-Tenant-Id");
         documentation.RemoveParam("X-Tenant-Id");
     };
-});
-
-builder.Configuration.AddOcelotWithSwaggerSupport((o) =>
-{
-    o.FileOfSwaggerEndPoints = "ocelot.swagger";
-    o.Folder = "Ocelot";
-    o.HostEnvironment = builder.Environment;
-    o.PrimaryOcelotConfigFileName = $"ocelot.{builder.Environment.EnvironmentName}.json";
 });
 
 builder.Services.AddCors(options =>

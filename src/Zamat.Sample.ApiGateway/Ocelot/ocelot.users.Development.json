@@ -30,7 +30,8 @@
       },
       "DangerousAcceptAnyServerCertificateValidator": true,
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OpenIddict.Validation.AspNetCore"
+        "AuthenticationProviderKey": "OpenIddict.Validation.AspNetCore",
+        "AllowedScopes": [ "api" ]
       }
     }
   ]

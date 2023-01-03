@@ -8,4 +8,5 @@ public class OpenTelemetryServiceOptions
     public string ServiceVersion { get; set; } = default!;
     public string ServiceInstanceId { get; set; } = default!;
     public bool AutoGenerateServiceInstanceId { get; set; } = true;
+    public bool Enabled { get; set; } = true;
 }

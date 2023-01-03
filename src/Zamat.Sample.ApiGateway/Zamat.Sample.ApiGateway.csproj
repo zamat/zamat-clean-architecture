@@ -1,8 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>Api Gateway Package</Description>
+		<Description>APIGateway Package</Description>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenIddict\Zamat.AspNetCore.OpenIddict.csproj" />
+		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenTelemetry\Zamat.AspNetCore.OpenTelemetry.csproj" />
+		<ProjectReference Include="..\Commons\Zamat.AspNetCore.Ocelot\Zamat.AspNetCore.Ocelot.csproj" />
+	</ItemGroup>
 
 </Project>

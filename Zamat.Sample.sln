@@ -89,6 +89,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{AB596C52-F
 		docs\clean-architecture-overview.png = docs\clean-architecture-overview.png
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Ocelot", "src\Commons\Zamat.AspNetCore.Ocelot\Zamat.AspNetCore.Ocelot.csproj", "{2AF70894-2397-44A2-83B6-929CA6891C63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,6 +229,10 @@ Global
 		{576B8FFD-E647-4FCB-8B36-3E4354D8F008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{576B8FFD-E647-4FCB-8B36-3E4354D8F008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{576B8FFD-E647-4FCB-8B36-3E4354D8F008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AF70894-2397-44A2-83B6-929CA6891C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF70894-2397-44A2-83B6-929CA6891C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF70894-2397-44A2-83B6-929CA6891C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF70894-2397-44A2-83B6-929CA6891C63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -266,6 +272,7 @@ Global
 		{9B339186-5F31-4003-9143-3AF42EB95B99} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 		{BAC37BB5-359B-47C0-AA0D-C9F3C8B5EA5E} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 		{576B8FFD-E647-4FCB-8B36-3E4354D8F008} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
+		{2AF70894-2397-44A2-83B6-929CA6891C63} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10E0EEF8-A884-41A4-A98F-CA8E15CB9A16}

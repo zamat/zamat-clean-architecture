@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>Common AspNetCore Ocelot Package</Description>
+		<PackageTags>Ocelot</PackageTags>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\Zamat.AspNetCore.Localization\Zamat.AspNetCore.Localization.csproj" />
+	</ItemGroup>
+
+</Project>

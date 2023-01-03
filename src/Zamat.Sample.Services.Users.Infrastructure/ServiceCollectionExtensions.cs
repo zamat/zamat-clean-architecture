@@ -40,4 +40,11 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
+
+    public static IHealthChecksBuilder AddDbContextHealthChecks(this IHealthChecksBuilder builder)
+    {
+        builder.AddDbContextCheck<UsersDbContext>();
+        return builder;
+    }
+
 }

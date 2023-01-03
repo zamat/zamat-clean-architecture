@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
+using Zamat.AspNetCore.Diagnostics;
 using Zamat.AspNetCore.Localization;
 using Zamat.AspNetCore.OpenAPI;
 using Zamat.AspNetCore.OpenTelemetry;
@@ -34,6 +35,9 @@ builder.Services
     .AddCore()
     .AddInfrastructure(builder.Configuration);
 
+builder.Services.AddHealthChecks()
+    .AddDbContextHealthChecks();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -52,6 +56,7 @@ app.UseRequestLocalization();
 
 app.UseAuthorization();
 
+app.MapHealthChecks();
 app.MapControllers();
 
 app.Run();

@@ -34,8 +34,6 @@ builder.Services
         x.WithDictionaryHandle();
     });
 
-builder.Services.AddControllers();
-
 builder.Services
     .AddEndpointsApiExplorer()
     .AddOpenTelemetry(builder.Configuration);
@@ -78,13 +76,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 });
 
 app.UseCors();
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.UseSwaggerForOcelotUI(opt =>
 {

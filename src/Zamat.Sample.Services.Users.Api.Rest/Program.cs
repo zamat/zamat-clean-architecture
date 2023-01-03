@@ -6,6 +6,7 @@ using Zamat.AspNetCore.OpenTelemetry;
 using Zamat.Sample.Services.Users.Api.Rest;
 using Zamat.Sample.Services.Users.Core;
 using Zamat.Sample.Services.Users.Infrastructure;
+
 [assembly: ApiController]
 var builder = WebApplication.CreateBuilder(args);
 

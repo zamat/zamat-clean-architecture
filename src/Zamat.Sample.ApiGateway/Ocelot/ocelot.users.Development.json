@@ -5,7 +5,7 @@
       "Key": "Users",
       "DownstreamPathTemplate": "/{everything}",
       "UpstreamPathTemplate": "/gw/users-svc/api/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {

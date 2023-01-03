@@ -68,10 +68,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 
 app.UseCors();
 
-app.UseSwaggerForOcelotUI(c =>
-{
-    c.RemoveParams("X-Tenant-Id");
-});
+app.UseSwaggerForOcelotUI();
 
 app.UseOcelot().Wait();
 

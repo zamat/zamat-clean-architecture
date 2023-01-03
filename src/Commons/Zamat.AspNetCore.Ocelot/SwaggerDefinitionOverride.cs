@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 
 namespace Zamat.AspNetCore.Ocelot;
-public class SwaggerDefinition
+
+public class SwaggerDefinitionOverride
 {
     public IEnumerable<string> ParamsToRemove { get; private set; }
 
-    public SwaggerDefinition()
+    public SwaggerDefinitionOverride()
     {
         ParamsToRemove = new List<string>();
     }

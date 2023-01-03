@@ -2,15 +2,18 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Zamat.AspNetCore.Ocelot;
+using Zamat.AspNetCore.OpenAPI;
 
 namespace Zamat.AspNetCore.Ocelot;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddSwaggerForOcelot(this IServiceCollection services, IConfiguration configuration, Action<SwaggerDefinition> configureDefinition)
+    public static IServiceCollection AddSwaggerForOcelot(this IServiceCollection services, IConfiguration configuration, Action<SwaggerDefinitionOverride> configureDefinition)
     {
-        var definition = new SwaggerDefinition();
-        configureDefinition(definition);
+        var overrideDefinition = new SwaggerDefinitionOverride();
+        configureDefinition(overrideDefinition);
+
+        services.Configure(configureDefinition);
 
         services.AddSwaggerForOcelot(configuration, (opt) =>
         {
@@ -18,7 +21,7 @@ public static class ServiceCollectionExtensions
             opt.GenerateDocsForAggregates = true;
             opt.AggregateDocsGeneratorPostProcess = (aggregateRoute, routesDocs, pathItemDoc, documentation) =>
             {
-                foreach (var param in definition.ParamsToRemove)
+                foreach (var param in overrideDefinition.ParamsToRemove)
                 {
                     pathItemDoc.RemoveParam(param);
                     documentation.RemoveParam(param);

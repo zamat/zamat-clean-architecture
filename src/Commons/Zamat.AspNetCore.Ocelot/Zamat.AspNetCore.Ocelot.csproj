@@ -14,4 +14,8 @@
 		<PackageReference Include="Ocelot.Provider.Polly" Version="18.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Zamat.AspNetCore.OpenAPI\Zamat.AspNetCore.OpenAPI.csproj" />
+	</ItemGroup>
+
 </Project>

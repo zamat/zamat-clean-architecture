@@ -4,15 +4,12 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Readers;
-using Microsoft.OpenApi.Writers;
 using MMLib.SwaggerForOcelot.DependencyInjection;
 using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
-using System.IO;
-using Zamat.AspNetCore.OpenAPI;
+using Zamat.AspNetCore.Ocelot;
 using Zamat.AspNetCore.OpenIddict;
 using Zamat.AspNetCore.OpenTelemetry;
 
@@ -38,15 +35,9 @@ builder.Services
     .AddEndpointsApiExplorer()
     .AddOpenTelemetry(builder.Configuration);
 
-builder.Services.AddSwaggerForOcelot(builder.Configuration, (opt) =>
+builder.Services.AddSwaggerForOcelot(builder.Configuration, o =>
 {
-    opt.GenerateDocsForGatewayItSelf = true;
-    opt.GenerateDocsForAggregates = true;
-    opt.AggregateDocsGeneratorPostProcess = (aggregateRoute, routesDocs, pathItemDoc, documentation) =>
-    {
-        pathItemDoc.RemoveParam("X-Tenant-Id");
-        documentation.RemoveParam("X-Tenant-Id");
-    };
+    o.RemoveParams("X-Tenant-Id");
 });
 
 builder.Services.AddCors(options =>
@@ -77,18 +68,9 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 
 app.UseCors();
 
-app.UseSwaggerForOcelotUI(opt =>
+app.UseSwaggerForOcelotUI(c =>
 {
-    opt.ReConfigureUpstreamSwaggerJson = (httpContext, json) =>
-    {
-        using var outputString = new StringWriter();
-        var openApiDocument = new OpenApiStringReader().Read(json, out OpenApiDiagnostic diagnostic);
-        if (openApiDocument is null)
-            return string.Empty;
-        openApiDocument.RemoveParam("X-Tenant-Id");
-        openApiDocument.SerializeAsV3(new OpenApiJsonWriter(outputString));
-        return outputString.ToString();
-    };
+    c.RemoveParams("X-Tenant-Id");
 });
 
 app.UseOcelot().Wait();

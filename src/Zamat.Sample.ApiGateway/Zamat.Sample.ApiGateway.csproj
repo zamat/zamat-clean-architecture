@@ -6,17 +6,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.OpenApi.Readers" Version="1.4.5" />
-		<PackageReference Include="MMLib.SwaggerForOcelot" Version="6.1.0" />
-		<PackageReference Include="Ocelot" Version="18.0.0" />
-		<PackageReference Include="Ocelot.Cache.CacheManager" Version="18.0.0" />
-		<PackageReference Include="Ocelot.Provider.Polly" Version="18.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenAPI\Zamat.AspNetCore.OpenAPI.csproj" />
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenIddict\Zamat.AspNetCore.OpenIddict.csproj" />
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenTelemetry\Zamat.AspNetCore.OpenTelemetry.csproj" />
+		<ProjectReference Include="..\Commons\Zamat.AspNetCore.Ocelot\Zamat.AspNetCore.Ocelot.csproj" />
 	</ItemGroup>
 
 </Project>

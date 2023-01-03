@@ -12,10 +12,9 @@ using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
 using System.IO;
-using System.Text.Json.Serialization;
-using Zamat.AspNetCore.Localization;
 using Zamat.AspNetCore.OpenAPI;
 using Zamat.AspNetCore.OpenIddict;
+using Zamat.AspNetCore.OpenTelemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,13 +34,11 @@ builder.Services
         x.WithDictionaryHandle();
     });
 
-builder.Services.AddControllers().AddJsonOptions(o =>
-{
-    o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-});
+builder.Services.AddControllers();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddLocalization(builder.Configuration);
+builder.Services
+    .AddEndpointsApiExplorer()
+    .AddOpenTelemetry(builder.Configuration);
 
 builder.Services.AddSwaggerForOcelot(builder.Configuration, (opt) =>
 {
@@ -81,8 +78,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 });
 
 app.UseCors();
-
-app.UseRequestLocalization();
 
 app.UseRouting();
 

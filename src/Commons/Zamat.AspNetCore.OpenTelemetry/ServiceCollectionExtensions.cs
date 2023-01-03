@@ -21,6 +21,9 @@ public static class ServiceCollectionExtensions
         var opt = new OpenTelemetryServiceOptions();
         serviceOptions(opt);
 
+        if (opt.Enabled)
+            return services;
+
         services.AddOpenTelemetry(opt, setup =>
         {
             setup.ConfigureTracing(configure =>

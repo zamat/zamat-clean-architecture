@@ -97,8 +97,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.Transport.Rabbi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Mvc.Rest", "src\Commons\Zamat.AspNetCore.Mvc.Rest\Zamat.AspNetCore.Mvc.Rest.csproj", "{5A48CFF2-5CC7-425A-A7B0-D1FB474E16DA}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E2948905-3EE8-4501-A672-78828606A919}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -253,10 +251,6 @@ Global
 		{5A48CFF2-5CC7-425A-A7B0-D1FB474E16DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A48CFF2-5CC7-425A-A7B0-D1FB474E16DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A48CFF2-5CC7-425A-A7B0-D1FB474E16DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2948905-3EE8-4501-A672-78828606A919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2948905-3EE8-4501-A672-78828606A919}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2948905-3EE8-4501-A672-78828606A919}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2948905-3EE8-4501-A672-78828606A919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

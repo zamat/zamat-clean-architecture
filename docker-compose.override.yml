@@ -33,7 +33,6 @@ services:
       - "8080:80"
       - "8090:443"
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ./.aspnet/https:/https:ro
 
   users.api.rest:
@@ -50,6 +49,5 @@ services:
       - "8081:80"
       - "8091:443"
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ./.aspnet/https:/https:ro
 

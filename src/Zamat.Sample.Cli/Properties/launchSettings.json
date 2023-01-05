@@ -2,13 +2,9 @@
   "profiles": {
     "Zamat.Sample.Cli": {
       "commandName": "Project",
-      "commandLineArgs": "seed-data --f seeds.json --run-migration"
-    },
-    "Zamat.Sample.Cli.[Initialize]": {
-      "commandName": "Project",
       "commandLineArgs": "initialize"
     },
-    "Docker": {
+    "Zamat.Sample.Cli.[Initialize]": {
       "commandName": "Project",
       "commandLineArgs": "initialize"
     }

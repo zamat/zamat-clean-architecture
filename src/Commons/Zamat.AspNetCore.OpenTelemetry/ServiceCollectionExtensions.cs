@@ -21,7 +21,7 @@ public static class ServiceCollectionExtensions
         var opt = new OpenTelemetryServiceOptions();
         serviceOptions(opt);
 
-        if (opt.Enabled)
+        if (!opt.Enabled)
             return services;
 
         if (string.IsNullOrEmpty(opt.OtlpEndpoint))

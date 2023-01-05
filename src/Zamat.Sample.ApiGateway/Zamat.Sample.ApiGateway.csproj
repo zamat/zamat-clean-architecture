@@ -3,6 +3,8 @@
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>APIGateway Package</Description>
+		<UserSecretsId>3675ae10-7973-4378-8537-e564a0414d2d</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 	</PropertyGroup>
 
 	<ItemGroup>

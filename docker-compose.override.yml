@@ -1,0 +1,77 @@
+version: '3.4'
+
+services:
+
+  otel-collector:   
+    ports:
+      - "1888:1888"
+      - "8888:8888"
+      - "8889:8889"
+      - "14250:14250"
+      - "13133:13133"
+      - "4317:4317"
+      - "55679:55679"
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+
+  zipkin-all-in-one:
+    ports:
+      - "9411:9411"
+
+  prometheus:
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+
+  postgresql:    
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+      - "5433:5432"
+
+  rabbitmq:
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+  sample.cli:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
+
+  sample.apigateway:
+    extra_hosts:
+       - "host.docker.internal:host-gateway"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/host.docker.internal.key
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt
+      - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
+    ports:
+      - "8080:80"
+      - "8090:443"
+    volumes:
+      - ./.aspnet/https:/https:ro
+
+  users.api.rest:
+    extra_hosts:
+       - "host.docker.internal:host-gateway"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/host.docker.internal.key
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt
+      - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
+      - ConnectionStrings__RabbitMQ=amqp://guest:guest@rabbitmq:5672 
+      - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
+    ports:
+      - "8081:80"
+      - "8091:443"
+    volumes:
+      - ./.aspnet/https:/https:ro
+

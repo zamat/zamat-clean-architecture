@@ -3,8 +3,6 @@ version: '3.4'
 services:
 
   otel-collector:   
-    volumes:
-      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
     ports:
       - "1888:1888"
       - "8888:8888"
@@ -13,16 +11,18 @@ services:
       - "13133:13133"
       - "4317:4317"
       - "55679:55679"
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
 
   zipkin-all-in-one:
     ports:
       - "9411:9411"
 
   prometheus:
-    volumes:
-      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
     ports:
       - "9090:9090"
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
 
   postgresql:    
     environment:

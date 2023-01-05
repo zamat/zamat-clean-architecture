@@ -24,6 +24,11 @@ public static class ServiceCollectionExtensions
         if (opt.Enabled)
             return services;
 
+        if (string.IsNullOrEmpty(opt.OtlpEndpoint))
+        {
+            throw new InvalidOperationException("Otlp endpoint should be configured.");
+        }
+
         services.AddOpenTelemetry(opt, setup =>
         {
             setup.ConfigureTracing(configure =>

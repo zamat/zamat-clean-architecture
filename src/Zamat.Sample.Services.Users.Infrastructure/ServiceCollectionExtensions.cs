@@ -1,4 +1,4 @@
-﻿using MassTransit.Transport.InMemory;
+﻿using MassTransit.Transport.RabbitMQ;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +22,8 @@ public static class ServiceCollectionExtensions
 
         var dbConnectionString = configuration.GetConnectionString(nameof(UsersDbContext)) ?? throw new InvalidOperationException("Connection string for db not set.");
 
+        var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
+
         services.AddDbContext<UsersDbContext>(options =>
         {
             options.UseAutoDbProvider(dbConnectionString, migrationCtx =>
@@ -30,7 +32,7 @@ public static class ServiceCollectionExtensions
             });
         });
 
-        services.ConfigureMassTransit<UsersDbContext>();
+        services.ConfigureMassTransit<UsersDbContext>(rabbitConnectionString);
 
         services.AddSingleton<IUserFactory, UserFactory>();
 
@@ -41,10 +43,15 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    public static IHealthChecksBuilder AddDbContextHealthChecks(this IHealthChecksBuilder builder)
+    public static IServiceCollection AddHealthChecks(this IServiceCollection services, IConfiguration configuration)
     {
-        builder.AddDbContextCheck<UsersDbContext>();
-        return builder;
+        var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
+
+        services.AddHealthChecks()
+            .AddDbContextCheck<UsersDbContext>()
+            .AddRabbitMQ(rabbitConnectionString: rabbitConnectionString);
+
+        return services;
     }
 
 }

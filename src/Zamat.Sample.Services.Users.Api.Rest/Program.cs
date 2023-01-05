@@ -33,10 +33,8 @@ builder.Services
 
 builder.Services
     .AddCore()
-    .AddInfrastructure(builder.Configuration);
-
-builder.Services.AddHealthChecks()
-    .AddDbContextHealthChecks();
+    .AddInfrastructure(builder.Configuration)
+    .AddHealthChecks(builder.Configuration);
 
 var app = builder.Build();
 

@@ -5,5 +5,5 @@ namespace Zamat.Common.Events.Bus;
 
 public interface IEventBus
 {
-    Task PublishAsync(IEvent @event, CancellationToken cancellationToken = default);
+    Task PublishAsync<T>(T @event, CancellationToken cancellationToken = default) where T : IEvent;
 }

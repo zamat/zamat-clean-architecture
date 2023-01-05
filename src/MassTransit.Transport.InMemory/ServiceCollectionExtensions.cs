@@ -6,11 +6,11 @@ namespace MassTransit.Transport.InMemory;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection ConfigureMassTransit<TContext>(this IServiceCollection services, Action<IBusRegistrationConfigurator>? configure = null) where TContext : DbContext
+    public static IServiceCollection ConfigureMassTransit<TContext>(this IServiceCollection services, Action<IBusRegistrationConfigurator> busConfig) where TContext : DbContext
     {
         services.AddMassTransit(c =>
         {
-            if (configure is not null) configure(c);
+            busConfig(c);
 
             c.AddEntityFrameworkOutbox<TContext>(o =>
             {
@@ -23,6 +23,13 @@ public static class ServiceCollectionExtensions
                 cfg.ConfigureEndpoints(context);
             });
         });
+
+        return services;
+    }
+
+    public static IServiceCollection ConfigureMassTransit<TContext>(this IServiceCollection services) where TContext : DbContext
+    {
+        services.ConfigureMassTransit<TContext>((_) => { });
 
         return services;
     }

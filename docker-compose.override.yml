@@ -49,14 +49,14 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/host.docker.internal.key
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/aspnetapp.key
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.crt
       - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
     ports:
       - "8080:80"
       - "8090:443"
     volumes:
-      - ./.aspnet/https:/https:ro
+      - ~/.aspnet/https:/https:ro
 
   users.api.rest:
     extra_hosts:
@@ -64,8 +64,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/host.docker.internal.key
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/aspnetapp.key
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.crt
       - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
       - ConnectionStrings__RabbitMQ=amqp://guest:guest@rabbitmq:5672 
       - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
@@ -73,5 +73,5 @@ services:
       - "8081:80"
       - "8091:443"
     volumes:
-      - ./.aspnet/https:/https:ro
+      - ~/.aspnet/https:/https:ro
 

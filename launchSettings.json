@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "Project",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "sample.apigateway",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger",
+      "serviceActions": {
+        "postgresql": "StartWithoutDebugging",
+        "rabbitmq": "StartWithoutDebugging",
+        "sample.apigateway": "StartDebugging",
+        "sample.cli": "StartWithoutDebugging",
+        "users.api.rest": "StartDebugging"
+      }
+    }
+  }
+}

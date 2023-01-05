@@ -43,14 +43,14 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseHttpLogging();
-
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
 else
 {
     app.UseExceptionHandler("/api/error");
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseRequestLocalization();
 

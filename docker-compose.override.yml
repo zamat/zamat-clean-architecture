@@ -22,6 +22,11 @@ services:
       retries: 3
       start_period: 30s
 
+  sample.cli:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
+
   sample.apigateway:
     extra_hosts:
        - "host.docker.internal:host-gateway"
@@ -37,16 +42,11 @@ services:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ./.aspnet/https:/https:ro
 
-  sample.cli:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
-
   users.api.rest:
     extra_hosts:
        - "host.docker.internal:host-gateway"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/host.docker.internal.key
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt

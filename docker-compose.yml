@@ -10,6 +10,22 @@ services:
     container_name: rabbitmq
     image: masstransit/rabbitmq
 
+  sample.cli:
+    container_name: sample-cli
+    image: ${DOCKER_REGISTRY-}samplecli
+    build:
+      context: .
+      dockerfile: src/Zamat.Sample.Cli/Dockerfile
+    depends_on:
+      - postgresql
+
+  sample.apigateway:
+    container_name: sample-apigateway
+    image: ${DOCKER_REGISTRY-}sampleapigateway
+    build:
+      context: .
+      dockerfile: src/Zamat.Sample.ApiGateway/Dockerfile
+
   users.api.rest:
     container_name: users-api-rest
     image: ${DOCKER_REGISTRY-}usersapirest
@@ -19,23 +35,4 @@ services:
     depends_on:
       - sample.cli
       - rabbitmq
-
-  sample.cli:
-    container_name: sample-cli
-    image: ${DOCKER_REGISTRY-}samplecli
-    build:
-      context: .
-      dockerfile: src/Zamat.Sample.Cli/Dockerfile
-    depends_on:
-      - postgresql
-    entrypoint: ["dotnet", "Zamat.Sample.Cli.dll", "initialize"]
-
-  sample.apigateway:
-    container_name: sample-apigateway
-    image: ${DOCKER_REGISTRY-}sampleapigateway
-    build:
-      context: .
-      dockerfile: src/Zamat.Sample.ApiGateway/Dockerfile
-    depends_on:
-      - users.api.rest
 

@@ -17,4 +17,4 @@ RUN dotnet publish "Zamat.Sample.Cli.csproj" -c Release -o /app/publish /p:UseAp
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Zamat.Sample.Cli.dll"]
+ENTRYPOINT ["dotnet", "Zamat.Sample.Cli.dll", "initialize"]

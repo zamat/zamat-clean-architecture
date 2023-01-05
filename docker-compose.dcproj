@@ -6,7 +6,7 @@
     <ProjectGuid>e2948905-3ee8-4501-a672-78828606a919</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>zamat.sample.services.users.api.rest</DockerServiceName>
+    <DockerServiceName>sample.apigateway</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

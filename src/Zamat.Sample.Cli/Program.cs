@@ -18,7 +18,7 @@ builder.ConfigureLogging(builder => builder.ClearProviders().AddConfiguration(co
 builder.ConfigureServices(services =>
 {
     services.AddCore()
-    .AddInfrastructure(configuration);
+    .AddUsersDbContext(configuration);
 });
 
 var app = builder.Build();

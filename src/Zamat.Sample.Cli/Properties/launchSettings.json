@@ -7,6 +7,10 @@
     "Zamat.Sample.Cli.[Initialize]": {
       "commandName": "Project",
       "commandLineArgs": "initialize"
+    },
+    "Docker": {
+      "commandName": "Project",
+      "commandLineArgs": "initialize"
     }
   }
 }

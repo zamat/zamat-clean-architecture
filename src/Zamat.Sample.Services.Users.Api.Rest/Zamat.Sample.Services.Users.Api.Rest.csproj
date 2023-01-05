@@ -5,7 +5,15 @@
 		<Description>UserService Api Package</Description>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+		<UserSecretsId>93971a12-ee0b-446a-b5a2-69041c8b563d</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+		<DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.Localization\Zamat.AspNetCore.Localization.csproj" />

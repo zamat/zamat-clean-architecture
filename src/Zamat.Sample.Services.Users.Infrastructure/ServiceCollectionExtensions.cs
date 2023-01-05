@@ -20,17 +20,9 @@ public static class ServiceCollectionExtensions
     {
         services.AddBuildingBlocks();
 
-        var dbConnectionString = configuration.GetConnectionString(nameof(UsersDbContext)) ?? throw new InvalidOperationException("Connection string for db not set.");
-
         var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
 
-        services.AddDbContext<UsersDbContext>(options =>
-        {
-            options.UseAutoDbProvider(dbConnectionString, migrationCtx =>
-            {
-                migrationCtx.PostgreSQL = "EFCore.PostgreSQL";
-            });
-        });
+        services.AddUsersDbContext(configuration);
 
         services.ConfigureMassTransit<UsersDbContext>(rabbitConnectionString);
 
@@ -39,6 +31,21 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUsersQueries, UsersQueries>();
 
         services.AddScoped<IApplicationUnitOfWork, UnitOfWork>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddUsersDbContext(this IServiceCollection services, IConfiguration configuration)
+    {
+        var dbConnectionString = configuration.GetConnectionString(nameof(UsersDbContext)) ?? throw new InvalidOperationException("Connection string for db not set.");
+
+        services.AddDbContext<UsersDbContext>(options =>
+        {
+            options.UseAutoDbProvider(dbConnectionString, migrationCtx =>
+            {
+                migrationCtx.PostgreSQL = "EFCore.PostgreSQL";
+            });
+        });
 
         return services;
     }

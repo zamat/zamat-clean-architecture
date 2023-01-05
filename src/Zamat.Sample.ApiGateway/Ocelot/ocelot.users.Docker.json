@@ -1,0 +1,37 @@
+﻿{
+  "Routes": [
+    {
+      "SwaggerKey": "Users",
+      "Key": "Users",
+      "DownstreamPathTemplate": "/{everything}",
+      "UpstreamPathTemplate": "/gw/users-svc/api/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "users.api.rest",
+          "Port": 80
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 5
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OpenIddict.Validation.AspNetCore",
+        "AllowedScopes": [ "api" ]
+      }
+    }
+  ]
+}

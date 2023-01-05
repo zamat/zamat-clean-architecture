@@ -1,0 +1,61 @@
+version: '3.4'
+
+services:
+
+  postgresql:    
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+      - "5433:5432"
+
+  rabbitmq:
+    ports:
+      - 15672:15672
+      - 5672:5672
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 15s
+      retries: 3
+      start_period: 30s
+
+  sample.apigateway:
+    extra_hosts:
+       - "host.docker.internal:host-gateway"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/host.docker.internal.key
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt
+    ports:
+      - "8080:80"
+      - "8090:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ./.aspnet/https:/https:ro
+
+  sample.cli:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
+
+  users.api.rest:
+    extra_hosts:
+       - "host.docker.internal:host-gateway"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/host.docker.internal.key
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt
+      - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
+      - ConnectionStrings__RabbitMQ=amqp://guest:guest@rabbitmq:5672 
+    ports:
+      - "8081:80"
+      - "8091:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ./.aspnet/https:/https:ro
+

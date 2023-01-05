@@ -2,6 +2,28 @@ version: '3.4'
 
 services:
 
+  otel-collector:   
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "1888:1888"
+      - "8888:8888"
+      - "8889:8889"
+      - "14250:14250"
+      - "13133:13133"
+      - "4317:4317"
+      - "55679:55679"
+
+  zipkin-all-in-one:
+    ports:
+      - "9411:9411"
+
+  prometheus:
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    ports:
+      - "9090:9090"
+
   postgresql:    
     environment:
       - POSTGRES_DB=postgres
@@ -29,6 +51,7 @@ services:
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/host.docker.internal.key
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt
+      - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
     ports:
       - "8080:80"
       - "8090:443"
@@ -45,6 +68,7 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/host.docker.internal.crt
       - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
       - ConnectionStrings__RabbitMQ=amqp://guest:guest@rabbitmq:5672 
+      - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
     ports:
       - "8081:80"
       - "8091:443"

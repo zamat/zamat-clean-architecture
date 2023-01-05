@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Zamat.AspNetCore.Diagnostics;
 using Zamat.AspNetCore.Localization;
+using Zamat.AspNetCore.Mvc.Rest;
 using Zamat.AspNetCore.OpenAPI;
 using Zamat.AspNetCore.OpenTelemetry;
 using Zamat.Sample.Services.Users.Api.Rest;
@@ -19,7 +20,8 @@ builder.Services
     .AddDataAnnotationsLocalization(o =>
     {
         o.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(DataAnnotations));
-    });
+    })
+    .ConfigureMvc();
 
 builder.Services.AddProblemDetails();
 

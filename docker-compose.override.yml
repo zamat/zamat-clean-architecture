@@ -15,12 +15,6 @@ services:
     ports:
       - 15672:15672
       - 5672:5672
-    healthcheck:
-      test: rabbitmq-diagnostics -q ping
-      interval: 10s
-      timeout: 15s
-      retries: 3
-      start_period: 30s
 
   sample.cli:
     environment:

@@ -29,13 +29,35 @@ public class OpenTelemetryBuilder
         }
     }
 
-    public OpenTelemetryBuilder ConfigureTracing(Action<TracerProviderBuilder> configure, params string[] sources)
+    public OpenTelemetryBuilder ConfigureTracing(Action<TracerProviderBuilder> configure, OpenTelemetryServiceOptions options, params string[] sources)
     {
         _serviceCollection.AddOpenTelemetryTracing(builder =>
         {
             builder.SetResourceBuilder(_resourceBuilder);
+
             builder.AddHttpClientInstrumentation();
             builder.AddAspNetCoreInstrumentation();
+
+            if (options.UseMassTransitInstrumentation)
+            {
+                builder.AddMassTransitInstrumentation();
+            }         
+            if (options.UseEFCoreInstrumentation)
+            {
+                builder.AddEntityFrameworkCoreInstrumentation(x =>
+                {
+                    x.SetDbStatementForText = true;
+                    x.SetDbStatementForStoredProcedure = true;
+                });
+            }
+            if (options.UseRedisInstrumentation)
+            {
+                builder.AddRedisInstrumentation();
+            }
+            if (options.UseSqlClientInstrumentation)
+            {
+                builder.AddSqlClientInstrumentation();
+            }
             builder.AddSource(sources);
             configure(builder);
         });

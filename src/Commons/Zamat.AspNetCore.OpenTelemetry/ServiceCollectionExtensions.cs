@@ -37,7 +37,7 @@ public static class ServiceCollectionExtensions
                 {
                     configure.Endpoint = new Uri(opt.OtlpEndpoint);
                 });
-            });
+            }, opt);
             setup.ConfigureMetrics(configure =>
             {
                 configure.AddOtlpExporter(configure =>

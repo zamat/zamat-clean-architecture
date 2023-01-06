@@ -11,13 +11,13 @@ namespace MassTransit.Transport.RabbitMQ
             services.AddMassTransit(c =>
             {
                 configureBus(c);
-
+                
                 c.AddEntityFrameworkOutbox<TContext>(o =>
                 {
                     o.UsePostgres();
                     o.UseBusOutbox();
                 });
-
+                
                 c.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.Host(host);

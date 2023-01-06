@@ -57,7 +57,12 @@ public class OpenTelemetryBuilder
             }
             if (options.UseSqlClientInstrumentation)
             {
-                builder.AddSqlClientInstrumentation();
+                builder.AddSqlClientInstrumentation(x =>
+                {
+                    x.SetDbStatementForText = true;
+                    x.SetDbStatementForStoredProcedure = true;
+                    x.RecordException = true;
+                });
             }
 
             builder.AddSource(sources);

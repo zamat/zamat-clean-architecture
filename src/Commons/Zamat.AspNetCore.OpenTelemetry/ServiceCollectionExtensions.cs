@@ -46,6 +46,13 @@ public static class ServiceCollectionExtensions
                     configure.Endpoint = new Uri(opt.OtlpEndpoint);
                 });
             });
+
+            if (opt.UseOpenTelemetryLogging)
+            {
+                setup.ConfigureLogging(configure =>
+                {
+                });
+            }
         });
 
         return services;

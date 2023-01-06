@@ -10,10 +10,13 @@ namespace Zamat.AspNetCore.OpenTelemetry;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, IConfiguration configuration, Action<Instrumentation> instrumentationConfig)
+    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, IConfiguration configuration, Action<Instrumentation>? instrumentationConfig = null)
     {
         var instrumentation = new Instrumentation();
-        instrumentationConfig(instrumentation);
+        if (instrumentationConfig is not null)
+        {
+            instrumentationConfig(instrumentation);
+        }
 
         var opt = new OpenTelemetryServiceOptions();
         configuration.GetSection(nameof(OpenTelemetryServiceOptions)).Bind(opt);

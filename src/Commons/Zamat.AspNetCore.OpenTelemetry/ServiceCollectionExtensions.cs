@@ -24,36 +24,32 @@ public static class ServiceCollectionExtensions
         if (!opt.Enabled)
             return services;
 
-        if (string.IsNullOrEmpty(opt.OtlpEndpoint))
+        if (opt.OtlpEndpoint is null)
         {
             throw new InvalidOperationException("Otlp endpoint should be configured.");
         }
 
-        services.AddOpenTelemetry(opt, setup =>
+        var builder = services.AddOpenTelemetry(opt);
+
+        builder.ConfigureTracing(opt, configure =>
         {
-            setup.ConfigureTracing(configure =>
+            configure.AddAspNetCoreInstrumentation();
+            configure.AddOtlpExporter(configure =>
             {
-                configure.AddOtlpExporter(configure =>
-                {
-                    configure.Endpoint = new Uri(opt.OtlpEndpoint);
-                });
-            }, opt);
-
-            setup.ConfigureMetrics(configure =>
-            {
-                configure.AddOtlpExporter(configure =>
-                {
-                    configure.Endpoint = new Uri(opt.OtlpEndpoint);
-                });
+                configure.Endpoint = opt.OtlpEndpoint;
             });
-
-            if (opt.UseOpenTelemetryLogging)
-            {
-                setup.ConfigureLogging(configure =>
-                {
-                });
-            }
         });
+
+        builder.ConfigureMetrics(configure =>
+        {
+            configure.AddAspNetCoreInstrumentation();
+            configure.AddOtlpExporter(configure =>
+            {
+                configure.Endpoint = opt.OtlpEndpoint;
+            });
+        });
+
+        builder.ConfigureLogging(_ => { });
 
         return services;
     }

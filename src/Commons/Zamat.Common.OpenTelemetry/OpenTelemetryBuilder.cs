@@ -29,14 +29,13 @@ public class OpenTelemetryBuilder
         }
     }
 
-    public OpenTelemetryBuilder ConfigureTracing(Action<TracerProviderBuilder> configure, OpenTelemetryServiceOptions options, params string[] sources)
+    public OpenTelemetryBuilder ConfigureTracing(OpenTelemetryServiceOptions options, Action<TracerProviderBuilder> configure, params string[] sources)
     {
         _serviceCollection.AddOpenTelemetryTracing(builder =>
         {
             builder.SetResourceBuilder(_resourceBuilder);
 
             builder.AddHttpClientInstrumentation();
-            builder.AddAspNetCoreInstrumentation();
 
             if (options.UseMassTransitInstrumentation)
             {
@@ -94,7 +93,6 @@ public class OpenTelemetryBuilder
         {
             builder.SetResourceBuilder(_resourceBuilder);
             builder.AddHttpClientInstrumentation();
-            builder.AddAspNetCoreInstrumentation();
             configure(builder);
         });
         return this;

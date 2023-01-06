@@ -1,8 +1,10 @@
-﻿namespace Zamat.Common.OpenTelemetry;
+﻿using System;
+
+namespace Zamat.Common.OpenTelemetry;
 
 public class OpenTelemetryServiceOptions
 {
-    public string OtlpEndpoint { get; set; } = default!;
+    public Uri? OtlpEndpoint { get; set; }
     public string ServiceName { get; set; } = default!;
     public string ServiceNamespace { get; set; } = default!;
     public string ServiceVersion { get; set; } = default!;

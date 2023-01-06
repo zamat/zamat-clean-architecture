@@ -40,8 +40,9 @@ public class OpenTelemetryBuilder
 
             if (options.UseMassTransitInstrumentation)
             {
+                builder.AddSource("MassTransit");
                 builder.AddMassTransitInstrumentation();
-            }         
+            }
             if (options.UseEFCoreInstrumentation)
             {
                 builder.AddEntityFrameworkCoreInstrumentation(x =>
@@ -58,7 +59,9 @@ public class OpenTelemetryBuilder
             {
                 builder.AddSqlClientInstrumentation();
             }
+
             builder.AddSource(sources);
+
             configure(builder);
         });
         return this;

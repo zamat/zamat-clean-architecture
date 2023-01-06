@@ -29,7 +29,11 @@ builder.Services
     .AddEndpointsApiExplorer()
     .AddOpenApiDoc(builder.Configuration)
     .AddLocalization(builder.Configuration)
-    .AddOpenTelemetry(builder.Configuration)
+    .AddOpenTelemetry(builder.Configuration, i =>
+    {
+        i.AddMassTransitInstrumentation();
+        i.AddEFCoreInstrumentation();
+    })
     .AddHttpContextAccessor()
     .AddProblemFactory();
 

@@ -33,7 +33,11 @@ builder.Services
 
 builder.Services
     .AddEndpointsApiExplorer()
-    .AddOpenTelemetry(builder.Configuration);
+    .AddOpenTelemetry(builder.Configuration, i =>
+    {
+        i.AddMassTransitInstrumentation();
+        i.AddEFCoreInstrumentation();
+    });
 
 builder.Services.AddSwaggerForOcelot(builder.Configuration, o =>
 {

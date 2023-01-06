@@ -10,33 +10,36 @@ namespace Zamat.AspNetCore.OpenTelemetry;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, IConfiguration configuration, Action<Instrumentation> instrumentationConfig)
     {
-        services.AddOpenTelemetry(o => configuration.GetSection(nameof(OpenTelemetryServiceOptions)).Bind(o));
+        var instrumentation = new Instrumentation();
+        instrumentationConfig(instrumentation);
+
+        var opt = new OpenTelemetryServiceOptions();
+        configuration.GetSection(nameof(OpenTelemetryServiceOptions)).Bind(opt);
+
+        services.AddOpenTelemetry(opt, instrumentation);
         return services;
     }
 
-    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, Action<OpenTelemetryServiceOptions> serviceOptions)
+    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, OpenTelemetryServiceOptions serviceOptions, Instrumentation instrumentation)
     {
-        var opt = new OpenTelemetryServiceOptions();
-        serviceOptions(opt);
-
-        if (!opt.Enabled)
+        if (!serviceOptions.Enabled)
             return services;
 
-        if (opt.OtlpEndpoint is null)
+        if (serviceOptions.OtlpEndpoint is null)
         {
             throw new InvalidOperationException("Otlp endpoint should be configured.");
         }
 
-        var builder = services.AddOpenTelemetry(opt);
+        var builder = services.AddOpenTelemetry(serviceOptions);
 
-        builder.ConfigureTracing(opt, configure =>
+        builder.ConfigureTracing(instrumentation, configure =>
         {
             configure.AddAspNetCoreInstrumentation();
             configure.AddOtlpExporter(configure =>
             {
-                configure.Endpoint = opt.OtlpEndpoint;
+                configure.Endpoint = serviceOptions.OtlpEndpoint;
             });
         });
 
@@ -45,7 +48,7 @@ public static class ServiceCollectionExtensions
             configure.AddAspNetCoreInstrumentation();
             configure.AddOtlpExporter(configure =>
             {
-                configure.Endpoint = opt.OtlpEndpoint;
+                configure.Endpoint = serviceOptions.OtlpEndpoint;
             });
         });
 

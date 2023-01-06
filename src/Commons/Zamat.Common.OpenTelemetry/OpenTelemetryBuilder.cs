@@ -29,7 +29,7 @@ public class OpenTelemetryBuilder
         }
     }
 
-    public OpenTelemetryBuilder ConfigureTracing(OpenTelemetryServiceOptions options, Action<TracerProviderBuilder> configure, params string[] sources)
+    public OpenTelemetryBuilder ConfigureTracing(Instrumentation instrumentation, Action<TracerProviderBuilder> configure, params string[] sources)
     {
         _serviceCollection.AddOpenTelemetryTracing(builder =>
         {
@@ -37,12 +37,12 @@ public class OpenTelemetryBuilder
 
             builder.AddHttpClientInstrumentation();
 
-            if (options.UseMassTransitInstrumentation)
+            if (instrumentation.UseMassTransitInstrumentation)
             {
                 builder.AddSource("MassTransit");
                 builder.AddMassTransitInstrumentation();
             }
-            if (options.UseEFCoreInstrumentation)
+            if (instrumentation.UseEFCoreInstrumentation)
             {
                 builder.AddEntityFrameworkCoreInstrumentation(x =>
                 {
@@ -50,11 +50,11 @@ public class OpenTelemetryBuilder
                     x.SetDbStatementForStoredProcedure = true;
                 });
             }
-            if (options.UseRedisInstrumentation)
+            if (instrumentation.UseRedisInstrumentation)
             {
-                builder.AddRedisInstrumentation();
+                builder.AddRedisInstrumentation(instrumentation.ConnectionMultiplexer);
             }
-            if (options.UseSqlClientInstrumentation)
+            if (instrumentation.UseSqlClientInstrumentation)
             {
                 builder.AddSqlClientInstrumentation(x =>
                 {
@@ -68,6 +68,7 @@ public class OpenTelemetryBuilder
 
             configure(builder);
         });
+
         return this;
     }
 
@@ -84,6 +85,7 @@ public class OpenTelemetryBuilder
                 configure(builder);
             });
         });
+
         return this;
     }
 
@@ -95,6 +97,7 @@ public class OpenTelemetryBuilder
             builder.AddHttpClientInstrumentation();
             configure(builder);
         });
+
         return this;
     }
 }

@@ -38,7 +38,13 @@ public static class ServiceCollectionExtensions
     {
         var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
 
-        services.ConfigureMassTransit<UsersDbContext>(rabbitConnectionString, configureBus, _ => { });
+        var opt = new RabbitMQOptions()
+        {
+            Host = rabbitConnectionString,
+            Prefix = "users-svc"
+        };
+
+        services.ConfigureMassTransit<UsersDbContext>(opt, configureBus, _ => { });
 
         return services;
     }

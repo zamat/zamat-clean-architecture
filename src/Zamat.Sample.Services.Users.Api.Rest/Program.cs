@@ -6,6 +6,7 @@ using Zamat.AspNetCore.Mvc.Rest;
 using Zamat.AspNetCore.OpenAPI;
 using Zamat.AspNetCore.OpenTelemetry;
 using Zamat.Sample.Services.Users.Api.Rest;
+using Zamat.Sample.Services.Users.Api.Rest.Consumers;
 using Zamat.Sample.Services.Users.Core;
 using Zamat.Sample.Services.Users.Infrastructure;
 
@@ -39,7 +40,10 @@ builder.Services
 
 builder.Services
     .AddCore()
-    .AddInfrastructure(builder.Configuration)
+    .AddInfrastructure(builder.Configuration, c =>
+    {
+        c.AddConsumer<UserCreatedEventConsumer>();
+    })
     .AddHealthChecks(builder.Configuration);
 
 var app = builder.Build();

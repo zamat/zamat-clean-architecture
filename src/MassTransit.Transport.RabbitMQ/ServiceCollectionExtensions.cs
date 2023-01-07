@@ -30,11 +30,4 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
-
-    public static IServiceCollection ConfigureMassTransit<TContext>(this IServiceCollection services, string host) where TContext : DbContext
-    {
-        services.ConfigureMassTransit<TContext>(host, (_) => { }, (_) => { });
-
-        return services;
-    }
 }

@@ -1,4 +1,5 @@
-﻿using MassTransit.Transport.RabbitMQ;
+﻿using MassTransit;
+using MassTransit.Transport.RabbitMQ;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,21 +17,28 @@ namespace Zamat.Sample.Services.Users.Infrastructure;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, Action<IBusRegistrationConfigurator> configureBus)
     {
         services.AddBuildingBlocks();
 
-        var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
-
         services.AddUsersDbContext(configuration);
 
-        services.ConfigureMassTransit<UsersDbContext>(rabbitConnectionString);
+        services.ConfigureMessageBroker(configuration, configureBus);
 
         services.AddSingleton<IUserFactory, UserFactory>();
 
         services.AddScoped<IUsersQueries, UsersQueries>();
 
         services.AddScoped<IApplicationUnitOfWork, UnitOfWork>();
+
+        return services;
+    }
+
+    public static IServiceCollection ConfigureMessageBroker(this IServiceCollection services, IConfiguration configuration, Action<IBusRegistrationConfigurator> configureBus)
+    {
+        var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
+
+        services.ConfigureMassTransit<UsersDbContext>(rabbitConnectionString, configureBus, _ => { });
 
         return services;
     }
@@ -60,5 +68,4 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
-
 }

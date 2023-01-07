@@ -13,7 +13,7 @@ class EventBus : IEventBus
         _publishEndpoint = publishEndpoint;
     }
 
-    public Task PublishAsync<T>(T @event, CancellationToken cancellationToken = default) where T : IEvent
+    public Task PublishAsync<T>(T @event, CancellationToken cancellationToken = default) where T : class, IEvent
     {
         return _publishEndpoint.Publish(@event, cancellationToken);
     }

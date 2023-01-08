@@ -29,7 +29,9 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, OpenTelemetryServiceOptions serviceOptions, Instrumentation instrumentation, params string[] activitySources)
     {
         if (!serviceOptions.Enabled)
+        {
             return services;
+        }
 
         if (serviceOptions.OtlpEndpoint is null)
         {

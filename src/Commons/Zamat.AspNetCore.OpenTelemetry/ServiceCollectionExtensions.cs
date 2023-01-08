@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using System;
@@ -10,7 +11,7 @@ namespace Zamat.AspNetCore.OpenTelemetry;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, IConfiguration configuration, Action<Instrumentation>? instrumentationConfig = null)
+    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, IConfiguration configuration, Action<Instrumentation>? instrumentationConfig = null, params string[] activitySources)
     {
         var instrumentation = new Instrumentation();
         if (instrumentationConfig is not null)
@@ -21,11 +22,11 @@ public static class ServiceCollectionExtensions
         var opt = new OpenTelemetryServiceOptions();
         configuration.GetSection(nameof(OpenTelemetryServiceOptions)).Bind(opt);
 
-        services.AddOpenTelemetry(opt, instrumentation);
+        services.AddOpenTelemetry(opt, instrumentation, activitySources);
         return services;
     }
 
-    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, OpenTelemetryServiceOptions serviceOptions, Instrumentation instrumentation)
+    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, OpenTelemetryServiceOptions serviceOptions, Instrumentation instrumentation, params string[] activitySources)
     {
         if (!serviceOptions.Enabled)
             return services;
@@ -44,7 +45,7 @@ public static class ServiceCollectionExtensions
             {
                 configure.Endpoint = serviceOptions.OtlpEndpoint;
             });
-        });
+        }, activitySources);
 
         builder.ConfigureMetrics(configure =>
         {
@@ -55,7 +56,13 @@ public static class ServiceCollectionExtensions
             });
         });
 
-        builder.ConfigureLogging(_ => { });
+        builder.ConfigureLogging(configure =>
+        {
+            configure.AddOtlpExporter(options =>
+            {
+                options.Endpoint = serviceOptions.OtlpEndpoint;
+            });
+        });
 
         return services;
     }

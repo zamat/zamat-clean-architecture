@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Zamat.Common.Events.Bus;
 
-namespace Zamat.Sample.Services.Users.Api.Rest.IntegrationEvents;
+namespace Zamat.Sample.Services.Users.Core.IntegrationEvents.Users;
 
 class UserCreatedEventHandler : IEventHandler<UserCreated>
 {

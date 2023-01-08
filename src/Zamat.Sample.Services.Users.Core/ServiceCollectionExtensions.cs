@@ -4,7 +4,6 @@ using Zamat.Common.DomainEventDispatcher;
 using Zamat.Common.Events.Bus;
 using Zamat.Common.Query.Bus;
 using Zamat.Sample.BuildingBlocks.Core;
-using Zamat.Sample.Services.Users.Api.Rest.IntegrationEvents;
 using Zamat.Sample.Services.Users.Core.Domain;
 
 namespace Zamat.Sample.Services.Users.Core;

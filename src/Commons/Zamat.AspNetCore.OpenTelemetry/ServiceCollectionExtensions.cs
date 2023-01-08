@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using System;
@@ -10,40 +11,58 @@ namespace Zamat.AspNetCore.OpenTelemetry;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, IConfiguration configuration, Action<Instrumentation>? instrumentationConfig = null, params string[] activitySources)
     {
-        services.AddOpenTelemetry(o => configuration.GetSection(nameof(OpenTelemetryServiceOptions)).Bind(o));
+        var instrumentation = new Instrumentation();
+        if (instrumentationConfig is not null)
+        {
+            instrumentationConfig(instrumentation);
+        }
+
+        var opt = new OpenTelemetryServiceOptions();
+        configuration.GetSection(nameof(OpenTelemetryServiceOptions)).Bind(opt);
+
+        services.AddOpenTelemetry(opt, instrumentation, activitySources);
         return services;
     }
 
-    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, Action<OpenTelemetryServiceOptions> serviceOptions)
+    public static IServiceCollection AddOpenTelemetry(this IServiceCollection services, OpenTelemetryServiceOptions serviceOptions, Instrumentation instrumentation, params string[] activitySources)
     {
-        var opt = new OpenTelemetryServiceOptions();
-        serviceOptions(opt);
-
-        if (!opt.Enabled)
+        if (!serviceOptions.Enabled)
+        {
             return services;
+        }
 
-        if (string.IsNullOrEmpty(opt.OtlpEndpoint))
+        if (serviceOptions.OtlpEndpoint is null)
         {
             throw new InvalidOperationException("Otlp endpoint should be configured.");
         }
 
-        services.AddOpenTelemetry(opt, setup =>
+        var builder = services.AddOpenTelemetry(serviceOptions);
+
+        builder.ConfigureTracing(instrumentation, configure =>
         {
-            setup.ConfigureTracing(configure =>
+            configure.AddAspNetCoreInstrumentation();
+            configure.AddOtlpExporter(configure =>
             {
-                configure.AddOtlpExporter(configure =>
-                {
-                    configure.Endpoint = new Uri(opt.OtlpEndpoint);
-                });
+                configure.Endpoint = serviceOptions.OtlpEndpoint;
             });
-            setup.ConfigureMetrics(configure =>
+        }, activitySources);
+
+        builder.ConfigureMetrics(configure =>
+        {
+            configure.AddAspNetCoreInstrumentation();
+            configure.AddOtlpExporter(configure =>
             {
-                configure.AddOtlpExporter(configure =>
-                {
-                    configure.Endpoint = new Uri(opt.OtlpEndpoint);
-                });
+                configure.Endpoint = serviceOptions.OtlpEndpoint;
+            });
+        });
+
+        builder.ConfigureLogging(configure =>
+        {
+            configure.AddOtlpExporter(options =>
+            {
+                options.Endpoint = serviceOptions.OtlpEndpoint;
             });
         });
 

@@ -29,16 +29,46 @@ public class OpenTelemetryBuilder
         }
     }
 
-    public OpenTelemetryBuilder ConfigureTracing(Action<TracerProviderBuilder> configure, params string[] sources)
+    public OpenTelemetryBuilder ConfigureTracing(Instrumentation instrumentation, Action<TracerProviderBuilder> configure, params string[] sources)
     {
         _serviceCollection.AddOpenTelemetryTracing(builder =>
         {
             builder.SetResourceBuilder(_resourceBuilder);
+
             builder.AddHttpClientInstrumentation();
-            builder.AddAspNetCoreInstrumentation();
+
+            if (instrumentation.UseMassTransitInstrumentation)
+            {
+                builder.AddSource("MassTransit");
+                builder.AddMassTransitInstrumentation();
+            }
+            if (instrumentation.UseEFCoreInstrumentation)
+            {
+                builder.AddEntityFrameworkCoreInstrumentation(x =>
+                {
+                    x.SetDbStatementForText = true;
+                    x.SetDbStatementForStoredProcedure = true;
+                });
+            }
+            if (instrumentation.UseRedisInstrumentation)
+            {
+                builder.AddRedisInstrumentation(instrumentation.ConnectionMultiplexer);
+            }
+            if (instrumentation.UseSqlClientInstrumentation)
+            {
+                builder.AddSqlClientInstrumentation(x =>
+                {
+                    x.SetDbStatementForText = true;
+                    x.SetDbStatementForStoredProcedure = true;
+                    x.RecordException = true;
+                });
+            }
+
             builder.AddSource(sources);
+
             configure(builder);
         });
+
         return this;
     }
 
@@ -55,6 +85,7 @@ public class OpenTelemetryBuilder
                 configure(builder);
             });
         });
+
         return this;
     }
 
@@ -64,9 +95,9 @@ public class OpenTelemetryBuilder
         {
             builder.SetResourceBuilder(_resourceBuilder);
             builder.AddHttpClientInstrumentation();
-            builder.AddAspNetCoreInstrumentation();
             configure(builder);
         });
+
         return this;
     }
 }

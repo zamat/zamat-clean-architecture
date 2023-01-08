@@ -14,15 +14,25 @@ services:
     volumes:
       - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
 
-  zipkin-all-in-one:
-    ports:
-      - "9411:9411"
-
   prometheus:
     ports:
       - "9090:9090"
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+
+  tempo:
+    volumes:
+      - ./tempo.yaml:/etc/tempo.yaml
+
+  grafana:
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana-datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
 
   postgresql:    
     environment:
@@ -69,9 +79,9 @@ services:
       - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
       - ConnectionStrings__RabbitMQ=amqp://guest:guest@rabbitmq:5672 
       - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
+      - OpenTelemetryServiceOptions__Enabled=true
     ports:
       - "8081:80"
       - "8091:443"
     volumes:
       - ~/.aspnet/https:/https:ro
-

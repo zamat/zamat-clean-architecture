@@ -4,20 +4,30 @@ services:
 
   otel-collector:   
     container_name: otel-collector
-    image: otel/opentelemetry-collector:0.46.0
+    image: otel/opentelemetry-collector-contrib:0.42.0
     command: ["--config=/etc/otel-collector-config.yaml"]
-    depends_on:
-      - zipkin-all-in-one
-
-  zipkin-all-in-one:
-    container_name: zipkin-all-in-one
-    image: openzipkin/zipkin:latest 
 
   prometheus:
     container_name: prometheus
     image: prom/prometheus:latest
+
+  tempo:
+    container_name: tempo
+    image: grafana/tempo:latest
+    command: [ "-config.file=/etc/tempo.yaml" ]
+
+  loki:
+    container_name: loki
+    image: grafana/loki:latest
+    command: [ "-config.file=/etc/loki/local-config.yaml" ]
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:8.3.3
     depends_on:
-      - otel-collector
+      - prometheus
+      - tempo
+      - loki
 
   postgresql:    
     container_name: postgresql

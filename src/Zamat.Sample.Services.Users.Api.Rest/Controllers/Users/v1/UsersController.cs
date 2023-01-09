@@ -72,11 +72,11 @@ public class UsersController : ControllerBase
         {
             _logger.LogWarning("Get user problem ({Errors})", count.Errors);
 
-            return new GetUsersResponse(request.Page, request.Limit);
+            return GetEmptyResult();
         }
         if (count.Result <= 0)
         {
-            return new GetUsersResponse(request.Page, request.Limit);
+            return GetEmptyResult();
         }
 
         var users = await _queryBus.ExecuteAsync(new GetUsersQuery(request.Page, request.Limit));
@@ -89,6 +89,8 @@ public class UsersController : ControllerBase
         }
 
         return Ok(new GetUsersResponse(request.Page, request.Limit, count.Result, items));
+
+        GetUsersResponse GetEmptyResult() => new(request.Page, request.Limit);
     }
 
     [SwaggerOperation(

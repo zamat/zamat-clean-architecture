@@ -58,6 +58,41 @@ public class UsersController : ControllerBase
     }
 
     [SwaggerOperation(
+        Summary = "Get users paginable list",
+        Description = "Get users paginable list",
+        OperationId = "GetUsersPaginableList",
+        Tags = new[] { "Users" }
+    )]
+    [SwaggerResponse(200, "The users paginator")]
+    [HttpGet]
+    public async Task<ActionResult<UserPaginatorResponse>> GetAsync([FromQuery] GetUsersRequest request)
+    {
+        var count = await _queryBus.ExecuteAsync(new GetUsersCountQuery());
+        if (!count.Succeeded)
+        {
+            return new UserPaginatorResponse(request.Page, request.Limit);
+        }
+        if (count.Result <= 0)
+        {
+            return new UserPaginatorResponse(request.Page, request.Limit);
+        }
+
+        var users = await _queryBus.ExecuteAsync(new GetUsersQuery(request.Page, request.Limit));
+
+        var items = new List<UserResponse>();
+
+        foreach (var user in users.Result)
+        {
+            items.Add(new UserResponse(user));
+        }
+
+        return Ok(new UserPaginatorResponse(request.Page, request.Limit, count.Result)
+        {
+            Items = items
+        });
+    }
+
+    [SwaggerOperation(
         Summary = "Get user",
         Description = "Get user",
         OperationId = "GetUser",
@@ -66,7 +101,7 @@ public class UsersController : ControllerBase
     [SwaggerResponse(200, "The user entity")]
     [SwaggerResponse(204, "The user entity not found")]
     [HttpGet("{id}", Name = "GetUser")]
-    public async Task<ActionResult<CreateUserResponse>> GetAsync(string id)
+    public async Task<ActionResult<UserResponse>> GetAsync(string id)
     {
         var query = await _queryBus.ExecuteAsync(new GetUserQuery(id));
         if (!query.Succeeded)
@@ -75,6 +110,6 @@ public class UsersController : ControllerBase
             return NoContent();
         }
 
-        return Ok(new CreateUserResponse(query.Result));
+        return Ok(new UserResponse(query.Result));
     }
 }

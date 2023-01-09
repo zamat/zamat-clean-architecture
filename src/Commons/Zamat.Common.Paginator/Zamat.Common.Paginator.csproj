@@ -12,8 +12,4 @@
 		</AssemblyAttribute>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Zamat.Common.FilterQuery\Zamat.Common.FilterQuery.csproj" />
-	</ItemGroup>
-
 </Project>

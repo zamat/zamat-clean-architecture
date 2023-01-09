@@ -1,5 +1,4 @@
 ﻿using Zamat.Common.Query;
-using Zamat.Sample.Services.Users.Core.Interfaces;
 
 namespace Zamat.Sample.Services.Users.Core.Queries.Users;
 

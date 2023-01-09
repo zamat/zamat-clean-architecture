@@ -3,7 +3,7 @@ using Zamat.Sample.Services.Users.Core.Dtos.Users;
 
 namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1;
 
-public record UserResponse()
+public record GetUserResponse()
 {
     [SwaggerSchema("The user identifier.")]
     public string Id { get; init; } = default!;
@@ -17,7 +17,7 @@ public record UserResponse()
     [SwaggerSchema("The user last name.", Nullable = false)]
     public string LastName { get; init; } = default!;
 
-    internal UserResponse(UserDto userDto) : this()
+    internal GetUserResponse(UserDto userDto) : this()
     {
         Id = userDto.Id;
         UserName = userDto.UserName;

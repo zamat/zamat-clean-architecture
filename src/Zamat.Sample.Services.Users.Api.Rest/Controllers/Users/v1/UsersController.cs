@@ -6,6 +6,7 @@ using Zamat.Sample.BuildingBlocks.Core;
 using Zamat.Sample.Services.Users.Api.Rest.ProblemDetails;
 using Zamat.Sample.Services.Users.Core.Commands.Users;
 using Zamat.Sample.Services.Users.Core.Queries.Users;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1;
 
@@ -65,31 +66,30 @@ public class UsersController : ControllerBase
     )]
     [SwaggerResponse(200, "The users paginator")]
     [HttpGet]
-    public async Task<ActionResult<UserPaginatorResponse>> GetAsync([FromQuery] GetUsersRequest request)
+    public async Task<ActionResult<GetUsersResponse>> GetAsync([FromQuery] GetUsersRequest request)
     {
         var count = await _queryBus.ExecuteAsync(new GetUsersCountQuery());
         if (!count.Succeeded)
         {
-            return new UserPaginatorResponse(request.Page, request.Limit);
+            _logger.LogWarning("Get user problem ({Errors})", count.Errors);
+
+            return new GetUsersResponse(request.Page, request.Limit);
         }
         if (count.Result <= 0)
         {
-            return new UserPaginatorResponse(request.Page, request.Limit);
+            return new GetUsersResponse(request.Page, request.Limit);
         }
 
         var users = await _queryBus.ExecuteAsync(new GetUsersQuery(request.Page, request.Limit));
 
-        var items = new List<UserResponse>();
+        var items = new List<GetUserResponse>();
 
         foreach (var user in users.Result)
         {
-            items.Add(new UserResponse(user));
+            items.Add(new GetUserResponse(user));
         }
 
-        return Ok(new UserPaginatorResponse(request.Page, request.Limit, count.Result)
-        {
-            Items = items
-        });
+        return Ok(new GetUsersResponse(request.Page, request.Limit, count.Result, items));
     }
 
     [SwaggerOperation(
@@ -101,7 +101,7 @@ public class UsersController : ControllerBase
     [SwaggerResponse(200, "The user entity")]
     [SwaggerResponse(204, "The user entity not found")]
     [HttpGet("{id}", Name = "GetUser")]
-    public async Task<ActionResult<UserResponse>> GetAsync(string id)
+    public async Task<ActionResult<GetUserResponse>> GetAsync(string id)
     {
         var query = await _queryBus.ExecuteAsync(new GetUserQuery(id));
         if (!query.Succeeded)
@@ -110,6 +110,6 @@ public class UsersController : ControllerBase
             return NoContent();
         }
 
-        return Ok(new UserResponse(query.Result));
+        return Ok(new GetUserResponse(query.Result));
     }
 }

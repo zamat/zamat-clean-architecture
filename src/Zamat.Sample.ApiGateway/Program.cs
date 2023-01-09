@@ -9,6 +9,7 @@ using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
+using Zamat.AspNetCore.Diagnostics;
 using Zamat.AspNetCore.Ocelot;
 using Zamat.AspNetCore.OpenIddict;
 using Zamat.AspNetCore.OpenTelemetry;
@@ -71,6 +72,8 @@ app.UseCors();
 app.UseSwaggerForOcelotUI();
 
 app.UseOcelot().Wait();
+
+app.UseDiagnostics();
 
 app.Run();
 

@@ -133,6 +133,8 @@ public class UsersController : ControllerBase
             return _problemFactory.CreateProblemResult(result);
         }
 
+        _logger.LogInformation("User was removed (userId : {Id})", command.Id);
+
         return NoContent();
     }
 }

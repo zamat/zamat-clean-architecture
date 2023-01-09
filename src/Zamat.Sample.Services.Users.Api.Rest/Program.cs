@@ -24,10 +24,9 @@ builder.Services
     })
     .ConfigureWebAPIMvc();
 
-builder.Services.AddProblemDetails();
-
 builder.Services
     .AddEndpointsApiExplorer()
+    .AddProblemDetails()
     .AddOpenApiDoc(builder.Configuration)
     .AddLocalization(builder.Configuration)
     .AddOpenTelemetry(builder.Configuration, i =>
@@ -63,6 +62,8 @@ app.UseSwaggerUI();
 app.UseRequestLocalization();
 
 app.UseAuthorization();
+
+app.UseCustomHeaders();
 
 app.MapHealthChecks();
 app.MapControllers();

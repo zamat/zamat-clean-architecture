@@ -5,7 +5,7 @@ namespace Zamat.AspNetCore.Mvc.Rest;
 
 public static class ServiceCollectionExtensions
 {
-    public static IMvcBuilder ConfigureMvc(this IMvcBuilder builder)
+    public static IMvcBuilder ConfigureWebAPIMvc(this IMvcBuilder builder)
     {
         builder.AddJsonOptions(o =>
         {

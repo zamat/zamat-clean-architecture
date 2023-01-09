@@ -47,6 +47,8 @@ public class UsersController : ControllerBase
             return _problemFactory.CreateProblemResult(result);
         }
 
+        _logger.LogInformation("User created (userId : {Id})", command.Id);
+
         var query = await _queryBus.ExecuteAsync(new GetUserQuery(command.Id));
         if (!query.Succeeded)
         {

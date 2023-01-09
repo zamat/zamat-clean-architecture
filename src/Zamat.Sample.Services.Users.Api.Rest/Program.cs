@@ -22,7 +22,7 @@ builder.Services
     {
         o.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(DataAnnotations));
     })
-    .ConfigureMvc();
+    .ConfigureWebAPIMvc();
 
 builder.Services.AddProblemDetails();
 

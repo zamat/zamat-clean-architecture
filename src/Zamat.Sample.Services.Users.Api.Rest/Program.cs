@@ -63,7 +63,7 @@ app.UseRequestLocalization();
 
 app.UseAuthorization();
 
-app.UseCustomHeaders();
+app.UseDiagnostics();
 
 app.MapHealthChecks();
 app.MapControllers();

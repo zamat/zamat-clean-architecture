@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Zamat.AspNetCore.Mvc.Rest;
+namespace Zamat.AspNetCore.Diagnostics;
 
 class AddTraceIdMiddleware
 {

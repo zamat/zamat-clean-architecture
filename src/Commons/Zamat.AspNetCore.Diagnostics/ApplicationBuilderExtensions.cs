@@ -17,4 +17,9 @@ public static class ApplicationBuilderExtensions
 
         return app;
     }
+
+    public static IApplicationBuilder UseDiagnostics(this IApplicationBuilder builder)
+    {
+        return builder.UseMiddleware<AddTraceIdMiddleware>();
+    }
 }

@@ -9,7 +9,7 @@ public record CommandResult
     public bool HasErrors => Errors.Count > 0;
     public bool Succeeded => !HasErrors;
 
-    public void AddError(Enum errorCode, string errorMessage) 
+    public void AddError(Enum errorCode, string errorMessage)
         => Errors.Add(new CommandError(errorCode, errorMessage));
 
     public CommandResult()

@@ -14,6 +14,7 @@ public static class OpenApiDocumentExtensions
         }
         return doc;
     }
+
     public static OpenApiPathItem RemoveParam(this OpenApiPathItem path, string paramName)
     {
         foreach (var operation in path.Operations)

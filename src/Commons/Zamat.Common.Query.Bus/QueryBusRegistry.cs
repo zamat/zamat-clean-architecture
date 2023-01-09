@@ -1,5 +1,4 @@
-﻿using Zamat.Common.Query.Bus;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Zamat.Common.Query.Bus;

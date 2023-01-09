@@ -1,14 +1,14 @@
-﻿using Zamat.Common.FilterQuery;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Zamat.Common.FilterQuery;
 
 namespace Zamat.Common.Paginator;
 
 public class QueryableWrapper<TSource> : IPaginableSource<TSource>
 {
-    private IQueryable<TSource> _sources;
+    private readonly IQueryable<TSource> _sources;
 
     public QueryableWrapper(IQueryable<TSource> sources)
     {

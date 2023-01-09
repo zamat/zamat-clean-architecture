@@ -16,6 +16,7 @@ class SwaggerIgnoreFilter : IOperationFilter, ISchemaFilter
         parametersToRemove.ForEach(parameter => operation.Parameters.Remove(parameter));
         parametersToRemove.Clear();
     }
+
     public void Apply(OpenApiSchema schema, SchemaFilterContext context)
     {
         var propertiesToRemove = schema.Properties

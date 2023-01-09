@@ -1,6 +1,6 @@
-﻿using Zamat.Common.Multitenancy;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using Zamat.Common.Multitenancy;
 
 namespace Zamat.AspNetCore.Multitenancy;
 

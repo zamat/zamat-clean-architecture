@@ -15,6 +15,7 @@ public class UsersControllerTests : IClassFixture<UsersWebApplicationFactory>
     [Theory]
     [InlineData("/v1/users/u100")]
     [InlineData("/v1/users/u101")]
+    [InlineData("/v1/users")]
     public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
     {
         #region Arrange

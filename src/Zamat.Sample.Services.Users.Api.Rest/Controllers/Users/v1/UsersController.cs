@@ -71,7 +71,6 @@ public class UsersController : ControllerBase
         if (!count.Succeeded)
         {
             _logger.LogWarning("Get user problem ({Errors})", count.Errors);
-
             return GetEmptyResult();
         }
         if (count.Result <= 0)

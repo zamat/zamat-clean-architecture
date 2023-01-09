@@ -114,4 +114,25 @@ public class UsersController : ControllerBase
 
         return Ok(new GetUserResponse(query.Result));
     }
+
+    [SwaggerOperation(
+        Summary = "Delete user",
+        Description = "Delete user",
+        OperationId = "DeleteUser",
+        Tags = new[] { "Users" }
+    )]
+    [SwaggerResponse(204, "The user entity was deleted.")]
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeleteAsync(string id)
+    {
+        var command = new DeleteUserCommand(id);
+
+        var result = await _commandBus.ExecuteAsync(command);
+        if (!result.Succeeded)
+        {
+            return _problemFactory.CreateProblemResult(result);
+        }
+
+        return NoContent();
+    }
 }

@@ -80,4 +80,22 @@ public class UsersControllerTests : IClassFixture<UsersWebApplicationFactory>
         Assert.Equal("application/problem+json; charset=utf-8", $"{response.Content.Headers.ContentType}");
         #endregion
     }
+
+    [Theory]
+    [InlineData("u102")]
+    public async Task Delete_EndpointsReturnSuccessAndCorrectContentType(string userId)
+    {
+        #region Arrange
+        var client = _factory.CreateClient();
+        #endregion
+
+        #region Act
+        var response = await client.DeleteAsync($"/v1/users/{userId}");
+        #endregion
+
+        #region Assert
+        response.EnsureSuccessStatusCode();
+        Assert.True(response.StatusCode is HttpStatusCode.NoContent);
+        #endregion
+    }
 }

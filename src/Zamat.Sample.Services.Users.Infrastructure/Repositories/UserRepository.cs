@@ -27,6 +27,12 @@ class UserRepository : IUserRepository
         return _dbContext.Users.AnyAsync(specification.ToExpression(), cancellationToken);
     }
 
+    public Task DeleteAsync(User user, CancellationToken cancellationToken)
+    {
+        _dbContext.Remove(user);
+        return Task.CompletedTask;
+    }
+
     public Task<User> GetAsync(Specification<User> specification, CancellationToken cancellationToken)
     {
         return _dbContext.Users.FirstAsync(specification.ToExpression(), cancellationToken)!;

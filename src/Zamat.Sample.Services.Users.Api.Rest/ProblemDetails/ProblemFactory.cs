@@ -31,6 +31,7 @@ class ProblemFactory : IProblemFactory
             (string key, string value) = error.ErrorCode switch
             {
                 CommandErrorCode.UserNameNotUnique => ("userName", _stringLocalizer[error.ErrorMessage]),
+                CommandErrorCode.InvalidUser => ("id", _stringLocalizer[error.ErrorMessage]),
                 _ => ($"{error.ErrorCode}", _stringLocalizer[error.ErrorMessage])
             };
             modelState.AddModelError(key, value);

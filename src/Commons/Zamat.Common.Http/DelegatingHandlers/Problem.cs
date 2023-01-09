@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json;
 
-namespace Zamat.Common.ProblemDetails;
+namespace Zamat.Common.Http.DelegatingHandlers;
 
 public class Problem
 {

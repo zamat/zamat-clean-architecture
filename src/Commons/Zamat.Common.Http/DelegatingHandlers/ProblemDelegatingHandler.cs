@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Zamat.Common.ProblemDetails;
+namespace Zamat.Common.Http.DelegatingHandlers;
 
 public class ProblemDelegatingHandler : DelegatingHandler
 {

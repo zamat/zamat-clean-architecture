@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>Common ProblemDetails</Description>
+		<Description>Common Http</Description>
 		<PackageTags>ProblemDetails</PackageTags>
 	</PropertyGroup>
 

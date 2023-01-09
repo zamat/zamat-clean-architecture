@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Zamat.Common.ProblemDetails;
+namespace Zamat.Common.Http.DelegatingHandlers;
 
 public class ProblemException : Exception
 {

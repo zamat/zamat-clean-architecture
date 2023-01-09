@@ -12,14 +12,16 @@ class ProblemFactory : IProblemFactory
     private readonly ProblemDetailsFactory _problemDetailsFactory;
     private readonly IHttpContextAccessor _contextAccessor;
     private readonly IStringLocalizer<Translations> _stringLocalizer;
+    private readonly ILogger<ProblemFactory> _logger;
 
     const string ValidationError = "One or more validation errors occurred.";
 
-    public ProblemFactory(ProblemDetailsFactory problemDetailsFactory, IHttpContextAccessor contextAccessor, IStringLocalizer<Translations> stringLocalizer)
+    public ProblemFactory(ProblemDetailsFactory problemDetailsFactory, IHttpContextAccessor contextAccessor, IStringLocalizer<Translations> stringLocalizer, ILogger<ProblemFactory> logger)
     {
         _problemDetailsFactory = problemDetailsFactory;
         _contextAccessor = contextAccessor;
         _stringLocalizer = stringLocalizer;
+        _logger = logger;
     }
 
     public ActionResult CreateProblemResult(CommandResult commandResult)
@@ -36,6 +38,12 @@ class ProblemFactory : IProblemFactory
             };
             modelState.AddModelError(key, value);
         }
+
+        string errors = string.Join("|", modelState.Values
+            .SelectMany(state => state.Errors)
+            .Select(error => error.ErrorMessage));
+
+        _logger.LogInformation("Invalid api request (errors : {errors})", errors);
 
         var problemDetails = _problemDetailsFactory.CreateValidationProblemDetails(_contextAccessor.HttpContext!, modelState, StatusCodes.Status400BadRequest, _stringLocalizer[ValidationError]);
 

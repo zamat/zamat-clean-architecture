@@ -6,7 +6,6 @@ using Zamat.Sample.BuildingBlocks.Core;
 using Zamat.Sample.Services.Users.Api.Rest.ProblemDetails;
 using Zamat.Sample.Services.Users.Core.Commands.Users;
 using Zamat.Sample.Services.Users.Core.Queries.Users;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1;
 

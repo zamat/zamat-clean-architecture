@@ -98,4 +98,27 @@ public class UsersControllerTests : IClassFixture<UsersWebApplicationFactory>
         Assert.True(response.StatusCode is HttpStatusCode.NoContent);
         #endregion
     }
+
+    [Theory]
+    [InlineData("u101", "John", "Lantier")]
+    public async Task Put_EndpointsReturnBadRequestAndCorrectContentType(string id, string firstName, string lastName)
+    {
+        #region Arrange
+        var client = _factory.CreateClient();
+        #endregion
+
+        #region Act
+        var user = new UpdateUserRequest()
+        {
+            FirstName = firstName,
+            LastName = lastName
+        };
+        var response = await client.PutAsJsonAsync($"/v1/users/{id}", user);
+        #endregion
+
+        #region Assert
+        Assert.True(response.StatusCode is HttpStatusCode.NoContent);
+        #endregion
+    }
+
 }

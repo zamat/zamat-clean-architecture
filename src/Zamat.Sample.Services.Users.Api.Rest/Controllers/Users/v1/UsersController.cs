@@ -137,4 +137,27 @@ public class UsersController : ControllerBase
 
         return NoContent();
     }
+
+    [SwaggerOperation(
+        Summary = "Update user",
+        Description = "Update user",
+        OperationId = "UpdateUser",
+        Tags = new[] { "Users" }
+    )]
+    [SwaggerResponse(204, "The user entity was updated.")]
+    [HttpPut("{id}")]
+    public async Task<ActionResult<CreateUserResponse>> UpdateAsync(string id, UpdateUserRequest request)
+    {
+        var command = new UpdateUserCommand(id, request.FirstName, request.LastName);
+
+        var result = await _commandBus.ExecuteAsync(command);
+        if (!result.Succeeded)
+        {
+            return _problemFactory.CreateProblemResult(result);
+        }
+
+        _logger.LogInformation("User updated (userId : {Id}, command: {command})", command.Id, command);
+
+        return NoContent();
+    }
 }

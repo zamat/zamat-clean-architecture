@@ -16,6 +16,11 @@ public class User : Entity<string>, IAggregateRoot
         FullName = fullName;
     }
 
+    public void ChangeFullName(string firstName, string lastName)
+    {
+        FullName = new FullName(firstName, lastName);
+    }
+
     public static User Create(string id, string userName, FullName fullName)
     {
         var user = new User(id, userName, fullName);

@@ -13,10 +13,11 @@ This is a solution template for creating a application following the principles 
 If you like or are using this project to learn or start your solution, please give it a star. Thanks!
 
 ## Technologies
-
-* [ASP.NET Core 7](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
-* [Entity Framework Core 7](https://docs.microsoft.com/en-us/ef/core/)
-* [MassTransit](https://masstransit-project.com/)
+* [ASP.NET Core 7](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) (.net7)
+* [Entity Framework Core 7](https://docs.microsoft.com/en-us/ef/core/) (EFCore with PostgreSQL)
+* [MassTransit](https://masstransit-project.com/) (MessageBroker, Integration Events, Outbox pattern)
+* [OpenTelemetry](https://opentelemetry.io/) (observability (tracing, logging, metrics) with grafana backend)
+* [Ocelot](https://ocelot.readthedocs.io/en/latest/) (Ocelot api gateway)
 
 ## Getting Started
 To use this template, there are a few options:

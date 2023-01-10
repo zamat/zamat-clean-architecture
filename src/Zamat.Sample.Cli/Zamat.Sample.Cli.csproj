@@ -7,15 +7,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConsoleAppFramework" Version="4.2.4" />
+		<PackageReference Include="ConsoleAppFramework" />
 	</ItemGroup>
 	
 	<ItemGroup>
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Infrastructure\Zamat.Sample.Services.Users.Infrastructure.csproj" />
-	</ItemGroup>
-	
-	<ItemGroup>
 		<ProjectReference Include="..\EFCore.PostgreSQL\EFCore.PostgreSQL.csproj" />
 	</ItemGroup>
-
+	
 </Project>

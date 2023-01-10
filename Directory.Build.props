@@ -8,4 +8,18 @@
 		<CommonVersion>7.0.0</CommonVersion>
 		<RepositoryUrl>https://zamat.pl/</RepositoryUrl>
 	</PropertyGroup>
+	
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+		<CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+		<EnablePackageVersionOverride>true</EnablePackageVersionOverride>
+		<DisableImplicitFrameworkReferences>false</DisableImplicitFrameworkReferences>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>$(AssemblyName).UnitTests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+	
 </Project>

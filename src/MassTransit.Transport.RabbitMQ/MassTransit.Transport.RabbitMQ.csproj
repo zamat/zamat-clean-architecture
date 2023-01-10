@@ -4,12 +4,12 @@
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>MassTransit RabbitMQ Package</Description>
 	</PropertyGroup>
-	
+
 	<ItemGroup>
-		<PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="6.0.2" />
-		<PackageReference Include="MassTransit" Version="8.0.9" />
-		<PackageReference Include="MassTransit.RabbitMQ" Version="8.0.9" />
-		<PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.0.9" />
+		<PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" />
+		<PackageReference Include="MassTransit" />
+		<PackageReference Include="MassTransit.RabbitMQ" />
+		<PackageReference Include="MassTransit.EntityFrameworkCore" />
 	</ItemGroup>
 
 </Project>

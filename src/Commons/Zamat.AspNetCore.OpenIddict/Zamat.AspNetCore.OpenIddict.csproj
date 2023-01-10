@@ -7,8 +7,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OpenIddict.AspNetCore" Version="4.0.0" />
-		<PackageReference Include="OpenIddict.Validation.SystemNetHttp" Version="4.0.0" />
+		<PackageReference Include="OpenIddict.AspNetCore" />
+		<PackageReference Include="OpenIddict.Validation.SystemNetHttp"  />
 	</ItemGroup>
 
 </Project>

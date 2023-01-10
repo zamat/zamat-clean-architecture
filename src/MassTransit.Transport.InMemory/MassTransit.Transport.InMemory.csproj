@@ -4,10 +4,10 @@
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>MassTransit InMemory Package</Description>
 	</PropertyGroup>
-	
+
 	<ItemGroup>
-		<PackageReference Include="MassTransit" Version="8.0.9" />
-		<PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.0.9" />
+		<PackageReference Include="MassTransit" />
+		<PackageReference Include="MassTransit.EntityFrameworkCore" />
 	</ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@
 
 <br/>
 
-This is a solution template for creating a application following the principles of Clean Architecture. 
+This is a solution template for creating a application following the principles of **Clean Architecture**. 
 
 ## Overview
 <img align="left" src="https://raw.githubusercontent.com/zamat/zamat-clean-architecture/main/docs/clean-architecture-overview.png" />
@@ -21,8 +21,12 @@ If you like or are using this project to learn or start your solution, please gi
 
 ## Getting Started
 To use this template, there are a few options:
-- Create a new project based on this template by clicking the above **Use this template**
-- Clone solution and Install using `dotnet new`
+- Create a new project based on this template by clicking the above **Use this template** .
+- Clone solution and install using `dotnet new` <br/>
+`git clone https://github.com/zamat/zamat-clean-architecture ./workdir` <br/>
+`cd workdir` <br/>
+`dotnet new install .` <br/>
+`dotnet new zamat-clean-architecture -n Your.Namespace`
 
 ## Versions
 The master branch is now using .NET 7

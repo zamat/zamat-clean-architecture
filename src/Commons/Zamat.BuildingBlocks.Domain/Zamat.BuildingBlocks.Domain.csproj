@@ -3,6 +3,6 @@
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>BuildingBlocks Domain Package</Description>
-	</PropertyGroup> 
+	</PropertyGroup>
 
 </Project>

@@ -9,9 +9,9 @@
 	<ItemGroup>
 		<PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<ProjectReference Include="..\Zamat.Common.OpenTelemetry\Zamat.Common.OpenTelemetry.csproj" />
 	</ItemGroup>
-	
+
 </Project>

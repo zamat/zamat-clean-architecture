@@ -15,7 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Zamat.AspNetCore.OpenAPI\Zamat.AspNetCore.OpenAPI.csproj" />
+		<ProjectReference Include="..\Zamat.AspNetCore.OpenAPI\Zamat.AspNetCore.OpenAPI.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -9,10 +9,10 @@
 	<ItemGroup>
 		<PackageReference Include="ConsoleAppFramework" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Infrastructure\Zamat.Sample.Services.Users.Infrastructure.csproj" />
 		<ProjectReference Include="..\EFCore.PostgreSQL\EFCore.PostgreSQL.csproj" />
 	</ItemGroup>
-	
+
 </Project>

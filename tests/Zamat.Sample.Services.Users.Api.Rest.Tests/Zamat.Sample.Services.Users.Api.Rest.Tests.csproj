@@ -2,13 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Nullable>$(Nullable)</Nullable>
-		<Authors>$(Authors)</Authors>
-		<Company>$(Company)</Company>
-		<Copyright>$(Copyright)</Copyright>
-		<Version>$(CommonVersion)</Version>
 		<Description>UserService Api Tests Package</Description>
-		<RepositoryUrl>$(RepositoryUrl)</RepositoryUrl>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>

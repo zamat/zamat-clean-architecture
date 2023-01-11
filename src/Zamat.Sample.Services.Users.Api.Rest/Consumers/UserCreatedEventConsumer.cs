@@ -17,7 +17,7 @@ class UserCreatedEventConsumer : IConsumer<UserCreated>
 
     public Task Consume(ConsumeContext<UserCreated> context)
     {
-        _logger.LogDebug("User created event received (Event : {eventData})", context.Message);
+        _logger.LogDebug(UsersLogEvents.UserCreated, "User created event received (Event : {eventData})", context.Message);
 
         return _eventHandler.HandleAsync(context.Message, context.CancellationToken);
     }

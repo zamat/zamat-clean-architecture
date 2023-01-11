@@ -47,12 +47,12 @@ public class UsersController : ControllerBase
             return _problemFactory.CreateProblemResult(result);
         }
 
-        _logger.LogInformation("User created (userId : {Id})", command.Id);
+        _logger.LogInformation(UsersLogEvents.UserCreated, "User created (userId : {Id})", command.Id);
 
         var query = await _queryBus.ExecuteAsync(new GetUserQuery(command.Id));
         if (!query.Succeeded)
         {
-            _logger.LogInformation("Get user problem ({Errors})", query.Errors);
+            _logger.LogWarning(UsersLogEvents.UserFetchError, "Get user problem ({Errors})", query.Errors);
             return NoContent();
         }
 
@@ -72,7 +72,7 @@ public class UsersController : ControllerBase
         var count = await _queryBus.ExecuteAsync(new GetUsersCountQuery());
         if (!count.Succeeded)
         {
-            _logger.LogWarning("Get user problem ({Errors})", count.Errors);
+            _logger.LogWarning(UsersLogEvents.UserFetchError, "Get user problem ({Errors})", count.Errors);
             return GetEmptyResult();
         }
         if (count.Result <= 0)
@@ -108,7 +108,7 @@ public class UsersController : ControllerBase
         var query = await _queryBus.ExecuteAsync(new GetUserQuery(id));
         if (!query.Succeeded)
         {
-            _logger.LogInformation("Get user problem ({Errors})", query.Errors);
+            _logger.LogWarning(UsersLogEvents.UserFetchError, "Get user problem ({Errors})", query.Errors);
             return NoContent();
         }
 
@@ -133,7 +133,7 @@ public class UsersController : ControllerBase
             return _problemFactory.CreateProblemResult(result);
         }
 
-        _logger.LogInformation("User was removed (userId : {Id})", command.Id);
+        _logger.LogInformation(UsersLogEvents.UserDeleted, "User was removed (userId : {Id})", command.Id);
 
         return NoContent();
     }
@@ -156,7 +156,7 @@ public class UsersController : ControllerBase
             return _problemFactory.CreateProblemResult(result);
         }
 
-        _logger.LogInformation("User updated (userId : {Id}, command: {command})", command.Id, command);
+        _logger.LogInformation(UsersLogEvents.UserUpdated, "User updated (userId : {Id}, command: {command})", command.Id, command);
 
         return NoContent();
     }

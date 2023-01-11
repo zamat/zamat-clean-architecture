@@ -63,7 +63,10 @@ app.UseRequestLocalization();
 
 app.UseAuthorization();
 
-app.UseDiagnostics();
+app.UseDiagnostics(o =>
+{
+    o.AddTraceIdToResponseHeaders();
+});
 
 app.MapHealthChecks();
 app.MapControllers();

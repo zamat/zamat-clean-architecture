@@ -73,7 +73,10 @@ app.UseSwaggerForOcelotUI();
 
 app.UseOcelot().Wait();
 
-app.UseDiagnostics();
+app.UseDiagnostics(o =>
+{
+    o.AddTraceIdToResponseHeaders();
+});
 
 app.Run();
 

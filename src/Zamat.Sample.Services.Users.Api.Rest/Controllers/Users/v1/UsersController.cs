@@ -128,6 +128,7 @@ public class UsersController : ControllerBase
         Tags = new[] { "Users" }
     )]
     [SwaggerResponse(204, "The user entity was deleted.")]
+    [SwaggerResponse(400, "Api problem occured")]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteAsync(string id)
     {
@@ -151,6 +152,7 @@ public class UsersController : ControllerBase
         Tags = new[] { "Users" }
     )]
     [SwaggerResponse(204, "The user entity was updated.")]
+    [SwaggerResponse(400, "Api problem occured")]
     [HttpPut("{id}")]
     public async Task<ActionResult<CreateUserResponse>> UpdateAsync(string id, UpdateUserRequest request)
     {

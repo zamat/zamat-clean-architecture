@@ -1,6 +1,6 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 
-namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1;
+namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 
 public record GetUsersResponse
 {
@@ -15,7 +15,7 @@ public record GetUsersResponse
 
     [SwaggerSchema("The user paginator total pages.")]
     public int TotalPages => TotalItems > 0 ? (TotalItems % ItemsPerPage > 0 ? 1 : 0) + TotalItems / ItemsPerPage : 0;
-    
+
     [SwaggerSchema("The user paginator items.")]
     public IEnumerable<GetUserResponse> Items { get; }
 

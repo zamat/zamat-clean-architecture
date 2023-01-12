@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1;
+namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 
 public record GetUsersRequest
 {

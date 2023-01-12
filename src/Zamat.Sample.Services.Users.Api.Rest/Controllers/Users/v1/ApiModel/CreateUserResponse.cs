@@ -1,7 +1,7 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 using Zamat.Sample.Services.Users.Core.Dtos.Users;
 
-namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1;
+namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 
 public record CreateUserResponse()
 {

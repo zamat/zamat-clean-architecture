@@ -3,6 +3,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using Zamat.Common.Command;
 using Zamat.Common.Query.Bus;
 using Zamat.Sample.BuildingBlocks.Core;
+using Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 using Zamat.Sample.Services.Users.Api.Rest.ProblemDetails;
 using Zamat.Sample.Services.Users.Core.Commands.Users;
 using Zamat.Sample.Services.Users.Core.Queries.Users;

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using Swashbuckle.AspNetCore.Annotations;
 using Zamat.Common.Command;
 using Zamat.Common.Query.Bus;
 using Zamat.Sample.BuildingBlocks.Core;
 using Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
-using Zamat.Sample.Services.Users.Api.Rest.ProblemDetails;
 using Zamat.Sample.Services.Users.Core.Commands.Users;
 using Zamat.Sample.Services.Users.Core.Queries.Users;
 
@@ -12,21 +12,17 @@ namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1;
 
 [ApiVersion("1.0")]
 [Route("v{version:apiVersion}/users")]
-public class UsersController : ControllerBase
+public class UsersController : ApiController
 {
     private readonly ICommandBus _commandBus;
     private readonly IQueryBus _queryBus;
-    private readonly IProblemFactory _problemFactory;
     private readonly IUuidGenerator _uuidGenerator;
-    private readonly ILogger<UsersController> _logger;
 
-    public UsersController(ICommandBus commandBus, IQueryBus queryBus, IProblemFactory problemFactory, IUuidGenerator uuidGenerator, ILogger<UsersController> logger)
+    public UsersController(ICommandBus commandBus, IQueryBus queryBus, IUuidGenerator uuidGenerator, IStringLocalizer<Translations> stringLocalizer, ILogger<UsersController> logger) : base(stringLocalizer, logger)
     {
         _commandBus = commandBus;
         _queryBus = queryBus;
-        _problemFactory = problemFactory;
         _uuidGenerator = uuidGenerator;
-        _logger = logger;
     }
 
     [SwaggerOperation(
@@ -37,6 +33,7 @@ public class UsersController : ControllerBase
     )]
     [SwaggerResponse(201, "The user was created")]
     [SwaggerResponse(204, "The user was not created")]
+    [SwaggerResponse(400, "Api problem occured")]
     [HttpPost]
     public async Task<ActionResult<CreateUserResponse>> CreateAsync(CreateUserRequest request)
     {
@@ -45,7 +42,9 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _problemFactory.CreateProblemResult(result);
+            _logger.LogWarning(UsersLogEvents.UserCreated, "User cannot be created (errors: {errors})", result.Errors);
+
+            return ProblemDetailsResult(result);
         }
 
         _logger.LogInformation(UsersLogEvents.UserCreated, "User created (userId : {Id})", command.Id);
@@ -123,6 +122,7 @@ public class UsersController : ControllerBase
         Tags = new[] { "Users" }
     )]
     [SwaggerResponse(204, "The user entity was deleted.")]
+    [SwaggerResponse(400, "Api problem occured")]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteAsync(string id)
     {
@@ -131,10 +131,12 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _problemFactory.CreateProblemResult(result);
+            _logger.LogWarning(UsersLogEvents.UserDeleted, "User cannot be deleted (errors: {errors})", result.Errors);
+
+            return ProblemDetailsResult(result);
         }
 
-        _logger.LogInformation(UsersLogEvents.UserDeleted, "User was removed (userId : {Id})", command.Id);
+        _logger.LogInformation(UsersLogEvents.UserDeleted, "User was deleted (userId : {Id})", command.Id);
 
         return NoContent();
     }
@@ -146,6 +148,7 @@ public class UsersController : ControllerBase
         Tags = new[] { "Users" }
     )]
     [SwaggerResponse(204, "The user entity was updated.")]
+    [SwaggerResponse(400, "Api problem occured")]
     [HttpPut("{id}")]
     public async Task<ActionResult<CreateUserResponse>> UpdateAsync(string id, UpdateUserRequest request)
     {
@@ -154,7 +157,9 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _problemFactory.CreateProblemResult(result);
+            _logger.LogWarning(UsersLogEvents.UserUpdated, "User cannot be updated (errors: {errors})", result.Errors);
+
+            return ProblemDetailsResult(result);
         }
 
         _logger.LogInformation(UsersLogEvents.UserUpdated, "User updated (userId : {Id}, command: {command})", command.Id, command);

@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Zamat.Common.Command;
 
-public record CommandResult
+public sealed record CommandResult
 {
     public List<CommandError> Errors { get; set; }
     public bool HasErrors => Errors.Count > 0;
     public bool Succeeded => !HasErrors;
+    public bool IsDomainProblem => HasErrors && Errors.Any(e => e is DomainError);
 
-    public void AddError(Enum errorCode, string errorMessage)
-        => Errors.Add(new CommandError(errorCode, errorMessage));
+    public void AddError(CommandError error) => Errors.Add(error);
 
     public CommandResult()
     {
@@ -25,4 +26,7 @@ public record CommandResult
     public static implicit operator CommandResult(List<CommandError> errors) => new(errors);
 }
 
-public record CommandError(Enum ErrorCode, string ErrorMessage);
+public abstract record CommandError(Enum ErrorCode, string ErrorMessage);
+public record PreconditionError(Enum ErrorCode, string ErrorMessage) : CommandError(ErrorCode, ErrorMessage);
+public record DomainError(Enum ErrorCode, string ErrorMessage) : CommandError(ErrorCode, ErrorMessage);
+public record InfrastructureError(Enum ErrorCode, string ErrorMessage) : CommandError(ErrorCode, ErrorMessage);

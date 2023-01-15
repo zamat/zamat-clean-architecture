@@ -5,7 +5,6 @@ using Zamat.AspNetCore.Localization;
 using Zamat.AspNetCore.Mvc.Rest;
 using Zamat.AspNetCore.OpenAPI;
 using Zamat.AspNetCore.OpenTelemetry;
-using Zamat.Sample.Services.Users.Api.Rest;
 using Zamat.Sample.Services.Users.Api.Rest.Consumers;
 using Zamat.Sample.Services.Users.Core;
 using Zamat.Sample.Services.Users.Infrastructure;
@@ -26,7 +25,6 @@ builder.Services
 
 builder.Services
     .AddEndpointsApiExplorer()
-    .AddProblemDetails()
     .AddOpenApiDoc(builder.Configuration)
     .AddLocalization(builder.Configuration)
     .AddOpenTelemetry(builder.Configuration, i =>
@@ -34,8 +32,7 @@ builder.Services
         i.AddMassTransitInstrumentation();
         i.AddEFCoreInstrumentation();
     })
-    .AddHttpContextAccessor()
-    .AddProblemFactory();
+    .AddHttpContextAccessor();
 
 builder.Services
     .AddCore()

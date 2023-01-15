@@ -101,7 +101,7 @@ public class UsersControllerTests : IClassFixture<UsersWebApplicationFactory>
 
     [Theory]
     [InlineData("u101", "John", "Lantier")]
-    public async Task Put_EndpointsReturnBadRequestAndCorrectContentType(string id, string firstName, string lastName)
+    public async Task Put_EndpointsReturnSuccessAndCorrectContentType(string id, string firstName, string lastName)
     {
         #region Arrange
         var client = _factory.CreateClient();

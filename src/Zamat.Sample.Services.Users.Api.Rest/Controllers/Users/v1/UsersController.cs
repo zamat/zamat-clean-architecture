@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using Swashbuckle.AspNetCore.Annotations;
 using Zamat.Common.Command;
 using Zamat.Common.Query.Bus;
@@ -16,14 +17,12 @@ public class UsersController : ApiController
     private readonly ICommandBus _commandBus;
     private readonly IQueryBus _queryBus;
     private readonly IUuidGenerator _uuidGenerator;
-    private readonly ILogger<UsersController> _logger;
 
-    public UsersController(ICommandBus commandBus, IQueryBus queryBus, IUuidGenerator uuidGenerator, ILogger<UsersController> logger)
+    public UsersController(ICommandBus commandBus, IQueryBus queryBus, IUuidGenerator uuidGenerator, IStringLocalizer<Translations> stringLocalizer, ILogger<UsersController> logger) : base(stringLocalizer, logger)
     {
         _commandBus = commandBus;
         _queryBus = queryBus;
         _uuidGenerator = uuidGenerator;
-        _logger = logger;
     }
 
     [SwaggerOperation(
@@ -43,6 +42,8 @@ public class UsersController : ApiController
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
+            _logger.LogWarning(UsersLogEvents.UserCreated, "User cannot be created (errors: {errors})", result.Errors);
+
             return ProblemDetailsResult(result);
         }
 
@@ -130,10 +131,12 @@ public class UsersController : ApiController
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
+            _logger.LogWarning(UsersLogEvents.UserDeleted, "User cannot be deleted (errors: {errors})", result.Errors);
+
             return ProblemDetailsResult(result);
         }
 
-        _logger.LogInformation(UsersLogEvents.UserDeleted, "User was removed (userId : {Id})", command.Id);
+        _logger.LogInformation(UsersLogEvents.UserDeleted, "User was deleted (userId : {Id})", command.Id);
 
         return NoContent();
     }
@@ -154,6 +157,8 @@ public class UsersController : ApiController
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
+            _logger.LogWarning(UsersLogEvents.UserUpdated, "User cannot be updated (errors: {errors})", result.Errors);
+
             return ProblemDetailsResult(result);
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.Json.Serialization;
 
@@ -28,9 +29,10 @@ public static class ServiceCollectionExtensions
 
                     string errors = string.Join("|", context.ModelState.Values
                         .SelectMany(state => state.Errors)
-                        .Select(error => error.ErrorMessage));
+                    .Select(error => error.ErrorMessage));
 
-                    logger.LogInformation("Invalid api request (errors : {errors})", errors);
+                    var traceId = Activity.Current?.Id ?? context.HttpContext?.TraceIdentifier;
+                    logger.LogInformation("Invalid api request (errors : {errors}, traceId: {traceId})", errors, traceId);
                 }
 
                 return builtInFactory(context);

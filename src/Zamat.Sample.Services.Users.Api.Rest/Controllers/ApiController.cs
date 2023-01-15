@@ -4,14 +4,15 @@ using Zamat.Common.Command;
 
 namespace Zamat.Sample.Services.Users.Api.Rest.Controllers;
 
+[ApiExplorerSettings(IgnoreApi = true)]
 public abstract class ApiController : ControllerBase
 {
     const string ValidationError = "One or more validation errors occurred.";
 
-    protected readonly IStringLocalizer<Translations> _stringLocalizer;
+    protected readonly IStringLocalizer _stringLocalizer;
     protected readonly ILogger _logger;
 
-    protected ApiController(IStringLocalizer<Translations> stringLocalizer, ILogger logger)
+    protected ApiController(IStringLocalizer stringLocalizer, ILogger logger)
     {
         _stringLocalizer = stringLocalizer;
         _logger = logger;

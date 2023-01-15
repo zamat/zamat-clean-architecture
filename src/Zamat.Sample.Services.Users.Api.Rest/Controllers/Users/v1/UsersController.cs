@@ -51,8 +51,9 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _apiProblemFactory.CreateProblemResult(Convert(result));
+            return _apiProblemFactory.CreateValidationProblemResult(Convert(result));
         }
+
         _logger.LogInformation(UsersLogEvents.UserCreated, "User created (userId : {Id})", command.Id);
 
         var query = await _queryBus.ExecuteAsync(new GetUserQuery(command.Id));
@@ -137,7 +138,7 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _apiProblemFactory.CreateProblemResult(Convert(result));
+            return _apiProblemFactory.CreateValidationProblemResult(Convert(result));
         }
 
         _logger.LogInformation(UsersLogEvents.UserDeleted, "User was removed (userId : {Id})", command.Id);
@@ -161,7 +162,7 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _apiProblemFactory.CreateProblemResult(Convert(result));
+            return _apiProblemFactory.CreateValidationProblemResult(Convert(result));
         }
 
         _logger.LogInformation(UsersLogEvents.UserUpdated, "User updated (userId : {Id}, command: {command})", command.Id, command);

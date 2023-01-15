@@ -22,17 +22,31 @@ class ApiProblemFactory : IApiProblemFactory
         _logger = logger;
     }
 
-    public ActionResult CreateProblemResult(ModelStateDictionary modelState)
+    public ActionResult CreateValidationProblemResult(ModelStateDictionary modelState)
     {
         string errors = string.Join("|", modelState.Values.SelectMany(state => state.Errors).Select(error => error.ErrorMessage));
 
         _logger.LogInformation("Invalid api model state (errors : {errors})", errors);
 
         var problemDetails = _problemDetailsFactory.CreateValidationProblemDetails(
-            _contextAccessor.HttpContext!, 
-            modelState, 
-            StatusCodes.Status400BadRequest, 
-            ValidationError, 
+            _contextAccessor.HttpContext!,
+            modelState,
+            StatusCodes.Status400BadRequest,
+            ValidationError,
+            instance: _contextAccessor.HttpContext?.Request.Path);
+
+        return new BadRequestObjectResult(problemDetails);
+    }
+
+    public ActionResult CreateProblemResult(string error)
+    {
+        _logger.LogInformation("Invalid api request (error : {error})", error);
+
+        var problemDetails = _problemDetailsFactory.CreateProblemDetails(
+            _contextAccessor.HttpContext!,
+            StatusCodes.Status422UnprocessableEntity,
+            ValidationError,
+            detail: error,
             instance: _contextAccessor.HttpContext?.Request.Path);
 
         return new BadRequestObjectResult(problemDetails);

@@ -5,5 +5,6 @@ namespace Zamat.AspNetCore.Mvc.Rest.ProblemFactory;
 
 public interface IApiProblemFactory
 {
-    ActionResult CreateProblemResult(ModelStateDictionary modelState);
+    ActionResult CreateValidationProblemResult(ModelStateDictionary modelState);
+    ActionResult CreateProblemResult(string error);
 }

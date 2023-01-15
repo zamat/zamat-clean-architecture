@@ -16,7 +16,7 @@ class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand>
         var user = await _unitOfWork.UserRepository.GetOrDefaultAsync(new UserWithIdSpec(command.Id), cancellationToken);
         if (user is null)
         {
-            return new CommandResult(new CommandError(CommandErrorCode.InvalidUser, "User with given id not found."));
+            return new CommandResult(new PreconditionError(CommandErrorCode.InvalidUser, "User with given id not found."));
         }
 
         user.ChangeFullName(command.FirstName, command.LastName);

@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
-using Zamat.AspNetCore.Mvc.Rest.ProblemFactory;
 
 namespace Zamat.AspNetCore.Mvc.Rest;
 
@@ -8,7 +8,7 @@ public static class ServiceCollectionExtensions
 {
     public static IMvcBuilder ConfigureWebAPIMvc(this IMvcBuilder builder)
     {
-        builder.Services.AddScoped<IApiProblemFactory, ApiProblemFactory>();
+        builder.Services.AddTransient<ProblemDetailsFactory, ConcreteProblemDetailsFactory>();
 
         builder.AddJsonOptions(o =>
         {
@@ -18,11 +18,6 @@ public static class ServiceCollectionExtensions
         builder.ConfigureApiBehaviorOptions(o =>
         {
             o.DisableImplicitFromServicesParameters = true;
-            o.InvalidModelStateResponseFactory = context =>
-            {
-                var problemFactory = context.HttpContext.RequestServices.GetRequiredService<IApiProblemFactory>();
-                return problemFactory.CreateProblemResult(context.ModelState);
-            };
         });
 
         return builder;

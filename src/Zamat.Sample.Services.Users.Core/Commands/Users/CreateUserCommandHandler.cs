@@ -19,12 +19,12 @@ class CreateUserCommandHandler : ICommandHandler<CreateUserCommand>
 
     public async Task<CommandResult> HandleAsync(CreateUserCommand command, CancellationToken cancellationToken = default)
     {
-        var user = _userFactory.Create(command.Id, command.UserName, new FullName(command.FirstName, command.LastName));
-
-        if (await _unitOfWork.UserRepository.CheckExistsAsync(new UserWithUserNameSpec(command.UserName), cancellationToken))
+        if (await _unitOfWork.UserRepository.GetOrDefaultAsync(new UserWithUserNameSpec(command.UserName), cancellationToken) is not null)
         {
-            return new CommandResult(new CommandError(CommandErrorCode.UserNameNotUnique, "User with given userName already exists."));
+            return new CommandResult(new PreconditionError(CommandErrorCode.UserNameNotUnique, "User with given userName already exists."));
         }
+
+        var user = _userFactory.Create(command.Id, command.UserName, new FullName(command.FirstName, command.LastName));
 
         #region Using OutBox Pattern with EFCore store
 

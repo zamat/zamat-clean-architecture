@@ -25,7 +25,6 @@ builder.Services
 
 builder.Services
     .AddEndpointsApiExplorer()
-    .AddProblemDetails()
     .AddOpenApiDoc(builder.Configuration)
     .AddLocalization(builder.Configuration)
     .AddOpenTelemetry(builder.Configuration, i =>

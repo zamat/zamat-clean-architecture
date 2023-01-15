@@ -19,7 +19,7 @@ class DeleteUserCommandHandler : ICommandHandler<DeleteUserCommand>
         var user = await _unitOfWork.UserRepository.GetOrDefaultAsync(new UserWithIdSpec(command.Id), cancellationToken);
         if (user is null)
         {
-            return new CommandResult(new CommandError(CommandErrorCode.InvalidUser, "User with given id not found."));
+            return new CommandResult(new PreconditionError(CommandErrorCode.InvalidUser, "User with given id not found."));
         }
 
         await _unitOfWork.UserRepository.DeleteAsync(user, cancellationToken);

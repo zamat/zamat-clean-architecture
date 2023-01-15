@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.Extensions.Localization;
 using Swashbuckle.AspNetCore.Annotations;
-using Zamat.AspNetCore.Mvc.Rest.ProblemFactory;
 using Zamat.Common.Command;
 using Zamat.Common.Query.Bus;
 using Zamat.Sample.BuildingBlocks.Core;
 using Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
-using Zamat.Sample.Services.Users.Core.Commands;
 using Zamat.Sample.Services.Users.Core.Commands.Users;
 using Zamat.Sample.Services.Users.Core.Queries.Users;
 
@@ -15,22 +11,18 @@ namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1;
 
 [ApiVersion("1.0")]
 [Route("v{version:apiVersion}/users")]
-public class UsersController : ControllerBase
+public class UsersController : ApiController
 {
     private readonly ICommandBus _commandBus;
     private readonly IQueryBus _queryBus;
-    private readonly IApiProblemFactory _apiProblemFactory;
     private readonly IUuidGenerator _uuidGenerator;
-    private readonly IStringLocalizer<Translations> _stringLocalizer;
     private readonly ILogger<UsersController> _logger;
 
-    public UsersController(ICommandBus commandBus, IQueryBus queryBus, IApiProblemFactory apiProblemFactory, IUuidGenerator uuidGenerator, IStringLocalizer<Translations> stringLocalizer, ILogger<UsersController> logger)
+    public UsersController(ICommandBus commandBus, IQueryBus queryBus, IUuidGenerator uuidGenerator, ILogger<UsersController> logger)
     {
         _commandBus = commandBus;
         _queryBus = queryBus;
-        _apiProblemFactory = apiProblemFactory;
         _uuidGenerator = uuidGenerator;
-        _stringLocalizer = stringLocalizer;
         _logger = logger;
     }
 
@@ -51,7 +43,7 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _apiProblemFactory.CreateValidationProblemResult(Convert(result));
+            return ProblemDetailsResult(result);
         }
 
         _logger.LogInformation(UsersLogEvents.UserCreated, "User created (userId : {Id})", command.Id);
@@ -138,7 +130,7 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _apiProblemFactory.CreateValidationProblemResult(Convert(result));
+            return ProblemDetailsResult(result);
         }
 
         _logger.LogInformation(UsersLogEvents.UserDeleted, "User was removed (userId : {Id})", command.Id);
@@ -162,27 +154,11 @@ public class UsersController : ControllerBase
         var result = await _commandBus.ExecuteAsync(command);
         if (!result.Succeeded)
         {
-            return _apiProblemFactory.CreateValidationProblemResult(Convert(result));
+            return ProblemDetailsResult(result);
         }
 
         _logger.LogInformation(UsersLogEvents.UserUpdated, "User updated (userId : {Id}, command: {command})", command.Id, command);
 
         return NoContent();
-    }
-
-    ModelStateDictionary Convert(CommandResult commandResult)
-    {
-        var modelState = new ModelStateDictionary();
-        foreach (var error in commandResult.Errors)
-        {
-            (string key, string value) = error.ErrorCode switch
-            {
-                CommandErrorCode.UserNameNotUnique => ("userName", _stringLocalizer[error.ErrorMessage]),
-                CommandErrorCode.InvalidUser => ("id", _stringLocalizer[error.ErrorMessage]),
-                _ => ($"{error.ErrorCode}", _stringLocalizer[error.ErrorMessage])
-            };
-            modelState.AddModelError(key, value);
-        }
-        return modelState;
     }
 }

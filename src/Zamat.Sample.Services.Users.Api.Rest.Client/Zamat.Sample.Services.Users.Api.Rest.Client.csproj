@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>UserService Api Client Package</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="NSwag.ApiDescription.Client">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<OpenApiReference Include="OpenAPIs\swagger.json"
+						  CodeGenerator="NSwagCSharp"
+						  Namespace="Zamat.Sample.Services.Users.Api.Rest.Client.V1"
+						  ClassName="UsersClient"
+						  OutputPath="UsersClient.cs"
+						  Options="/UseBaseUrl:false /GenerateClientInterfaces:true /ClientBaseInterface:IUsersClient /OperationGenerationMode:MultipleClientsFromFirstTagAndOperationId /InjectHttpClient:true /JsonLibrary:SystemTextJson /UseHttpClientCreationMethod:true">
+			<SourceUri>https://localhost:7209/swagger/v1/swagger.json</SourceUri>
+		</OpenApiReference>
+	</ItemGroup>
+
+</Project>

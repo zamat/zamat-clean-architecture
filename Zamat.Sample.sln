@@ -102,6 +102,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Mvc.Rest",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Common.Http", "src\Commons\Zamat.Common.Http\Zamat.Common.Http.csproj", "{5256E4E1-2509-4574-8214-1CE1A4A59018}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Rest.Client", "src\Zamat.Sample.Services.Users.Api.Rest.Client\Zamat.Sample.Services.Users.Api.Rest.Client.csproj", "{3A4BAA77-72C8-4E94-A3DF-B24AEB0512B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -252,6 +254,10 @@ Global
 		{5256E4E1-2509-4574-8214-1CE1A4A59018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5256E4E1-2509-4574-8214-1CE1A4A59018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5256E4E1-2509-4574-8214-1CE1A4A59018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A4BAA77-72C8-4E94-A3DF-B24AEB0512B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A4BAA77-72C8-4E94-A3DF-B24AEB0512B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A4BAA77-72C8-4E94-A3DF-B24AEB0512B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A4BAA77-72C8-4E94-A3DF-B24AEB0512B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -294,6 +300,7 @@ Global
 		{BDC4D263-A4CF-4CAA-8D7C-BB73ECA0F106} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{5A48CFF2-5CC7-425A-A7B0-D1FB474E16DA} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 		{5256E4E1-2509-4574-8214-1CE1A4A59018} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
+		{3A4BAA77-72C8-4E94-A3DF-B24AEB0512B7} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10E0EEF8-A884-41A4-A98F-CA8E15CB9A16}

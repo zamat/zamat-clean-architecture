@@ -2,7 +2,7 @@
 using Zamat.Common.Events.Bus;
 using Zamat.Sample.Services.Users.Core.Events;
 
-namespace Zamat.Sample.Services.Audit.Consumer.EventHandlers;
+namespace Zamat.Sample.Services.Audit.EventListener.EventHandlers;
 
 class UserCreatedEventHandler : IEventHandler<UserCreated>, IConsumer<UserCreated>
 {

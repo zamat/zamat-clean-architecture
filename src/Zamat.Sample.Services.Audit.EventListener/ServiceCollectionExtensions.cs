@@ -1,9 +1,9 @@
 ﻿using MassTransit;
 using MassTransit.Transport.RabbitMQ;
 using Microsoft.EntityFrameworkCore;
-using Zamat.Sample.Services.Audit.Consumer;
+using Zamat.Sample.Services.Audit.EventListener;
 
-namespace Zamat.Sample.Services.Audit.Consumer;
+namespace Zamat.Sample.Services.Audit.EventListener;
 
 public static class ServiceCollectionExtensions
 {

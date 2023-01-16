@@ -85,3 +85,10 @@ services:
       - "8091:443"
     volumes:
       - ~/.aspnet/https:/https:ro
+
+  audit.event.listener:
+    environment:
+      - DOTNET_ENVIRONMENT=Docker
+      - ConnectionStrings__RabbitMQ=amqp://guest:guest@rabbitmq:5672 
+      - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
+      - OpenTelemetryServiceOptions__Enabled=true

@@ -1,6 +1,6 @@
 using Zamat.AspNetCore.OpenTelemetry;
-using Zamat.Sample.Services.Audit.Consumer;
-using Zamat.Sample.Services.Audit.Consumer.EventHandlers;
+using Zamat.Sample.Services.Audit.EventListener;
+using Zamat.Sample.Services.Audit.EventListener.EventHandlers;
 
 using IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>

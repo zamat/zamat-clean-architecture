@@ -3,6 +3,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.1" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.Twitter" Version="7.0.1" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="7.0.0" />
     <PackageVersion Include="Microsoft.OpenApi.Readers" Version="1.4.5" />
     <PackageVersion Include="MMLib.SwaggerForOcelot" Version="6.1.0" />
     <PackageVersion Include="Ocelot" Version="18.0.0" />
@@ -32,6 +33,8 @@
     <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="7.0.1" />
     <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.1" />
     <PackageVersion Include="MassTransit" Version="8.0.10" />
+    <PackageVersion Include="NSwag.ApiDescription.Client" Version="13.0.5" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageVersion Include="LinqKit" Version="1.2.3" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1" />
     <PackageVersion Include="MassTransit.EntityFrameworkCore" Version="8.0.10" />

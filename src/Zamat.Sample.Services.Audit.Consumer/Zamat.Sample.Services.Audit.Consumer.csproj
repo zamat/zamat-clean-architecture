@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
@@ -9,17 +9,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Hosting" />
+		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenTelemetry\Zamat.AspNetCore.OpenTelemetry.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenTelemetry\Zamat.AspNetCore.OpenTelemetry.csproj" />
-		<ProjectReference Include="..\Commons\Zamat.Common.Events.Bus\Zamat.Common.Events.Bus.csproj" />
+		<ProjectReference Include="..\Zamat.Sample.BuildingBlocks.Core\Zamat.Sample.BuildingBlocks.Core.csproj" />
+		<ProjectReference Include="..\Zamat.Sample.Services.Users.Core.Events\Zamat.Sample.Services.Users.Core.Events.csproj" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<ProjectReference Include="..\MassTransit.Transport.RabbitMQ\MassTransit.Transport.RabbitMQ.csproj" />
-		<ProjectReference Include="..\Zamat.Sample.Services.Users.Core.Events\Zamat.Sample.Services.Users.Core.Events.csproj" />
 	</ItemGroup>
 
 </Project>

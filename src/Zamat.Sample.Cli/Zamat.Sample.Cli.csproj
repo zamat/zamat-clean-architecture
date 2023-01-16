@@ -12,7 +12,9 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Infrastructure\Zamat.Sample.Services.Users.Infrastructure.csproj" />
-		<ProjectReference Include="..\EFCore.PostgreSQL\EFCore.PostgreSQL.csproj" />
+		<ProjectReference Include="..\EFCore.PostgreSQL\EFCore.PostgreSQL.csproj">
+		  <TreatAsUsed>true</TreatAsUsed>
+		</ProjectReference>
 	</ItemGroup>
 
 </Project>

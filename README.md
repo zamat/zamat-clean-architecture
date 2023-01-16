@@ -21,13 +21,13 @@ If you like or are using this project to learn or start your solution, please gi
 * [OpenApiReference](https://learn.microsoft.com/en-us/aspnet/core/web-api/microsoft.dotnet-openapi?view=aspnetcore-7.0) (Sample web api client based on OpenAPI tool which can be distributed via nuget packages)
 
 ## Architectural principles
-* [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) ( In this solution we are using Clean Architecture )
-* [Domain Driven Design](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/tactical-ddd) ( In this solution we are using tactical DDD patterns )
-* [CQRS](https://martinfowler.com/bliki/CQRS.html) ( In Core Application layer we separate commands and queries )
+* [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) (Clean Architecture application style)
+* [Domain Driven Design](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/tactical-ddd) (Tactical DDD patterns)
+* [CQRS](https://martinfowler.com/bliki/CQRS.html) (Separate commands from queries with dedicated bus)
 
 ## Design patterns 
-* [UnitOfWork](https://martinfowler.com/eaaCatalog/unitOfWork.html) (Using UnitOfWork pattern with repository pattern )
-* [Outbox pattern](https://microservices.io/patterns/data/transactional-outbox.html) (Outbox pattern, Using save to db and publish integration event in one transaction )
+* [UnitOfWork](https://martinfowler.com/eaaCatalog/unitOfWork.html) (UnitOfWork pattern with Repository pattern)
+* [Outbox pattern](https://microservices.io/patterns/data/transactional-outbox.html) (EFCore SaveChanges and publish integration event in one transaction)
 
 ## Getting Started
 To use this template, there are a few options:

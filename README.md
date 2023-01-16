@@ -18,6 +18,7 @@ If you like or are using this project to learn or start your solution, please gi
 * [MassTransit](https://masstransit-project.com/) (MessageBroker, Integration Events, Outbox pattern)
 * [OpenTelemetry](https://opentelemetry.io/) (observability (tracing, logging, metrics) with grafana backend)
 * [Ocelot](https://ocelot.readthedocs.io/en/latest/) (Ocelot api gateway)
+* [OpenApiReference](https://learn.microsoft.com/en-us/aspnet/core/web-api/microsoft.dotnet-openapi?view=aspnetcore-7.0) (Sample web api client based on OpenAPI tool which can be distributed via nuget packages)
 
 ## Getting Started
 To use this template, there are a few options:

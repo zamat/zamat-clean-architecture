@@ -20,6 +20,10 @@ If you like or are using this project to learn or start your solution, please gi
 * [Ocelot](https://ocelot.readthedocs.io/en/latest/) (Ocelot api gateway)
 * [OpenApiReference](https://learn.microsoft.com/en-us/aspnet/core/web-api/microsoft.dotnet-openapi?view=aspnetcore-7.0) (Sample web api client based on OpenAPI tool which can be distributed via nuget packages)
 
+## Design patterns & Architectural principals
+* [UnitOfWork](https://martinfowler.com/eaaCatalog/unitOfWork.html) (Using UnitOfWork pattern )
+* [Outbox pattern](https://microservices.io/patterns/data/transactional-outbox.html) (Outbox pattern, Using save to db and publish integration event in one transaction )
+
 ## Getting Started
 To use this template, there are a few options:
 - Create a new project based on this template by clicking the above **Use this template** .

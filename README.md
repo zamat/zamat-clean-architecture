@@ -9,6 +9,10 @@ This is a solution template for creating a application following the principles 
 ## Overview
 <img align="left" src="https://raw.githubusercontent.com/zamat/zamat-clean-architecture/main/docs/clean-architecture-overview.png" />
 
+## Solution view
+<img align="left" src="https://raw.githubusercontent.com/zamat/zamat-clean-architecture/main/docs/logical-view.png" />
+
+
 ## Give a Star
 If you like or are using this project to learn or start your solution, please give it a star. Thanks!
 

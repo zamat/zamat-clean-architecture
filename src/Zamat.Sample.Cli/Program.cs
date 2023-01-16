@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using System.IO;
 using Zamat.Sample.Cli;
-using Zamat.Sample.Services.Users.Core;
 using Zamat.Sample.Services.Users.Infrastructure;
 
 var configuration = new ConfigurationBuilder()
@@ -17,8 +16,7 @@ builder.ConfigureLogging(builder => builder.ClearProviders().AddConfiguration(co
 
 builder.ConfigureServices(services =>
 {
-    services.AddCore()
-    .AddUsersDbContext(configuration);
+    services.AddUsersDbContext(configuration);
 });
 
 var app = builder.Build();

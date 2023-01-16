@@ -30,4 +30,24 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
+
+    public static IServiceCollection ConfigureMassTransit(this IServiceCollection services, RabbitMQOptions options, Action<IBusRegistrationConfigurator> configureBus, Action<IRabbitMqBusFactoryConfigurator> configureRabbitMQ)
+    {
+        services.AddMassTransit(c =>
+        {
+            configureBus(c);
+            c.SetKebabCaseEndpointNameFormatter();
+            c.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.Host(options.Host);
+
+                cfg.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(options.Prefix, false));
+
+                configureRabbitMQ(cfg);
+            });
+        });
+
+        return services;
+    }
+
 }

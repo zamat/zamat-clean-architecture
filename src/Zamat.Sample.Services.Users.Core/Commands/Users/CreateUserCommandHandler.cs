@@ -1,6 +1,7 @@
 ﻿using Zamat.Common.Command;
 using Zamat.Common.Events.Bus;
 using Zamat.Sample.Services.Users.Core.Domain.Factories;
+using Zamat.Sample.Services.Users.Core.Events;
 
 namespace Zamat.Sample.Services.Users.Core.Commands.Users;
 
@@ -30,7 +31,7 @@ class CreateUserCommandHandler : ICommandHandler<CreateUserCommand>
 
         await _unitOfWork.UserRepository.AddAsync(user, cancellationToken);
 
-        await _eventBus.PublishAsync(new UserCreated(user), cancellationToken);
+        await _eventBus.PublishAsync(new UserCreated(user.Id, user.UserName), cancellationToken);
 
         _ = await _unitOfWork.SaveChangesAsync(cancellationToken);
 

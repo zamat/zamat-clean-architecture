@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
-using Zamat.Common.Events.Bus;
+﻿using Zamat.Common.Events.Bus;
+using Zamat.Sample.Services.Users.Core.Events;
 
-namespace Zamat.Sample.Services.Users.Core.IntegrationEvents.Users;
+namespace Zamat.Sample.Services.Audit.Consumer.EventHandlers;
 
 class UserCreatedEventHandler : IEventHandler<UserCreated>
 {
@@ -14,7 +14,7 @@ class UserCreatedEventHandler : IEventHandler<UserCreated>
 
     public async Task HandleAsync(UserCreated @event, CancellationToken cancellationToken)
     {
-        _logger.LogDebug("User created event processing (Event : {eventData})", @event);
+        _logger.LogInformation("User created event handled (Event : {eventData})", @event);
 
         await Task.Delay(50, cancellationToken);
     }

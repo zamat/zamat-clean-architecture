@@ -1,8 +1,8 @@
 ﻿using MassTransit;
 using Zamat.Common.Events.Bus;
-using Zamat.Sample.Services.Users.Core.IntegrationEvents.Users;
+using Zamat.Sample.Services.Users.Core.Events;
 
-namespace Zamat.Sample.Services.Users.Api.Rest.Consumers;
+namespace Zamat.Sample.Services.Audit.Consumer.Consumers;
 
 class UserCreatedEventConsumer : IConsumer<UserCreated>
 {
@@ -17,7 +17,7 @@ class UserCreatedEventConsumer : IConsumer<UserCreated>
 
     public Task Consume(ConsumeContext<UserCreated> context)
     {
-        _logger.LogDebug(UsersLogEvents.UserCreated, "User created event received (Event : {eventData})", context.Message);
+        _logger.LogInformation("User created event received (Event : {eventData})", context.Message);
 
         return _eventHandler.HandleAsync(context.Message, context.CancellationToken);
     }

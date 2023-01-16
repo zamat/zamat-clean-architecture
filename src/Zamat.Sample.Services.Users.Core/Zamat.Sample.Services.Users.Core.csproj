@@ -15,6 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Sample.Services.Users.Core.Events\Zamat.Sample.Services.Users.Core.Events.csproj" />
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Core.Domain\Zamat.Sample.Services.Users.Core.Domain.csproj" />
 	</ItemGroup>
 

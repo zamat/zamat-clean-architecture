@@ -1,6 +1,6 @@
 using Zamat.AspNetCore.OpenTelemetry;
 using Zamat.Sample.Services.Audit.Consumer;
-using Zamat.Sample.Services.Audit.Consumer.Consumers;
+using Zamat.Sample.Services.Audit.Consumer.EventHandlers;
 
 using IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>
@@ -12,10 +12,9 @@ using IHost host = Host.CreateDefaultBuilder(args)
             });
 
         services
-            .AddEventHandlers()
             .ConfigureMessageBroker(hostContext.Configuration, c =>
             {
-                c.AddConsumer<UserCreatedEventConsumer>();
+                c.AddConsumer<UserCreatedEventHandler>();
             })
             .AddHealthChecks();
     })

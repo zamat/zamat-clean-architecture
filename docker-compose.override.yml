@@ -86,7 +86,7 @@ services:
     volumes:
       - ~/.aspnet/https:/https:ro
 
-  audit-worker:
+  audit.worker:
     environment:
       - DOTNET_ENVIRONMENT=Docker
       - ConnectionStrings__RabbitMQ=amqp://guest:guest@rabbitmq:5672 

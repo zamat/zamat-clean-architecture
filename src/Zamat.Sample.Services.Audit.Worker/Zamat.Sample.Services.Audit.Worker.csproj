@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>AuditService Consumer Package</Description>
+		<Description>AuditService Worker Package</Description>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<UserSecretsId>Sample.AuditService-2f01679c-2b8c-4f67-a8af-160daef93699</UserSecretsId>

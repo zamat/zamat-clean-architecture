@@ -106,7 +106,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Core.IntegrationEvents", "src\Zamat.Sample.Services.Users.Core.IntegrationEvents\Zamat.Sample.Services.Users.Core.IntegrationEvents.csproj", "{B1684B5E-7679-4386-A03E-6B10836B66DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Audit.EventListener", "src\Zamat.Sample.Services.Audit.EventListener\Zamat.Sample.Services.Audit.EventListener.csproj", "{828B97E3-692B-4732-A616-F360578375A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Audit.Worker", "src\Zamat.Sample.Services.Audit.Worker\Zamat.Sample.Services.Audit.Worker.csproj", "{828B97E3-692B-4732-A616-F360578375A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

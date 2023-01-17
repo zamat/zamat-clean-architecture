@@ -63,12 +63,12 @@ services:
       - sample.cli
       - rabbitmq
 
-  audit.event.listener:
-    container_name: audit-event-listener
-    image: ${DOCKER_REGISTRY-}auditeventlistener
+  audit.worker:
+    container_name: audit-worker
+    image: ${DOCKER_REGISTRY-}auditworker
     build:
       context: .
-      dockerfile: src/Zamat.Sample.Services.Audit.EventListener/Dockerfile
+      dockerfile: src/Zamat.Sample.Services.Audit.Worker/Dockerfile
     depends_on:
       - sample.cli
       - rabbitmq

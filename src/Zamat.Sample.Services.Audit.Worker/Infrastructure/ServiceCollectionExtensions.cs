@@ -1,13 +1,20 @@
 ﻿using MassTransit;
 using MassTransit.Transport.RabbitMQ;
 using Microsoft.EntityFrameworkCore;
-using Zamat.Sample.Services.Audit.EventListener;
+using Zamat.Sample.Services.Audit.Worker.Infrastructure;
 
-namespace Zamat.Sample.Services.Audit.EventListener;
+namespace Zamat.Sample.Services.Audit.Worker.Infrastructure;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection ConfigureMessageBroker(this IServiceCollection services, IConfiguration configuration, Action<IBusRegistrationConfigurator> configureBus)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, Action<IBusRegistrationConfigurator> configureBus)
+    {
+        services.ConfigureMessageBroker(configuration, configureBus);
+
+        return services;
+    }
+
+    static IServiceCollection ConfigureMessageBroker(this IServiceCollection services, IConfiguration configuration, Action<IBusRegistrationConfigurator> configureBus)
     {
         var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
 

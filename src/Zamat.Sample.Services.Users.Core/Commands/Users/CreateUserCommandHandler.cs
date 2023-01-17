@@ -1,7 +1,7 @@
 ﻿using Zamat.Common.Command;
 using Zamat.Common.Events.Bus;
 using Zamat.Sample.Services.Users.Core.Domain.Factories;
-using Zamat.Sample.Services.Users.Core.Events;
+using Zamat.Sample.Services.Users.Core.IntegrationEvents;
 
 namespace Zamat.Sample.Services.Users.Core.Commands.Users;
 

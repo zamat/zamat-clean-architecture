@@ -1,6 +1,6 @@
 ﻿using Zamat.Common.Events;
 
-namespace Zamat.Sample.Services.Users.Core.Events;
+namespace Zamat.Sample.Services.Users.Core.IntegrationEvents;
 
 public record UserCreated(string Id, string UserName) : IEvent
 {

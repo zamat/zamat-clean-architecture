@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 using Zamat.Common.Events.Bus;
-using Zamat.Sample.Services.Users.Core.Events;
+using Zamat.Sample.Services.Users.Core.IntegrationEvents;
 
 namespace Zamat.Sample.Services.Audit.EventListener.EventHandlers;
 

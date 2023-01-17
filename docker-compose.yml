@@ -63,3 +63,13 @@ services:
       - sample.cli
       - rabbitmq
 
+  audit.worker:
+    container_name: audit-worker
+    image: ${DOCKER_REGISTRY-}auditworker
+    build:
+      context: .
+      dockerfile: src/Zamat.Sample.Services.Audit.Worker/Dockerfile
+    depends_on:
+      - sample.cli
+      - rabbitmq
+

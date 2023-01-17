@@ -8,16 +8,25 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection ConfigureMassTransit<TContext>(this IServiceCollection services, RabbitMQOptions options, Action<IBusRegistrationConfigurator> configureBus, Action<IRabbitMqBusFactoryConfigurator> configureRabbitMQ) where TContext : DbContext
     {
-        services.AddMassTransit(c =>
+        services.ConfigureMassTransit(options, c =>
         {
             configureBus(c);
-            c.SetKebabCaseEndpointNameFormatter();
             c.AddEntityFrameworkOutbox<TContext>(o =>
             {
                 o.UsePostgres();
                 o.UseBusOutbox();
             });
+        }, configureRabbitMQ);
 
+        return services;
+    }
+
+    public static IServiceCollection ConfigureMassTransit(this IServiceCollection services, RabbitMQOptions options, Action<IBusRegistrationConfigurator> configureBus, Action<IRabbitMqBusFactoryConfigurator> configureRabbitMQ)
+    {
+        services.AddMassTransit(c =>
+        {
+            configureBus(c);
+            c.SetKebabCaseEndpointNameFormatter();
             c.UsingRabbitMq((context, cfg) =>
             {
                 cfg.Host(options.Host);
@@ -30,4 +39,5 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
+
 }

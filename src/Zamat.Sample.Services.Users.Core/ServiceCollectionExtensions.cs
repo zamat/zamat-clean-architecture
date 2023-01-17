@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Zamat.Common.Command.Bus;
 using Zamat.Common.DomainEventDispatcher;
-using Zamat.Common.Events.Bus;
 using Zamat.Common.Query.Bus;
 using Zamat.Sample.BuildingBlocks.Core;
 using Zamat.Sample.Services.Users.Core.Domain;
@@ -28,9 +27,6 @@ public static class ServiceCollectionExtensions
         {
             o.AddDomainEventHandlers(UserCoreDomainAssembly.Assembly);
         });
-
-        services.AddTransient<IEventHandler<UserCreated>, UserCreatedEventHandler>();
-
         return services;
     }
 }

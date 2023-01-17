@@ -6,12 +6,10 @@ namespace Zamat.Sample.Services.Users.Core.Commands.Users;
 class DeleteUserCommandHandler : ICommandHandler<DeleteUserCommand>
 {
     private readonly IApplicationUnitOfWork _unitOfWork;
-    private readonly IEventBus _eventBus;
 
-    public DeleteUserCommandHandler(IApplicationUnitOfWork unitOfWork, IEventBus eventBus)
+    public DeleteUserCommandHandler(IApplicationUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
-        _eventBus = eventBus;
     }
 
     public async Task<CommandResult> HandleAsync(DeleteUserCommand command, CancellationToken cancellationToken = default)
@@ -23,8 +21,6 @@ class DeleteUserCommandHandler : ICommandHandler<DeleteUserCommand>
         }
 
         await _unitOfWork.UserRepository.DeleteAsync(user, cancellationToken);
-
-        await _eventBus.PublishAsync(new UserDeleted(user), cancellationToken);
 
         _ = await _unitOfWork.SaveChangesAsync(cancellationToken);
 

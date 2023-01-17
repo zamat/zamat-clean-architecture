@@ -1,8 +1,7 @@
 {
   "profiles": {
     "Zamat.Sample.Cli": {
-      "commandName": "Project",
-      "commandLineArgs": "initialize"
+      "commandName": "Project"
     },
     "Zamat.Sample.Cli.[Initialize]": {
       "commandName": "Project",

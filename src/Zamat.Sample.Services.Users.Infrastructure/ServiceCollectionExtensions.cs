@@ -41,7 +41,7 @@ public static class ServiceCollectionExtensions
             Prefix = "users-svc"
         };
 
-        services.ConfigureMassTransit<UsersDbContext>(opt, _ => { }, _ => { });
+        services.ConfigureMassTransitOutbox<UsersDbContext>(opt, _ => { }, _ => { });
 
         return services;
     }

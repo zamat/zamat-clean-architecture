@@ -6,21 +6,6 @@ namespace MassTransit.Transport.RabbitMQ;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection ConfigureMassTransit<TContext>(this IServiceCollection services, RabbitMQOptions options, Action<IBusRegistrationConfigurator> configureBus, Action<IRabbitMqBusFactoryConfigurator> configureRabbitMQ) where TContext : DbContext
-    {
-        services.ConfigureMassTransit(options, c =>
-        {
-            configureBus(c);
-            c.AddEntityFrameworkOutbox<TContext>(o =>
-            {
-                o.UsePostgres();
-                o.UseBusOutbox();
-            });
-        }, configureRabbitMQ);
-
-        return services;
-    }
-
     public static IServiceCollection ConfigureMassTransit(this IServiceCollection services, RabbitMQOptions options, Action<IBusRegistrationConfigurator> configureBus, Action<IRabbitMqBusFactoryConfigurator> configureRabbitMQ)
     {
         services.AddMassTransit(c =>
@@ -40,4 +25,18 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
+    public static IServiceCollection ConfigureMassTransitOutbox<TContext>(this IServiceCollection services, RabbitMQOptions options, Action<IBusRegistrationConfigurator> configureBus, Action<IRabbitMqBusFactoryConfigurator> configureRabbitMQ) where TContext : DbContext
+    {
+        services.ConfigureMassTransit(options, c =>
+        {
+            configureBus(c);
+            c.AddEntityFrameworkOutbox<TContext>(o =>
+            {
+                o.UsePostgres();
+                o.UseBusOutbox();
+            });
+        }, configureRabbitMQ);
+
+        return services;
+    }
 }

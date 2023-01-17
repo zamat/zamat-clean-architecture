@@ -1,5 +1,4 @@
 ﻿using Zamat.Common.Command;
-using Zamat.Common.Events.Bus;
 
 namespace Zamat.Sample.Services.Users.Core.Commands.Users;
 

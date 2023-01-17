@@ -8,6 +8,9 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Zamat.Sample.BuildingBlocks.Infrastructure\Zamat.Sample.BuildingBlocks.Infrastructure.csproj" />
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Core\Zamat.Sample.Services.Users.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\MassTransit.Transport.RabbitMQ\MassTransit.Transport.RabbitMQ.csproj" />
 	</ItemGroup>
 

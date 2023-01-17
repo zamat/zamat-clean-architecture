@@ -7,7 +7,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Commons\Zamat.Common.EntityFrameworkCore\Zamat.Common.EntityFrameworkCore.csproj">
-		  <TreatAsUsed>true</TreatAsUsed>
+			<TreatAsUsed>true</TreatAsUsed>
 		</ProjectReference>
 		<ProjectReference Include="..\Commons\Zamat.Common.Events.Bus.MassTransit\Zamat.Common.Events.Bus.MassTransit.csproj" />
 	</ItemGroup>

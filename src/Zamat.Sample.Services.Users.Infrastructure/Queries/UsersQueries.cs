@@ -24,13 +24,13 @@ class UsersQueries : IUsersQueries
         return _dbContext.Users.CountAsync(cancellationToken);
     }
 
-    public async Task<IEnumerable<User>> GetAsync(GetUsersQuery query, CancellationToken cancellationToken)
+    public IAsyncEnumerable<User> GetAsync(GetUsersQuery query, CancellationToken cancellationToken)
     {
-        return await _dbContext.Users
+        return _dbContext.Users
             .OrderBy(x => x.Id)
             .Skip((query.Page - 1) * query.Limit)
             .Take(query.Limit)
-            .ToListAsync(cancellationToken);
+            .AsAsyncEnumerable();
     }
 
     public Task<User?> GetOrDefaultAsync(string userId, CancellationToken cancellationToken)

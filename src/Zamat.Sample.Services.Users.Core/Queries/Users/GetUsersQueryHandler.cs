@@ -13,11 +13,11 @@ class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, IEnumerable<UserDto>>
 
     public async Task<QueryResult<IEnumerable<UserDto>>> HandleAsync(GetUsersQuery query, CancellationToken cancellationToken)
     {
-        var users = await _usersQueries.GetAsync(query, cancellationToken);
+        var users = _usersQueries.GetAsync(query, cancellationToken);
 
         var dtos = new List<UserDto>();
 
-        foreach (var user in users)
+        await foreach (var user in users)
         {
             dtos.Add(new UserDto(user));
         }

@@ -1,22 +1,17 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using System.IO;
+﻿using Microsoft.Extensions.Logging;
 using Zamat.Sample.Cli;
 using Zamat.Sample.Services.Users.Infrastructure;
 
-var configuration = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json")
-    .AddEnvironmentVariables()
-    .Build();
-
 var builder = ConsoleApp.CreateBuilder(args);
 
-builder.ConfigureLogging(builder => builder.ClearProviders().AddConfiguration(configuration.GetSection("Logging")).AddConsole());
-
-builder.ConfigureServices(services =>
+builder.ConfigureServices((host, services) =>
 {
-    services.AddUsersDbContext(configuration);
+    services.AddUsersDbContext(host.Configuration);
+});
+
+builder.ConfigureLogging(configureLogging =>
+{
+    configureLogging.ClearProviders().AddConsole();
 });
 
 var app = builder.Build();

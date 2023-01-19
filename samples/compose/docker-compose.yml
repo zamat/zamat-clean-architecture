@@ -41,8 +41,8 @@ services:
     container_name: sample-cli
     image: ${DOCKER_REGISTRY-}samplecli
     build:
-      context: .
-      dockerfile: src/Zamat.Sample.Cli/Dockerfile
+      context: ../../
+      dockerfile: ./src/Zamat.Sample.Cli/Dockerfile
     depends_on:
       - postgresql
 
@@ -50,14 +50,14 @@ services:
     container_name: sample-apigateway
     image: ${DOCKER_REGISTRY-}sampleapigateway
     build:
-      context: .
+      context: ../../
       dockerfile: src/Zamat.Sample.ApiGateway/Dockerfile
 
   users.api.rest:
     container_name: users-api-rest
     image: ${DOCKER_REGISTRY-}usersapirest
     build:
-      context: .
+      context: ../../
       dockerfile: src/Zamat.Sample.Services.Users.Api.Rest/Dockerfile
     depends_on:
       - sample.cli
@@ -67,7 +67,7 @@ services:
     container_name: audit-worker
     image: ${DOCKER_REGISTRY-}auditworker
     build:
-      context: .
+      context: ../../
       dockerfile: src/Zamat.Sample.Services.Audit.Worker/Dockerfile
     depends_on:
       - sample.cli

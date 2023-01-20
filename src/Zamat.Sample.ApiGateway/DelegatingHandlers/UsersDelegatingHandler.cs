@@ -44,14 +44,9 @@ class UsersDelegatingHandler : DelegatingHandler
 
     void DoSomethingWithRequest()
     {
-        string? sub = string.Empty;
-        var claimsPrincipal = _httpContextAccessor.HttpContext?.User;
-        if (claimsPrincipal is not null)
-        {
-            sub = claimsPrincipal.FindFirst("sub")?.Value;
-        }
-
-        _logger.LogInformation("Processing {nameof} at utc {datetime} with auth context (sub: {sub})", nameof(UsersDelegatingHandler), DateTime.UtcNow.ToString("O"), sub ?? "notset");
+        var sub = _httpContextAccessor.HttpContext?.User?.FindFirst("sub")?.Value ?? "notset";
+        
+        _logger.LogInformation("Processing {nameof} at utc {datetime} with auth context (sub: {sub})", nameof(UsersDelegatingHandler), DateTime.UtcNow.ToString("O"), sub);
     }
 }
 

@@ -13,6 +13,7 @@ using Zamat.AspNetCore.Diagnostics;
 using Zamat.AspNetCore.Ocelot;
 using Zamat.AspNetCore.OpenIddict;
 using Zamat.AspNetCore.OpenTelemetry;
+using Zamat.Sample.ApiGateway.DelegatingHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,7 @@ builder.Configuration.AddOcelotWithSwaggerSupport((o) =>
 
 builder.Services
     .AddOcelot()
+    .AddDelegatingHandlers()
     .AddPolly()
     .AddCacheManager(x =>
     {

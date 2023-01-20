@@ -31,7 +31,10 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "OpenIddict.Validation.AspNetCore",
         "AllowedScopes": [ "api" ]
-      }
+      },
+      "DelegatingHandlers": [
+        "UsersDelegatingHandler"
+      ]
     }
   ]
 }

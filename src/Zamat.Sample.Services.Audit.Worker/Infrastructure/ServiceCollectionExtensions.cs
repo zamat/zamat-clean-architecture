@@ -1,6 +1,6 @@
 ﻿using MassTransit;
-using MassTransit.Transport.RabbitMQ;
 using Microsoft.EntityFrameworkCore;
+using Zamat.AspNetCore.MassTransit.RabbitMQ;
 using Zamat.Sample.Services.Audit.Worker.Infrastructure;
 
 namespace Zamat.Sample.Services.Audit.Worker.Infrastructure;

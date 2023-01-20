@@ -1,8 +1,8 @@
-﻿using MassTransit.Transport.RabbitMQ;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Zamat.AspNetCore.MassTransit.RabbitMQ;
 using Zamat.Common.EntityFrameworkCore;
 using Zamat.Sample.BuildingBlocks.Infrastructure;
 using Zamat.Sample.Services.Users.Core.Domain.Factories;
@@ -41,7 +41,7 @@ public static class ServiceCollectionExtensions
             Prefix = "users-svc"
         };
 
-        services.ConfigureMassTransitOutbox<UsersDbContext>(opt, _ => { }, _ => { });
+        services.ConfigureMassTransitWithOutbox<UsersDbContext>(opt, _ => { }, _ => { });
 
         return services;
     }

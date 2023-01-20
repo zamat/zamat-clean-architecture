@@ -10,9 +10,5 @@
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Core\Zamat.Sample.Services.Users.Core.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\MassTransit.Transport.RabbitMQ\MassTransit.Transport.RabbitMQ.csproj" />
-	</ItemGroup>
-
 </Project>
 

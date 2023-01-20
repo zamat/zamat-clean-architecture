@@ -13,12 +13,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Sample.BuildingBlocks.Infrastructure\Zamat.Sample.BuildingBlocks.Infrastructure.csproj" />
 		<ProjectReference Include="..\Zamat.Sample.BuildingBlocks.Core\Zamat.Sample.BuildingBlocks.Core.csproj" />
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Core.IntegrationEvents\Zamat.Sample.Services.Users.Core.IntegrationEvents.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\MassTransit.Transport.RabbitMQ\MassTransit.Transport.RabbitMQ.csproj" />
 	</ItemGroup>
 
 </Project>

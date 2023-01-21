@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "Zamat.Sample.Services.Users.Api.Grpc.Client";
+
+package users.v1;
+
+service UsersSvc {
+  rpc GetUser (GetUserRequest) returns (UsersReply);
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message UsersReply {
+  string id = 1;
+  string username = 2;
+  string firstname = 3;
+  string lastname = 4;
+}

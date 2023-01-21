@@ -15,5 +15,9 @@
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Api.Grpc.Client\Zamat.Sample.Services.Users.Api.Grpc.Client.csproj" />
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Infrastructure\Zamat.Sample.Services.Users.Infrastructure.csproj" />
 	</ItemGroup>
-
+	
+	<ItemGroup>
+		<Protobuf Include="users.proto" GrpcServices="Client" />
+	</ItemGroup>
+	
 </Project>

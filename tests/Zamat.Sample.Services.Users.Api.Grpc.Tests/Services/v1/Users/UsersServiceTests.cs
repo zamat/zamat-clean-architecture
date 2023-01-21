@@ -1,4 +1,4 @@
-﻿using Zamat.Sample.Services.Users.Api.Grpc.Client;
+﻿using GrpcUsers;
 
 namespace Zamat.Sample.Services.Users.Api.Grpc.Tests.Services.v1.Users;
 

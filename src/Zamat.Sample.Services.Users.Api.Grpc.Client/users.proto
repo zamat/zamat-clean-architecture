@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Zamat.Sample.Services.Users.Api.Grpc.Client";
+option csharp_namespace = "GrpcUsers";
 
 package users.v1;
 

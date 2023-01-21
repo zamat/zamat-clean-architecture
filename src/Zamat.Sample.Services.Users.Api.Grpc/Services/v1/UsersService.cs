@@ -1,6 +1,6 @@
 using Grpc.Core;
+using GrpcUsers;
 using Zamat.Common.Query.Bus;
-using Zamat.Sample.Services.Users.Api.Grpc.Client;
 using Zamat.Sample.Services.Users.Core.Queries.Users;
 
 namespace Zamat.Sample.Services.Users.Api.Grpc.Services.v1;

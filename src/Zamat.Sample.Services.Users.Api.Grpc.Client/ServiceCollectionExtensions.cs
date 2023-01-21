@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GrpcUsers;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Zamat.Sample.Services.Users.Api.Grpc.Client;

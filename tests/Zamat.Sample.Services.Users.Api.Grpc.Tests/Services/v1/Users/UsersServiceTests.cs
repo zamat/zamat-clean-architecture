@@ -17,7 +17,7 @@ public class UsersServiceTests : BaseServiceTests
         #endregion
 
         #region Act
-        var response = await client.GetUserAsync(new GetUserRequest() { Id = userId });
+        var response = await client.GetUserAsync(new GetUserRequest() { Id = userId }, deadline: DateTime.UtcNow.AddSeconds(5));
         #endregion
 
         #region Assert

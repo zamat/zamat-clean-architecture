@@ -11,7 +11,8 @@ public static class ServiceCollectionExtensions
         services.AddGrpcClient<UsersSvc.UsersSvcClient>(o =>
         {
             o.Address = new Uri(serviceUrl);
-        });
+        })
+        .EnableCallContextPropagation();
 
         return services;
     }

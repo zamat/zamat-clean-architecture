@@ -1,4 +1,5 @@
 using Zamat.AspNetCore.Diagnostics;
+using Zamat.AspNetCore.Grpc;
 using Zamat.AspNetCore.Localization;
 using Zamat.AspNetCore.OpenTelemetry;
 using Zamat.Sample.Services.Users.Api.Grpc.Services.v1;
@@ -7,7 +8,10 @@ using Zamat.Sample.Services.Users.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddGrpc();
+builder.Services.AddGrpc(o =>
+{
+    o.Interceptors.AddLoggerInterceptor();
+});
 
 builder.Services
     .AddLocalization(builder.Configuration)

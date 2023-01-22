@@ -10,7 +10,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Protobuf Include="users.proto" GrpcServices="Both" />
+		<Protobuf Include="Protos\users.v1.proto" GrpcServices="Both" />
 	</ItemGroup>
 
 </Project>

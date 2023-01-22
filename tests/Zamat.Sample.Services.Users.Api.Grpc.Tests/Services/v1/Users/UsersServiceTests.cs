@@ -21,7 +21,7 @@ public class UsersServiceTests : BaseServiceTests
         #endregion
 
         #region Assert
-        Assert.Equal(userId, response.Id);
+        Assert.Equal(userId, response?.Id);
         #endregion
     }
 }

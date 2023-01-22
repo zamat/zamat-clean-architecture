@@ -16,7 +16,7 @@ class UsersService : UsersSvc.UsersSvcBase
         _logger = logger;
     }
 
-    public async override Task<UsersReply> GetUser(GetUserRequest request, ServerCallContext context)
+    public async override Task<UserReply> GetUser(GetUserRequest request, ServerCallContext context)
     {
         var query = await _queryBus.ExecuteAsync(new GetUserQuery(request.Id));
         if (!query.Succeeded)
@@ -26,7 +26,7 @@ class UsersService : UsersSvc.UsersSvcBase
             throw new RpcException(new Status(StatusCode.NotFound, "User with given id not found"));
         }
 
-        return new UsersReply()
+        return new UserReply()
         {
             Id = query.Result.Id,
             Firstname = query.Result.FirstName,

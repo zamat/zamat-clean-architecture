@@ -5,14 +5,14 @@ option csharp_namespace = "GrpcUsers";
 package users.v1;
 
 service UsersSvc {
-  rpc GetUser (GetUserRequest) returns (UsersReply);
+  rpc GetUser (GetUserRequest) returns (UserReply);
 }
 
 message GetUserRequest {
   string id = 1;
 }
 
-message UsersReply {
+message UserReply {
   string id = 1;
   string username = 2;
   string firstname = 3;

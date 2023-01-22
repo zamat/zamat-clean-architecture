@@ -1,5 +1,5 @@
 using Grpc.Core;
-using GrpcUsers;
+using Users.Api.V1;
 using Zamat.Common.Query.Bus;
 using Zamat.Sample.Services.Users.Core.Queries.Users;
 

@@ -1,8 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "GrpcUsers";
-
-package users.v1;
+package users.api.v1;
 
 service UsersSvc {
   rpc GetUser (GetUserRequest) returns (UserReply);

@@ -1,6 +1,6 @@
 using Zamat.AspNetCore.OpenTelemetry;
 using Zamat.Sample.BuildingBlocks.Core;
-using Zamat.Sample.Services.Audit.Worker.Consumers;
+using Zamat.Sample.Services.Audit.Worker.Api.Consumers;
 using Zamat.Sample.Services.Audit.Worker.Core;
 using Zamat.Sample.Services.Audit.Worker.Infrastructure;
 

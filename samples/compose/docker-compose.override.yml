@@ -79,7 +79,6 @@ services:
       - SQLCONNSTR_UsersDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
       - ConnectionStrings__RabbitMQ=amqp://guest:guest@rabbitmq:5672 
       - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
-      - OpenTelemetryServiceOptions__Enabled=true
     ports:
       - "8081:80"
       - "8091:443"

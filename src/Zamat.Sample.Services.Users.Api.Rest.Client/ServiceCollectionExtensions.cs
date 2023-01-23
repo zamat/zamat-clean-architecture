@@ -1,18 +1,21 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Net.Http;
 using Zamat.Sample.Services.Users.Api.Rest.Client.V1;
 
 namespace Zamat.Sample.Services.Users.Api.Rest.Client;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddUsersClient(this IServiceCollection services, string baseUrl)
+    public static IHttpClientBuilder AddUsersClient(this IServiceCollection services, string baseUrl, Action<HttpClient>? configure = null)
     {
-        services.AddHttpClient<IUsersClient, UsersClient>(
+        var builder = services.AddHttpClient<IUsersClient, UsersClient>(
             (provider, client) =>
             {
                 client.BaseAddress = new Uri(baseUrl);
+                if (configure is not null)
+                    configure(client);
             });
-        return services;
+        return builder;
     }
 }

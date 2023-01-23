@@ -14,7 +14,7 @@
         }
       ],
       "FileCacheOptions": {
-        "TtlSeconds": 5
+        "TtlSeconds": 0
       },
       "QoSOptions": {
         "ExceptionsAllowedBeforeBreaking": 3,

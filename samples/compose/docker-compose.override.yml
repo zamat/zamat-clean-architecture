@@ -67,6 +67,9 @@ services:
       - "8090:443"
     volumes:
       - ~/.aspnet/https:/https:ro
+      - type: bind
+        source: ./Ocelot
+        target: /app/Ocelot
 
   users.api.rest:
     extra_hosts:

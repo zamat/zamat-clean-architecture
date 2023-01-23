@@ -1,6 +1,7 @@
 using Zamat.AspNetCore.Diagnostics;
 using Zamat.AspNetCore.Grpc;
 using Zamat.AspNetCore.Localization;
+using Zamat.AspNetCore.OpenIddict;
 using Zamat.AspNetCore.OpenTelemetry;
 using Zamat.Sample.Services.Users.Api.Grpc.Services.v1;
 using Zamat.Sample.Services.Users.Core;
@@ -21,6 +22,12 @@ builder.Services
         i.AddEFCoreInstrumentation();
     })
     .AddHttpContextAccessor();
+
+builder.Services
+    .AddOidcAuthentication(o =>
+    {
+        builder.Configuration.GetSection(nameof(OidcAuthOptions)).Bind(o);
+    });
 
 builder.Services
     .AddCore()

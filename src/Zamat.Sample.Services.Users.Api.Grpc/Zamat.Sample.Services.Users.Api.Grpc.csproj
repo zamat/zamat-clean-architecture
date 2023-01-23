@@ -8,6 +8,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.Grpc\Zamat.AspNetCore.Grpc.csproj" />
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.Localization\Zamat.AspNetCore.Localization.csproj" />
+		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenIddict\Zamat.AspNetCore.OpenIddict.csproj" />
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenTelemetry\Zamat.AspNetCore.OpenTelemetry.csproj" />
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.Diagnostics\Zamat.AspNetCore.Diagnostics.csproj" />
 	</ItemGroup>

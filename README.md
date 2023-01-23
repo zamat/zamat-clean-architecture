@@ -19,20 +19,20 @@ If you like or are using this project to learn or start your solution, please gi
 
 |Project|Description|
 |:------|:-- |
-|EFCore.PostgreSQL|Project with PostgreSQL db migrations. Only referenced by Cli tool.|
-|Zamat.Sample.ApiGateway|APIGateway based on Ocelot library.|
-|Zamat.Sample.BuildingBlocks.Core|Common core layer building blocks for the entire solution.|
-|Zamat.Sample.BuildingBlocks.Infrastructure|Common infrastructure layer building blocks for the entire solution.|
-|Zamat.Sample.Cli|Cli tool responsible for processing db migrations.|
-|Zamat.Sample.Services.Audit.Worker|Sample worker service. Consuming integration events published by Users Service via masstransit.|
+|EFCore.PostgreSQL|Contains PostgreSQL db migrations (Only referenced by Cli tool).|
+|Zamat.Sample.ApiGateway|ApiGateway based on Ocelot library.|
+|Zamat.Sample.BuildingBlocks.Core|Common core building blocks for the entire solution.|
+|Zamat.Sample.BuildingBlocks.Infrastructure|Common infrastructure building blocks for the entire solution.|
+|Zamat.Sample.Cli|Cli tools. In Kubernetes environment can be used as db migration init container.|
+|Zamat.Sample.Services.Audit.Worker|Sample Worker service. Consuming integration events published by User Service API.|
 |Zamat.Sample.Services.Users.Api.Grpc|Sample Grpc Api service|
-|Zamat.Sample.Services.Users.Api.Grpc.Client|Standalone GRPC client package with .proto definition. Can be distributed as nuget package.|
+|Zamat.Sample.Services.Users.Api.Grpc.Client|Standalone GRPC client package. Contains .proto definition. Can be distributed as nuget package.|
 |Zamat.Sample.Services.Users.Api.Rest|Sample REST Api service|
-|Zamat.Sample.Services.Users.Api.Rest.Client|Standalone REST api client package based on nswag code generator. Can be distributed as nuget package.|
-|Zamat.Sample.Services.Users.Core|Application Core package with CQRS implementation.|
-|Zamat.Sample.Services.Users.Core.Domain|Domain model package created using DDD tactical patterns.|
-|Zamat.Sample.Services.Users.Core.IntegrationEvents|Separated integration events package. Can be shared as nuget package.|
-|Zamat.Sample.Services.Users.Core.Infrastructure|User service infrastructure package. Contains dbContext and application services implementation.|
+|Zamat.Sample.Services.Users.Api.Rest.Client|Standalone REST api client package based on NSwag code generator. Can be distributed as nuget package.|
+|Zamat.Sample.Services.Users.Core|Application Core package. Contains CQRS handlers.|
+|Zamat.Sample.Services.Users.Core.Domain|Domain model package. Contains business logic.|
+|Zamat.Sample.Services.Users.Core.IntegrationEvents|Integration events package. Should be distributed as nuget package.|
+|Zamat.Sample.Services.Users.Core.Infrastructure|Infrastructure package. Contains EFCore dbContext, application services implementation and message broker configuration.|
 
 ## Technologies
 * [ASP.NET Core 7](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) (.net7)

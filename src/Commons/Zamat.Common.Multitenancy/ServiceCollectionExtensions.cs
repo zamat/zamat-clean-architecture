@@ -2,7 +2,7 @@
 
 namespace Zamat.Common.Multitenancy;
 
-public static class IServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
     public static TenantBuilder AddMultitenancy(this IServiceCollection services)
     {

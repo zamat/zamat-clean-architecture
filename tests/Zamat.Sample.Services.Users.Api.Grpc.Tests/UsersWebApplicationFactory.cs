@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
-using Zamat.AspNetCore.Tests.FakeAuthentication;
+using Zamat.AspNetCore.Tests;
 using Zamat.Sample.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Sample.Services.Users.Api.Grpc.Tests;

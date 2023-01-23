@@ -3,7 +3,7 @@ using System;
 
 namespace Zamat.AspNetCore.OpenIddict;
 
-public static class IServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
     const string Schema = "OpenIddict.Validation.AspNetCore";
 

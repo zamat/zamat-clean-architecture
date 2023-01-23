@@ -1,3 +1,4 @@
+using Zamat.AspNetCore.Authorization;
 using Zamat.AspNetCore.Diagnostics;
 using Zamat.AspNetCore.Grpc;
 using Zamat.AspNetCore.Localization;
@@ -16,6 +17,7 @@ builder.Services.AddGrpc(o =>
 
 builder.Services
     .AddLocalization(builder.Configuration)
+    .AddAuthorization(fallback: true)
     .AddOpenTelemetry(builder.Configuration, i =>
     {
         i.AddMassTransitInstrumentation();

@@ -23,6 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\src\Commons\Zamat.AspNetCore.Tests\Zamat.AspNetCore.Tests.csproj" />
 		<ProjectReference Include="..\..\src\Zamat.Sample.Services.Users.Api.Grpc\Zamat.Sample.Services.Users.Api.Grpc.csproj" />
 	</ItemGroup>
 

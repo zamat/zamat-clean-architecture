@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Zamat.AspNetCore.Tests.FakeAuthentication;
 using Zamat.Sample.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Sample.Services.Users.Api.Grpc.Tests;
@@ -10,6 +12,8 @@ public class UsersWebApplicationFactory : WebApplicationFactory<Program>
     {
         builder.ConfigureServices(services =>
         {
+            services.AddFakeAuthentication();
+
             var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<UsersDbContext>));
             if (descriptor is not null)
             {

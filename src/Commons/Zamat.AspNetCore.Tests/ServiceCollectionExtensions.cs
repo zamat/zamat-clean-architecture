@@ -2,10 +2,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
+using Zamat.AspNetCore.Tests.FakeAuthentication;
 
-namespace Zamat.AspNetCore.Tests.FakeAuthentication;
+namespace Zamat.AspNetCore.Tests;
 
-public static class IServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddFakeAuthentication(this IServiceCollection services, Action<FakeAuthenticationSchemeOptions>? options = null)
     {

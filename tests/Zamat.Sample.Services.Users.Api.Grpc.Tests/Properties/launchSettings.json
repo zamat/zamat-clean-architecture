@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Zamat.Sample.Services.Users.Api.Rest.Tests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:57843;http://localhost:57844"
+    }
+  }
+}

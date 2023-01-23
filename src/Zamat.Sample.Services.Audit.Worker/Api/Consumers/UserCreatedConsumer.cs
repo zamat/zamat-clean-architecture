@@ -2,7 +2,7 @@
 using Zamat.Common.Events.Bus;
 using Zamat.Sample.Services.Users.Core.IntegrationEvents;
 
-namespace Zamat.Sample.Services.Audit.Worker.Consumers;
+namespace Zamat.Sample.Services.Audit.Worker.Api.Consumers;
 
 class UserCreatedConsumer : IConsumer<UserCreated>
 {

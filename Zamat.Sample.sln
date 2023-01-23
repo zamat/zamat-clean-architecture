@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
+		samples\compose\docker-compose.override.yml = samples\compose\docker-compose.override.yml
+		samples\compose\docker-compose.yml = samples\compose\docker-compose.yml
 		nuget.config = nuget.config
 		README.md = README.md
 		.template.config\template.json = .template.config\template.json
@@ -101,6 +103,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.MassTransit.RabbitMQ", "src\Commons\Zamat.AspNetCore.MassTransit.RabbitMQ\Zamat.AspNetCore.MassTransit.RabbitMQ.csproj", "{B64660A6-E49A-4E14-B5FC-96B46C639700}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.MassTransit", "src\Commons\Zamat.AspNetCore.MassTransit\Zamat.AspNetCore.MassTransit.csproj", "{A3682F04-2C07-4E0C-89E4-3A056AF840AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Grpc", "src\Zamat.Sample.Services.Users.Api.Grpc\Zamat.Sample.Services.Users.Api.Grpc.csproj", "{CEB1598B-E076-42A2-8C8A-8BC9C82A96F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Grpc.Client", "src\Zamat.Sample.Services.Users.Api.Grpc.Client\Zamat.Sample.Services.Users.Api.Grpc.Client.csproj", "{EC45D255-1F3C-4B7D-8EB1-13783EF36911}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Grpc.Tests", "tests\Zamat.Sample.Services.Users.Api.Grpc.Tests\Zamat.Sample.Services.Users.Api.Grpc.Tests.csproj", "{7801F901-EDF0-4AAB-93F4-B8FC192389AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Grpc", "src\Commons\Zamat.AspNetCore.Grpc\Zamat.AspNetCore.Grpc.csproj", "{7F2A2E1C-091A-42D0-AC4C-66DB5FB7EE31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Authorization", "src\Commons\Zamat.AspNetCore.Authorization\Zamat.AspNetCore.Authorization.csproj", "{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -264,6 +276,26 @@ Global
 		{A3682F04-2C07-4E0C-89E4-3A056AF840AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3682F04-2C07-4E0C-89E4-3A056AF840AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3682F04-2C07-4E0C-89E4-3A056AF840AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB1598B-E076-42A2-8C8A-8BC9C82A96F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB1598B-E076-42A2-8C8A-8BC9C82A96F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB1598B-E076-42A2-8C8A-8BC9C82A96F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB1598B-E076-42A2-8C8A-8BC9C82A96F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC45D255-1F3C-4B7D-8EB1-13783EF36911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC45D255-1F3C-4B7D-8EB1-13783EF36911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC45D255-1F3C-4B7D-8EB1-13783EF36911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC45D255-1F3C-4B7D-8EB1-13783EF36911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7801F901-EDF0-4AAB-93F4-B8FC192389AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7801F901-EDF0-4AAB-93F4-B8FC192389AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7801F901-EDF0-4AAB-93F4-B8FC192389AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7801F901-EDF0-4AAB-93F4-B8FC192389AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F2A2E1C-091A-42D0-AC4C-66DB5FB7EE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F2A2E1C-091A-42D0-AC4C-66DB5FB7EE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F2A2E1C-091A-42D0-AC4C-66DB5FB7EE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F2A2E1C-091A-42D0-AC4C-66DB5FB7EE31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -309,6 +341,11 @@ Global
 		{828B97E3-692B-4732-A616-F360578375A7} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{B64660A6-E49A-4E14-B5FC-96B46C639700} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 		{A3682F04-2C07-4E0C-89E4-3A056AF840AB} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
+		{CEB1598B-E076-42A2-8C8A-8BC9C82A96F3} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
+		{EC45D255-1F3C-4B7D-8EB1-13783EF36911} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
+		{7801F901-EDF0-4AAB-93F4-B8FC192389AE} = {12F8A53D-3DBA-44FC-B37D-219BACD19F5D}
+		{7F2A2E1C-091A-42D0-AC4C-66DB5FB7EE31} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
+		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10E0EEF8-A884-41A4-A98F-CA8E15CB9A16}

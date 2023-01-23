@@ -63,6 +63,16 @@ services:
       - sample.cli
       - rabbitmq
 
+  users.api.grpc:
+    container_name: users-api-grpc
+    image: ${DOCKER_REGISTRY-}usersapigrpc
+    build:
+      context: ../../
+      dockerfile: src/Zamat.Sample.Services.Users.Api.Grpc/Dockerfile
+    depends_on:
+      - sample.cli
+      - rabbitmq
+
   audit.worker:
     container_name: audit-worker
     image: ${DOCKER_REGISTRY-}auditworker

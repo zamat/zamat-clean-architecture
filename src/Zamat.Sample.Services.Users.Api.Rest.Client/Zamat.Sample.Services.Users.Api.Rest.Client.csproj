@@ -7,7 +7,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Http" />
-		<PackageReference Include="Newtonsoft.Json" />
 		<PackageReference Include="NSwag.ApiDescription.Client">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -15,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<OpenApiReference Include="OpenAPIs\swagger.v1.json" CodeGenerator="NSwagCSharp" Namespace="Zamat.Sample.Services.Users.Api.Rest.Client.V1" ClassName="UsersClient" OutputPath="UsersClient.cs" Options="/UseBaseUrl:false /GenerateClientInterfaces:true /ClientBaseInterface:IUsersClient /OperationGenerationMode:MultipleClientsFromFirstTagAndOperationId /InjectHttpClient:true /JsonLibrary:SystemTextJson /UseHttpClientCreationMethod:true">
+		<OpenApiReference Include="OpenAPIs\swagger.v1.json" CodeGenerator="NSwagCSharp" Namespace="Zamat.Sample.Services.Users.Api.Rest.Client.V1" ClassName="UsersClient" OutputPath="UsersClient.cs" Options="/UseBaseUrl:false /GenerateClientInterfaces:true /OperationGenerationMode:MultipleClientsFromFirstTagAndOperationId /InjectHttpClient:true /JsonLibrary:SystemTextJson /UseHttpClientCreationMethod:true">
 			<SourceUri>https://localhost:7209/swagger/v1/swagger.json</SourceUri>
 		</OpenApiReference>
 	</ItemGroup>

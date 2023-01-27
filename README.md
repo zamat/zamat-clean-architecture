@@ -25,6 +25,8 @@ If you like or are using this project to learn or start your solution, please gi
 |Zamat.Sample.BuildingBlocks.Core|Common core building blocks for the entire solution.|
 |Zamat.Sample.BuildingBlocks.Infrastructure|Common infrastructure building blocks for the entire solution.|
 |Zamat.Sample.Cli|Cli tools. <b>In Kubernetes environment can be used as db migration init container.</b>|
+|Zamat.Sample.Core|Solution Core package (<b>SkaredKernel</b>)|
+|Zamat.Sample.Infrastructure|Solution infrastructure package|
 |Zamat.Sample.Services.Audit.Worker|Sample Worker service. Consuming integration events published by User Service API.|
 |Zamat.Sample.Services.Users.Api.Grpc|Sample Grpc Api service|
 |Zamat.Sample.Services.Users.Api.Grpc.Client|Standalone GRPC client package. Contains .proto definition (<b>Should be distributed as nuget package.</b>).|

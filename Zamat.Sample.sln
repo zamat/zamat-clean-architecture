@@ -114,6 +114,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Grpc", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Authorization", "src\Commons\Zamat.AspNetCore.Authorization\Zamat.AspNetCore.Authorization.csproj", "{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Core", "src\Zamat.Sample.Core\Zamat.Sample.Core.csproj", "{6493D105-D7C5-46F4-9F2C-5F21E16ABA1E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Infrastructure", "src\Zamat.Sample.Infrastructure\Zamat.Sample.Infrastructure.csproj", "{DD9AB60A-9AA3-4292-9143-DB7BDE40BC9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -296,6 +300,14 @@ Global
 		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6493D105-D7C5-46F4-9F2C-5F21E16ABA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6493D105-D7C5-46F4-9F2C-5F21E16ABA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6493D105-D7C5-46F4-9F2C-5F21E16ABA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6493D105-D7C5-46F4-9F2C-5F21E16ABA1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9AB60A-9AA3-4292-9143-DB7BDE40BC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9AB60A-9AA3-4292-9143-DB7BDE40BC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9AB60A-9AA3-4292-9143-DB7BDE40BC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9AB60A-9AA3-4292-9143-DB7BDE40BC9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -346,6 +358,8 @@ Global
 		{7801F901-EDF0-4AAB-93F4-B8FC192389AE} = {12F8A53D-3DBA-44FC-B37D-219BACD19F5D}
 		{7F2A2E1C-091A-42D0-AC4C-66DB5FB7EE31} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 		{9F19A8CF-CFA2-4F8C-903B-26A09F02A733} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
+		{6493D105-D7C5-46F4-9F2C-5F21E16ABA1E} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
+		{DD9AB60A-9AA3-4292-9143-DB7BDE40BC9A} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10E0EEF8-A884-41A4-A98F-CA8E15CB9A16}

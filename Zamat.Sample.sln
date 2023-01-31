@@ -65,7 +65,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Common.DomainEventDispatcher", "src\Commons\Zamat.Common.DomainEventDispatcher\Zamat.Common.DomainEventDispatcher.csproj", "{DF3048E9-657B-42DA-A3D4-A65785DE499A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Rest.Tests", "tests\Zamat.Sample.Services.Users.Api.Rest.Tests\Zamat.Sample.Services.Users.Api.Rest.Tests.csproj", "{1AEB41E8-F96A-4AF9-9C21-4858739EAB5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Rest.IntegrationTests", "tests\Zamat.Sample.Services.Users.Api.Rest.IntegrationTests\Zamat.Sample.Services.Users.Api.Rest.IntegrationTests.csproj", "{1AEB41E8-F96A-4AF9-9C21-4858739EAB5B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Tests", "src\Commons\Zamat.AspNetCore.Tests\Zamat.AspNetCore.Tests.csproj", "{4FCD84E1-496A-473C-87F7-4123847E6661}"
 EndProject
@@ -108,7 +108,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Grpc.Client", "src\Zamat.Sample.Services.Users.Api.Grpc.Client\Zamat.Sample.Services.Users.Api.Grpc.Client.csproj", "{EC45D255-1F3C-4B7D-8EB1-13783EF36911}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Grpc.Tests", "tests\Zamat.Sample.Services.Users.Api.Grpc.Tests\Zamat.Sample.Services.Users.Api.Grpc.Tests.csproj", "{7801F901-EDF0-4AAB-93F4-B8FC192389AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests", "tests\Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests\Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests.csproj", "{7801F901-EDF0-4AAB-93F4-B8FC192389AE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.AspNetCore.Grpc", "src\Commons\Zamat.AspNetCore.Grpc\Zamat.AspNetCore.Grpc.csproj", "{7F2A2E1C-091A-42D0-AC4C-66DB5FB7EE31}"
 EndProject

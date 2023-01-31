@@ -1,6 +1,6 @@
 ﻿using Grpc.Net.Client;
 
-namespace Zamat.Sample.Services.Users.Api.Grpc.Tests.Services;
+namespace Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests.Services;
 
 public class BaseServiceTests : IClassFixture<UsersWebApplicationFactory>
 {

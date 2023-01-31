@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 
-namespace Zamat.Sample.Services.Users.Api.Rest.Tests.Controllers.v1.Users;
+namespace Zamat.Sample.Services.Users.Api.Rest.IntegrationTests.Controllers.v1.Users;
 
 public class UsersControllerTests : IClassFixture<UsersWebApplicationFactory>
 {

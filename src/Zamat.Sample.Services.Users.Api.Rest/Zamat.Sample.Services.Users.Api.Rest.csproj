@@ -21,8 +21,4 @@
 		<ProjectReference Include="..\Zamat.Sample.Services.Users.Infrastructure\Zamat.Sample.Services.Users.Infrastructure.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<InternalsVisibleTo Include="Zamat.Sample.Services.Users.Api.Rest.Tests" />
-	</ItemGroup>
-
 </Project>

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Zamat.Sample.Services.Users.Infrastructure.EFCore;
 
-namespace Zamat.Sample.Services.Users.Api.Rest.Tests;
+namespace Zamat.Sample.Services.Users.Api.Rest.IntegrationTests;
 
 public class UsersWebApplicationFactory : WebApplicationFactory<Program>
 {

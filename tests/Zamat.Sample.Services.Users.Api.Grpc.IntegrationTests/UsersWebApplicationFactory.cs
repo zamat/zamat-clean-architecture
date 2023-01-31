@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Zamat.AspNetCore.Tests;
 using Zamat.Sample.Services.Users.Infrastructure.EFCore;
 
-namespace Zamat.Sample.Services.Users.Api.Grpc.Tests;
+namespace Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests;
 
 public class UsersWebApplicationFactory : WebApplicationFactory<Program>
 {

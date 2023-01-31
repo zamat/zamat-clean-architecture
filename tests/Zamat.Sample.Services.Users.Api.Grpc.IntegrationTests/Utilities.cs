@@ -2,7 +2,7 @@
 using Zamat.Sample.Services.Users.Core.Domain.ValueObjects;
 using Zamat.Sample.Services.Users.Infrastructure.EFCore;
 
-namespace Zamat.Sample.Services.Users.Api.Grpc.Tests;
+namespace Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests;
 
 public static class Utilities
 {

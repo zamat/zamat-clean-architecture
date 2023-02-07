@@ -1,7 +1,7 @@
-﻿using MassTransit;
+﻿using System;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Zamat.AspNetCore.MassTransit.RabbitMQ;
 

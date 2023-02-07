@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using Zamat.AspNetCore.MassTransit.RabbitMQ;
 using Zamat.Common.EntityFrameworkCore;
 using Zamat.Sample.BuildingBlocks.Infrastructure;

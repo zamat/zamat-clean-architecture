@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Net.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Zamat.Sample.Services.Users.Api.Rest.Client.V1;
 
 namespace Zamat.Sample.Services.Users.Api.Rest.Client;

@@ -1,10 +1,10 @@
-﻿using Microsoft.IdentityModel.JsonWebTokens;
+﻿using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using OpenIddict.Abstractions;
 using OpenIddict.Validation;
-using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using static OpenIddict.Abstractions.OpenIddictConstants;
 using static OpenIddict.Validation.OpenIddictValidationEvents;
 using static OpenIddict.Validation.OpenIddictValidationHandlers.Protection;

@@ -1,5 +1,5 @@
-﻿using Swashbuckle.AspNetCore.Annotations;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Zamat.Sample.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 

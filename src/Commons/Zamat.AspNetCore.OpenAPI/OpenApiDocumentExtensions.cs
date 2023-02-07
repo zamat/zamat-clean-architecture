@@ -1,6 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
-using System;
+﻿using System;
 using System.Linq;
+using Microsoft.OpenApi.Models;
 
 namespace Zamat.AspNetCore.OpenAPI;
 

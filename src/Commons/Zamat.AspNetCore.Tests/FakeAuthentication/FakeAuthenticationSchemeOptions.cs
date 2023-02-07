@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Zamat.AspNetCore.Tests.FakeAuthentication;
 

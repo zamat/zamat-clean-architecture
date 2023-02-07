@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.IO;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Readers;
 using Microsoft.OpenApi.Writers;
-using System.IO;
 using Zamat.AspNetCore.OpenAPI;
 
 namespace Zamat.AspNetCore.Ocelot;

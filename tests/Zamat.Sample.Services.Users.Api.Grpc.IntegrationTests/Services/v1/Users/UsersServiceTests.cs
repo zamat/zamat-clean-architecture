@@ -1,6 +1,4 @@
 ﻿using Users.Api.V1;
-using Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests;
-using Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests.Services;
 
 namespace Zamat.Sample.Services.Users.Api.Grpc.IntegrationTests.Services.v1.Users;
 

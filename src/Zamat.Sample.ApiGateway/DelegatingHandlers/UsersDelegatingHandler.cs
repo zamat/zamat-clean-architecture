@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Ocelot.Middleware;
-using System;
+﻿using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Ocelot.Middleware;
 
 namespace Zamat.Sample.ApiGateway.DelegatingHandlers;
 
@@ -45,7 +45,7 @@ class UsersDelegatingHandler : DelegatingHandler
     void DoSomethingWithRequest()
     {
         var sub = _httpContextAccessor.HttpContext?.User?.FindFirst("sub")?.Value ?? "notset";
-        
+
         _logger.LogInformation("Processing {nameof} at utc {datetime} with auth context (sub: {sub})", nameof(UsersDelegatingHandler), DateTime.UtcNow.ToString("O"), sub);
     }
 }

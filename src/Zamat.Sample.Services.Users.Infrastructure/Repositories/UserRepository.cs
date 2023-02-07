@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Zamat.BuildingBlocks.Domain.Specifications;
 using Zamat.Sample.Services.Users.Core.Domain.Entities;
 using Zamat.Sample.Services.Users.Core.Domain.Repositories;

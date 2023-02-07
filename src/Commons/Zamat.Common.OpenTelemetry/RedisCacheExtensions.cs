@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Caching.StackExchangeRedis;
+﻿using System.Reflection;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 using StackExchange.Redis;
-using System.Reflection;
 
 namespace Zamat.Common.OpenTelemetry;
 

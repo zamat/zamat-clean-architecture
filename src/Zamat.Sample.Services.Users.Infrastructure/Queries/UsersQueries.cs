@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Zamat.Sample.Services.Users.Core.Domain.Entities;
 using Zamat.Sample.Services.Users.Core.Interfaces;
 using Zamat.Sample.Services.Users.Core.Queries.Users;

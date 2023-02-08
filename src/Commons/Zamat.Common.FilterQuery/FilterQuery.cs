@@ -11,9 +11,9 @@ public class FilterQuery<TSource>
 
     private readonly Dictionary<Enum, OrderBy<TSource>> _orderBy = new();
 
-    public Enum Sort { get; }
+    public Enum? Sort { get; }
 
-    public FilterQuery(Enum sort)
+    public FilterQuery(Enum? sort = null)
     {
         Sort = sort;
     }
@@ -37,6 +37,8 @@ public class FilterQuery<TSource>
     {
         get
         {
+            if (Sort is null)
+                return e => true;
             if (_orderBy.ContainsKey(Sort))
                 return _orderBy[Sort].Expression.Expand();
             throw new InvalidOperationException("Missing sort strategy for given key");
@@ -47,6 +49,8 @@ public class FilterQuery<TSource>
     {
         get
         {
+            if (Sort is null)
+                return false;
             if (_orderBy.ContainsKey(Sort))
                 return _orderBy[Sort].Descending;
             throw new InvalidOperationException("Missing sort strategy for given key");

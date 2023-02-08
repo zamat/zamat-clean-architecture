@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>Zamat Common Crud Package</Description>
+    <PackageTags>Crud</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Zamat.Common.FilterQuery\Zamat.Common.FilterQuery.csproj" />
+  </ItemGroup>
+
+</Project>

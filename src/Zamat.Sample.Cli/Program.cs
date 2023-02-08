@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Zamat.Sample.Cli;
+using Zamat.Sample.Services.Content.Infrastructure;
 using Zamat.Sample.Services.Users.Infrastructure;
 
 var builder = ConsoleApp.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = ConsoleApp.CreateBuilder(args);
 builder.ConfigureServices((host, services) =>
 {
     services.AddUsersDbContext(host.Configuration);
+    services.AddContentDbContext(host.Configuration);
 });
 
 builder.ConfigureLogging(configureLogging =>

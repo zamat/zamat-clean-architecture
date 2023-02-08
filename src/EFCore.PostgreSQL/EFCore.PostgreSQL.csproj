@@ -14,7 +14,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Zamat.Sample.Services.Users.Infrastructure\Zamat.Sample.Services.Users.Infrastructure.csproj" />
-	</ItemGroup>
+    <ProjectReference Include="..\Zamat.Sample.Services.Content.Infrastructure\Zamat.Sample.Services.Content.Infrastructure.csproj" />
+    <ProjectReference Include="..\Zamat.Sample.Services.Users.Infrastructure\Zamat.Sample.Services.Users.Infrastructure.csproj" />
+  </ItemGroup>
 
 </Project>

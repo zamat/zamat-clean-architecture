@@ -9,6 +9,16 @@
           "Url": "http://users.api.rest/swagger/v1/swagger.json"
         }
       ]
+    },
+    {
+      "Key": "Content",
+      "Config": [
+        {
+          "Name": "Content WebApi",
+          "Version": "v1",
+          "Url": "http://content.api.rest/swagger/v1/swagger.json"
+        }
+      ]
     }
   ]
 }

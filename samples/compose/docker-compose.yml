@@ -73,6 +73,15 @@ services:
       - sample.cli
       - rabbitmq
 
+  content.api.rest:
+    container_name: content-api-rest
+    image: ${DOCKER_REGISTRY-}contentapirest
+    build:
+      context: ../../
+      dockerfile: src/Zamat.Sample.Services.Content.Api.Rest/Dockerfile
+    depends_on:
+      - sample.cli
+
   audit.worker:
     container_name: audit-worker
     image: ${DOCKER_REGISTRY-}auditworker

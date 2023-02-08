@@ -88,6 +88,22 @@ services:
     volumes:
       - ~/.aspnet/https:/https:ro
 
+  content.api.rest:
+    extra_hosts:
+       - "host.docker.internal:host-gateway"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/aspnetapp.key
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.crt
+      - SQLCONNSTR_ContentDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
+      - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
+    ports:
+      - "8081:80"
+      - "8091:443"
+    volumes:
+      - ~/.aspnet/https:/https:ro
+
   users.api.grpc:
     extra_hosts:
        - "host.docker.internal:host-gateway"

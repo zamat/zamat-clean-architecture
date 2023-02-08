@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
-using Zamat.Sample.Services.Content.Api.Rest.Resources;
 
 namespace Zamat.Sample.Services.Content.Api.Rest.Controllers;
 

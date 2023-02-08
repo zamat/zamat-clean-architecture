@@ -1,6 +1,6 @@
-﻿using Zamat.Common.Crud;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Zamat.Common.Crud;
 
 namespace Zamat.Sample.Services.Content.Api.Rest.Controllers;
 

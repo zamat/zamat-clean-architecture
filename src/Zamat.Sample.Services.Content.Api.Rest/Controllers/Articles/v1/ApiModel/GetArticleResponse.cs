@@ -1,5 +1,5 @@
-﻿using Zamat.Sample.Services.Content.Core.Entities;
-using Swashbuckle.AspNetCore.Annotations;
+﻿using Swashbuckle.AspNetCore.Annotations;
+using Zamat.Sample.Services.Content.Core.Entities;
 
 namespace Zamat.Sample.Services.Content.Api.Rest.Controllers.Articles.v1.ApiModel;
 

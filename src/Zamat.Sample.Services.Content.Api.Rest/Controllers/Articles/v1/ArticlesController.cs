@@ -1,13 +1,11 @@
-﻿using Zamat.Sample.BuildingBlocks.Core;
-using Zamat.Sample.Services.Content.Core.Entities;
-using Zamat.Sample.Services.Content.Core.Services;
-using Zamat.Common.FilterQuery;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Swashbuckle.AspNetCore.Annotations;
-using Zamat.Sample.Services.Content.Api.Rest;
+using Zamat.Common.FilterQuery;
+using Zamat.Sample.BuildingBlocks.Core;
 using Zamat.Sample.Services.Content.Api.Rest.Controllers.Articles.v1.ApiModel;
-using Zamat.Sample.Services.Content.Api.Rest.Resources;
+using Zamat.Sample.Services.Content.Core.Entities;
+using Zamat.Sample.Services.Content.Core.Services;
 
 namespace Zamat.Sample.Services.Content.Api.Rest.Controllers.Articles.v1;
 

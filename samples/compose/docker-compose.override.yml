@@ -99,8 +99,8 @@ services:
       - SQLCONNSTR_ContentDbContext=postgreSQL://Host=postgresql;Database=SampleDb;Username=postgres;Password=postgres;
       - OpenTelemetryServiceOptions__OtlpEndpoint=http://otel-collector:4317
     ports:
-      - "8081:80"
-      - "8091:443"
+      - "8083:80"
+      - "8093:443"
     volumes:
       - ~/.aspnet/https:/https:ro
 

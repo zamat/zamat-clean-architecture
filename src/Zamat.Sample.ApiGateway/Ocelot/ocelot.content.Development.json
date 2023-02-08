@@ -1,0 +1,38 @@
+﻿{
+  "Routes": [
+    {
+      "SwaggerKey": "Content",
+      "Key": "Content",
+      "DownstreamPathTemplate": "/{everything}",
+      "UpstreamPathTemplate": "/gw/content-svc/api/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7210
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 0
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 100
+      },
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OpenIddict.Validation.AspNetCore",
+        "AllowedScopes": [ "api" ]
+      }
+    }
+  ]
+}

@@ -1,13 +1,13 @@
-﻿using Grpc.AspNetCore.Server;
-using Zamat.AspNetCore.Grpc.Interceptors;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.AspNetCore.Grpc;
 
 public static class ServiceCollectionExtensions
 {
-    public static InterceptorCollection AddLoggerInterceptor(this InterceptorCollection interceptors)
+    public static IServiceCollection ConfigureGrpcService(this IServiceCollection services)
     {
-        interceptors.Add<LoggerInterceptor>();
-        return interceptors;
+        services.AddGrpcHealthChecks();
+
+        return services;
     }
 }

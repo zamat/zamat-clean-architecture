@@ -21,6 +21,7 @@ If you like or are using this project to learn or start your solution, please gi
 |:------|:-- |
 |Commons|Contains common libraries (<b>Should be distributed as nuget package.</b>).|
 |EFCore.PostgreSQL|Contains PostgreSQL db migrations (<b>Only referenced by Cli tool</b>).|
+|HealthChecksUI|HealthChecks summary (<b>Spa web application</b>).|
 |Zamat.Sample.ApiGateway|ApiGateway based on <b>Ocelot</b> library.|
 |Zamat.Sample.BuildingBlocks.Core|Common core building blocks for the entire solution.|
 |Zamat.Sample.BuildingBlocks.Infrastructure|Common infrastructure building blocks for the entire solution.|

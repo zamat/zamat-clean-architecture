@@ -14,6 +14,7 @@ builder.Services.AddGrpc(o =>
 {
     o.Interceptors.AddLoggerInterceptor();
 });
+builder.Services.ConfigureGrpcService();
 
 builder.Services
     .AddLocalization(builder.Configuration)
@@ -44,6 +45,8 @@ app.UseDiagnostics(o =>
 });
 
 app.MapGrpcService<UsersService>();
+
+app.MapGrpcHealthChecksService().AllowAnonymous();
 
 app.Run();
 

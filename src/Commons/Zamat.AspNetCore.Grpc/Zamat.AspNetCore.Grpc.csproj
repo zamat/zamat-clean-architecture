@@ -9,6 +9,7 @@
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 		<PackageReference Include="Grpc.AspNetCore" />
-	</ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore.HealthChecks" />
+  </ItemGroup>
 
 </Project>

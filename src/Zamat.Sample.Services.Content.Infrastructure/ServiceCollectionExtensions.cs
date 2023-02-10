@@ -41,11 +41,10 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    public static IServiceCollection AddHealthChecks(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection ConfigureHealthChecks(this IServiceCollection services)
     {
-        _ = configuration;
         services.AddHealthChecks()
-            .AddDbContextCheck<ContentDbContext>();
+            .AddDbContextCheck<ContentDbContext>(nameof(ContentDbContext));
 
         return services;
     }

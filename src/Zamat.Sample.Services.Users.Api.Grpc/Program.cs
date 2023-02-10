@@ -34,7 +34,7 @@ builder.Services
 builder.Services
     .AddCore()
     .AddInfrastructure(builder.Configuration)
-    .AddHealthChecks(builder.Configuration);
+    .ConfigureHealthChecks(builder.Configuration);
 
 var app = builder.Build();
 

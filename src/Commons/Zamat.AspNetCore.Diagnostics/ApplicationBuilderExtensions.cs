@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Zamat.AspNetCore.Diagnostics.HealthChecks;
 
 namespace Zamat.AspNetCore.Diagnostics;
 
@@ -11,10 +15,14 @@ public static class ApplicationBuilderExtensions
     {
         app.MapHealthChecks("/healthz/ready", new HealthCheckOptions
         {
-            Predicate = (check) => check.Tags.Contains("ready")
+            Predicate = (check) => check.Tags.Contains("ready"),
+            ResponseWriter = WriteHealthCheckResponse
         });
 
-        app.MapHealthChecks("/healthz/live");
+        app.MapHealthChecks("/healthz/live", new HealthCheckOptions
+        {
+            ResponseWriter = WriteHealthCheckResponse
+        });
 
         return app;
     }
@@ -28,5 +36,10 @@ public static class ApplicationBuilderExtensions
             builder.UseMiddleware<AddTraceIdMiddleware>();
         }
         return builder;
+    }
+
+    static Task WriteHealthCheckResponse(HttpContext httpContext, HealthReport report)
+    {
+        return httpContext.WriteHealthReportAsync(report);
     }
 }

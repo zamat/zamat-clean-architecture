@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>HealthChecksUI Package</Description>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>hc-93971a12-ee0b-446a-b5a2-69041c8b563d</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.UI" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" />
+  </ItemGroup>
+
+</Project>

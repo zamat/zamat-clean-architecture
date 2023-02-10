@@ -1,5 +1,8 @@
 <Project>
   <ItemGroup>
+    <PackageVersion Include="AspNetCore.HealthChecks.UI" Version="6.0.5" />
+    <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
+    <PackageVersion Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="6.0.5" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.2" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.Twitter" Version="7.0.2" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.2" />

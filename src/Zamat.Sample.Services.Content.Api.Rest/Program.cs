@@ -29,7 +29,7 @@ builder.Services
 
 builder.Services
     .AddInfrastructure(builder.Configuration)
-    .AddHealthChecks(builder.Configuration);
+    .ConfigureHealthChecks();
 
 var app = builder.Build();
 

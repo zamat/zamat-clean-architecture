@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "HealthChecksUI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "healthchecks-ui",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7205;http://localhost:5016"
+    }
+  }
+}

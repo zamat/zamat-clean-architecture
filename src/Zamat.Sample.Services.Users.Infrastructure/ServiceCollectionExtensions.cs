@@ -61,12 +61,12 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    public static IServiceCollection AddHealthChecks(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection ConfigureHealthChecks(this IServiceCollection services, IConfiguration configuration)
     {
         var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
 
         services.AddHealthChecks()
-            .AddDbContextCheck<UsersDbContext>()
+            .AddDbContextCheck<UsersDbContext>(nameof(UsersDbContext))
             .AddRabbitMQ(rabbitConnectionString: rabbitConnectionString);
 
         return services;

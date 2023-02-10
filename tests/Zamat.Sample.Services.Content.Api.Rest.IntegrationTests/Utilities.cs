@@ -1,6 +1,6 @@
-﻿using AUMS.Clean.Services.Content.Infrastructure.EFCore;
+﻿using Zamat.Sample.Services.Content.Infrastructure.EFCore;
 
-namespace AUMS.Clean.Services.Content.Api.Rest.IntegrationTests;
+namespace Zamat.Sample.Services.Content.Api.Rest.IntegrationTests;
 
 public static class Utilities
 {

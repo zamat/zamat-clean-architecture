@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "AUMS.Clean.Services.Users.Api.Rest.Tests": {
+    "Zamat.Sample.Services.Users.Api.Rest.Tests": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

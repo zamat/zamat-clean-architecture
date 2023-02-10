@@ -18,9 +18,8 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-    <PackageReference Include="AUMS.AspNetCore.Tests" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\AUMS.Clean.Services.Content.Api.Rest\AUMS.Clean.Services.Content.Api.Rest.csproj" />
+		<ProjectReference Include="..\..\src\Zamat.Sample.Services.Content.Api.Rest\Zamat.Sample.Services.Content.Api.Rest.csproj" />
 	</ItemGroup>
 </Project>

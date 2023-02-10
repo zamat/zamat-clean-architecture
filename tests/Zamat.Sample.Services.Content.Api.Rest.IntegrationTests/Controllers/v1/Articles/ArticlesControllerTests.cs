@@ -1,7 +1,7 @@
 ﻿using System.Net;
-using AUMS.Clean.Services.Content.Api.Rest.Controllers.Articles.v1.ApiModel;
+using Zamat.Sample.Services.Content.Api.Rest.Controllers.Articles.v1.ApiModel;
 
-namespace AUMS.Clean.Services.Content.Api.Rest.IntegrationTests.Controllers.v1.Articles;
+namespace Zamat.Sample.Services.Content.Api.Rest.IntegrationTests.Controllers.v1.Articles;
 
 public class ArticlesControllerTests : IClassFixture<ContentWebApplicationFactory>
 {

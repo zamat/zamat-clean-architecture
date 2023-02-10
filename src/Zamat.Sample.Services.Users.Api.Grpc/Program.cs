@@ -18,7 +18,7 @@ builder.Services.ConfigureGrpcService();
 
 builder.Services
     .AddLocalization(builder.Configuration)
-    .AddAuthorization(fallback: true)
+    .AddAuthorization()
     .AddOpenTelemetry(builder.Configuration, i =>
     {
         i.AddMassTransitInstrumentation();
@@ -44,9 +44,8 @@ app.UseDiagnostics(o =>
     o.AddTraceIdToResponseHeaders();
 });
 
+app.MapGrpcHealthChecksService();
 app.MapGrpcService<UsersService>();
-
-app.MapGrpcHealthChecksService().AllowAnonymous();
 
 app.Run();
 

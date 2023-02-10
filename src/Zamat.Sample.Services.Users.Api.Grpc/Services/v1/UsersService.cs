@@ -1,10 +1,12 @@
 using Grpc.Core;
+using Microsoft.AspNetCore.Authorization;
 using Users.Api.V1;
 using Zamat.Common.Query.Bus;
 using Zamat.Sample.Services.Users.Core.Queries.Users;
 
 namespace Zamat.Sample.Services.Users.Api.Grpc.Services.v1;
 
+[Authorize]
 class UsersService : UsersSvc.UsersSvcBase
 {
     private readonly IQueryBus _queryBus;

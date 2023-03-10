@@ -128,6 +128,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecksUI", "src\Healt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.Services.Content.Api.Rest.IntegrationTests", "tests\Zamat.Sample.Services.Content.Api.Rest.IntegrationTests\Zamat.Sample.Services.Content.Api.Rest.IntegrationTests.csproj", "{7AB40B59-B6BA-4133-A904-F35A629BA35C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Sample.SharedResources", "src\Zamat.Sample.SharedResources\Zamat.Sample.SharedResources.csproj", "{C0AA54E4-626C-4105-AAA5-8979A11215D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -342,6 +344,10 @@ Global
 		{7AB40B59-B6BA-4133-A904-F35A629BA35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AB40B59-B6BA-4133-A904-F35A629BA35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AB40B59-B6BA-4133-A904-F35A629BA35C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0AA54E4-626C-4105-AAA5-8979A11215D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0AA54E4-626C-4105-AAA5-8979A11215D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0AA54E4-626C-4105-AAA5-8979A11215D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0AA54E4-626C-4105-AAA5-8979A11215D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -400,6 +406,7 @@ Global
 		{CC91D23F-6226-4C6B-9B80-EB13CBFDCCC7} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{55407CEE-879C-4483-9D24-ACDB8B1E3F20} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{7AB40B59-B6BA-4133-A904-F35A629BA35C} = {12F8A53D-3DBA-44FC-B37D-219BACD19F5D}
+		{C0AA54E4-626C-4105-AAA5-8979A11215D6} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10E0EEF8-A884-41A4-A98F-CA8E15CB9A16}

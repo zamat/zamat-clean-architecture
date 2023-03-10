@@ -3,10 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Zamat.Common.EntityFrameworkCore;
-using Zamat.Sample.BuildingBlocks.Core;
 using Zamat.Sample.Services.Content.Core.Interfaces;
-using Zamat.Sample.Services.Content.Core.Services;
-using Zamat.Sample.Services.Content.Infrastructure;
 using Zamat.Sample.Services.Content.Infrastructure.EFCore;
 using Zamat.Sample.Services.Content.Infrastructure.Repositories;
 
@@ -16,11 +13,8 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddCoreBuildingBlocks();
-
         services.AddContentDbContext(configuration);
 
-        services.AddScoped<ArticleService>();
         services.AddScoped<IArticleRepository, ArticleRepository>();
 
         return services;

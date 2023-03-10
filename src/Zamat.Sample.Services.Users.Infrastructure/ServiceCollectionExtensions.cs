@@ -18,7 +18,8 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddBuildingBlocks();
+        services.AddEventBus();
+
         services.AddUsersDbContext(configuration);
         services.ConfigureMessageBroker(configuration);
 

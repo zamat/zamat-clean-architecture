@@ -1,5 +1,4 @@
 using Zamat.AspNetCore.OpenTelemetry;
-using Zamat.Sample.BuildingBlocks.Core;
 using Zamat.Sample.Services.Audit.Worker.Api.Consumers;
 using Zamat.Sample.Services.Audit.Worker.Core;
 using Zamat.Sample.Services.Audit.Worker.Infrastructure;
@@ -15,7 +14,6 @@ using IHost host = Host.CreateDefaultBuilder(args)
 
         services
             .AddCore()
-            .AddCoreBuildingBlocks()
             .AddInfrastructure(hostContext.Configuration, c =>
             {
                 c.AddConsumer<UserCreatedConsumer>();

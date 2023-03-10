@@ -40,6 +40,7 @@ If you like or are using this project to learn or start your solution, please gi
 |Zamat.Sample.Services.Users.Core.Domain|Domain model package. Contains business logic.|
 |Zamat.Sample.Services.Users.Core.IntegrationEvents|Integration events package (<b>Should be distributed as nuget package.</b>).</b>|
 |Zamat.Sample.Services.Users.Core.Infrastructure|Infrastructure package. Contains EFCore dbContext, application services implementation and message broker configuration.|
+|Zamat.Sample.SharedResources|Resource package. Contains .resx files.|
 
 ## Technologies
 * [ASP.NET Core 7](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) (.net7)

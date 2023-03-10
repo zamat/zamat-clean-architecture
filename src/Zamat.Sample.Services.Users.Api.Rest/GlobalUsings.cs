@@ -1,1 +1,1 @@
-﻿global using Zamat.Sample.Services.Users.Api.Rest.Resources;
+﻿global using Zamat.Sample.SharedResources;

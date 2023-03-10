@@ -27,6 +27,7 @@ public static class ServiceCollectionExtensions
         {
             o.AddDomainEventHandlers(UserCoreDomainAssembly.Assembly);
         });
+
         return services;
     }
 }

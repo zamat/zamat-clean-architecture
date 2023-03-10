@@ -4,6 +4,7 @@ using Zamat.AspNetCore.Localization;
 using Zamat.AspNetCore.Mvc.Rest;
 using Zamat.AspNetCore.OpenAPI;
 using Zamat.AspNetCore.OpenTelemetry;
+using Zamat.Sample.Services.Content.Core;
 using Zamat.Sample.Services.Content.Infrastructure;
 
 [assembly: ApiController]
@@ -28,6 +29,7 @@ builder.Services
     .AddHttpContextAccessor();
 
 builder.Services
+    .AddCore()
     .AddInfrastructure(builder.Configuration)
     .ConfigureHealthChecks();
 

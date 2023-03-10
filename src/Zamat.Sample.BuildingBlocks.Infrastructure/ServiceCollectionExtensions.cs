@@ -5,9 +5,9 @@ namespace Zamat.Sample.BuildingBlocks.Infrastructure;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddBuildingBlocks(this IServiceCollection services)
+    public static IServiceCollection AddEventBus(this IServiceCollection services)
     {
-        services.AddEventBus();
+        services.AddMassTransitEventBus();
 
         return services;
     }

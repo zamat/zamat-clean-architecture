@@ -5,7 +5,7 @@ using Zamat.BuildingBlocks.Domain;
 
 namespace Zamat.Common.DomainEventDispatcher;
 
-class DomainEventDispatcher(IServiceProvider serviceProvider) : IDomainEventDispatcher
+internal class DomainEventDispatcher(IServiceProvider serviceProvider) : IDomainEventDispatcher
 {
     private static readonly ConcurrentDictionary<Type, Type> _handlerTypesCache = new();
 
@@ -41,5 +41,5 @@ class DomainEventDispatcher(IServiceProvider serviceProvider) : IDomainEventDisp
         }
     }
 
-    static Func<object, object, Task> MakeDelegate<TEvent, TEventHandler>() where TEvent : class, IDomainEvent where TEventHandler : class, IDomainEventHandler<TEvent> => (domainEvent, eventHandler) => ((TEventHandler)eventHandler).HandleAsync((TEvent)domainEvent);
+    private static Func<object, object, Task> MakeDelegate<TEvent, TEventHandler>() where TEvent : class, IDomainEvent where TEventHandler : class, IDomainEventHandler<TEvent> => (domainEvent, eventHandler) => ((TEventHandler)eventHandler).HandleAsync((TEvent)domainEvent);
 }

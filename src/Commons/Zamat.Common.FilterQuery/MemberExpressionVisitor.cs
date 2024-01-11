@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Zamat.Common.FilterQuery;
 
-class MemberExpressionVisitor : ExpressionVisitor
+internal class MemberExpressionVisitor : ExpressionVisitor
 {
     protected override Expression VisitMember(MemberExpression memberExpression)
     {

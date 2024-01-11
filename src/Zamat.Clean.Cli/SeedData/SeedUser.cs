@@ -1,6 +1,6 @@
 ﻿namespace Zamat.Clean.Cli.SeedData;
 
-class SeedUser
+internal class SeedUser
 {
     public string Id { get; set; } = default!;
     public string UserName { get; set; } = default!;

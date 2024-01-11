@@ -2,7 +2,7 @@
 
 namespace Zamat.Clean.Services.Users.Core.Commands.Users;
 
-class DeleteUserCommandHandler(IApplicationUnitOfWork unitOfWork) : ICommandHandler<DeleteUserCommand>
+internal class DeleteUserCommandHandler(IApplicationUnitOfWork unitOfWork) : ICommandHandler<DeleteUserCommand>
 {
     private readonly IApplicationUnitOfWork _unitOfWork = unitOfWork;
 

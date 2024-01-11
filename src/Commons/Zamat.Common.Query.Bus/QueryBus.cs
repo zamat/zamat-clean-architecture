@@ -1,6 +1,6 @@
 ﻿namespace Zamat.Common.Query.Bus;
 
-class QueryBus(IQueryBusRegistry queryBusRegistry) : IQueryBus
+internal class QueryBus(IQueryBusRegistry queryBusRegistry) : IQueryBus
 {
     private readonly IQueryBusRegistry _queryBusRegistry = queryBusRegistry;
 

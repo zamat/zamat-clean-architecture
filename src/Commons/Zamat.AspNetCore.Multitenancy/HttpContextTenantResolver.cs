@@ -3,7 +3,7 @@ using Zamat.Common.Multitenancy;
 
 namespace Zamat.AspNetCore.Multitenancy;
 
-class HttpContextTenantResolver(IHttpContextAccessor httpContextAccessor) : ITenantResolver
+internal class HttpContextTenantResolver(IHttpContextAccessor httpContextAccessor) : ITenantResolver
 {
     private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
 

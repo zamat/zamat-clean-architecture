@@ -5,7 +5,7 @@ using Zamat.AspNetCore.OpenAPI.Attributes;
 
 namespace Zamat.AspNetCore.OpenAPI.Filters;
 
-class SwaggerIgnoreFilter : IOperationFilter, ISchemaFilter
+internal class SwaggerIgnoreFilter : IOperationFilter, ISchemaFilter
 {
     public void Apply(OpenApiOperation operation, OperationFilterContext context)
     {

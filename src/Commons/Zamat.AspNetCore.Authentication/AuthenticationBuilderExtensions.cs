@@ -78,14 +78,14 @@ public static class AuthenticationBuilderExtensions
         return builder;
     }
 
-    class AuthenticationProviders
+    private class AuthenticationProviders
     {
         public GoogleOptions? Google { get; set; }
         public TwitterOptions? Twitter { get; set; }
         public CustomOpenIdConnectOptions? OpenIdConnect { get; set; }
     }
 
-    class CustomOpenIdConnectOptions : OpenIdConnectOptions
+    private class CustomOpenIdConnectOptions : OpenIdConnectOptions
     {
         public string? DisplayName { get; set; }
         public string Scopes { get; set; } = "oidc email";

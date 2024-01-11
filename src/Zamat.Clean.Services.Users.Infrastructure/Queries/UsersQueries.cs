@@ -6,7 +6,7 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.Queries;
 
-class UsersQueries(UsersDbContext dbContext) : IUsersQueries
+internal class UsersQueries(UsersDbContext dbContext) : IUsersQueries
 {
     private readonly UsersDbContext _dbContext = dbContext;
 

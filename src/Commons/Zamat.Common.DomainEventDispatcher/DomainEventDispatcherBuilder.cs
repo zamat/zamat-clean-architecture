@@ -4,7 +4,7 @@ using Zamat.BuildingBlocks.Domain;
 
 namespace Zamat.Common.DomainEventDispatcher;
 
-class DomainEventDispatcherBuilder(IServiceCollection serviceCollection) : IDomainEventDispatcherBuilder
+internal class DomainEventDispatcherBuilder(IServiceCollection serviceCollection) : IDomainEventDispatcherBuilder
 {
     private readonly IServiceCollection _serviceCollection = serviceCollection;
 

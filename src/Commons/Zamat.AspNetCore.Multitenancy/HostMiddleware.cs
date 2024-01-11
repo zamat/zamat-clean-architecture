@@ -3,7 +3,7 @@ using Zamat.Common.Multitenancy;
 
 namespace Zamat.AspNetCore.Multitenancy;
 
-class HostMiddleware(RequestDelegate next)
+internal class HostMiddleware(RequestDelegate next)
 {
     private readonly RequestDelegate _next = next;
 

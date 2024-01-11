@@ -4,7 +4,7 @@ using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.Factories;
 
-class UserFactory : IUserFactory
+internal class UserFactory : IUserFactory
 {
     public User Create(string id, string userName, FullName fullName)
     {

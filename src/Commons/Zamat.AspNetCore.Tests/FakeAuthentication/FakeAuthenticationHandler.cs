@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 
 namespace Zamat.AspNetCore.Tests.FakeAuthentication;
 
-class FakeAuthenticationHandler(IOptionsMonitor<FakeAuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock) : AuthenticationHandler<FakeAuthenticationSchemeOptions>(options, logger, encoder, clock)
+internal class FakeAuthenticationHandler(IOptionsMonitor<FakeAuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock) : AuthenticationHandler<FakeAuthenticationSchemeOptions>(options, logger, encoder, clock)
 {
     internal const string AuthenticationType = "Test";
 

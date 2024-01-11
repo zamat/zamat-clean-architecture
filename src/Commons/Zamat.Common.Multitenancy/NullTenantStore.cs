@@ -1,6 +1,6 @@
 ﻿namespace Zamat.Common.Multitenancy;
 
-class NullTenantStore : ITenantStore
+internal class NullTenantStore : ITenantStore
 {
     public Task<Tenant?> GetTenantAsync(string tenantIdentifier)
     {

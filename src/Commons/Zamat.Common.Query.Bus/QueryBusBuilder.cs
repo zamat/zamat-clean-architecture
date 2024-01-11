@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.Common.Query.Bus;
 
-class QueryBusBuilder(IServiceCollection serviceCollection) : IQueryBusBuilder
+internal class QueryBusBuilder(IServiceCollection serviceCollection) : IQueryBusBuilder
 {
     private readonly IServiceCollection _serviceCollection = serviceCollection;
 

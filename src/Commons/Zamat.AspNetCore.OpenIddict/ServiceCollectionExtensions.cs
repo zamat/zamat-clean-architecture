@@ -4,7 +4,7 @@ namespace Zamat.AspNetCore.OpenIddict;
 
 public static class ServiceCollectionExtensions
 {
-    const string Schema = "OpenIddict.Validation.AspNetCore";
+    private const string Schema = "OpenIddict.Validation.AspNetCore";
 
     public static IServiceCollection AddOidcAuthentication(this IServiceCollection services, Action<OidcAuthOptions> configureOptions)
     {

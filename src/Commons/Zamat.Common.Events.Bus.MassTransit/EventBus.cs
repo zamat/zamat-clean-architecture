@@ -2,7 +2,7 @@
 
 namespace Zamat.Common.Events.Bus.MassTransit;
 
-class EventBus(IPublishEndpoint publishEndpoint) : IEventBus
+internal class EventBus(IPublishEndpoint publishEndpoint) : IEventBus
 {
     private readonly IPublishEndpoint _publishEndpoint = publishEndpoint;
 

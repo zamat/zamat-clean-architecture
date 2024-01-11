@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.Common.Command.Bus;
 
-class CommandBusBuilder(IServiceCollection serviceCollection) : ICommandBusBuilder
+internal class CommandBusBuilder(IServiceCollection serviceCollection) : ICommandBusBuilder
 {
     private readonly IServiceCollection _serviceCollection = serviceCollection;
 

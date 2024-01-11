@@ -6,7 +6,7 @@ using Zamat.Clean.Services.Users.Infrastructure.Repositories;
 
 namespace Zamat.Clean.Services.Users.Infrastructure;
 
-class UnitOfWork(UsersDbContext dbContext, IDomainEventDispatcher domainEventDispatcher) : IApplicationUnitOfWork
+internal class UnitOfWork(UsersDbContext dbContext, IDomainEventDispatcher domainEventDispatcher) : IApplicationUnitOfWork
 {
     private readonly IUserRepository _userRepository = new UserRepository(dbContext);
     private readonly IDomainEventDispatcher _domainEventDispatcher = domainEventDispatcher;
@@ -20,7 +20,7 @@ class UnitOfWork(UsersDbContext dbContext, IDomainEventDispatcher domainEventDis
         return await _dbContext.SaveChangesAsync(cancellationToken);
     }
 
-    async Task DispatchDomainEvents(CancellationToken cancellationToken)
+    private async Task DispatchDomainEvents(CancellationToken cancellationToken)
     {
         var entities = _dbContext.ChangeTracker
             .Entries<IEntity>()

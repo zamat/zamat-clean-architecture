@@ -4,7 +4,7 @@ using Zamat.Clean.Services.Users.Core.Domain.Entities;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.EFCore.EntityConfiguration;
 
-class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
+internal class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {

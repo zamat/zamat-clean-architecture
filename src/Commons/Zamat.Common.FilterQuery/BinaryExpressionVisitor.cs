@@ -2,7 +2,7 @@
 
 namespace Zamat.Common.FilterQuery;
 
-class BinaryExpressionVisitor : ExpressionVisitor
+internal class BinaryExpressionVisitor : ExpressionVisitor
 {
     public QueryParams QueryParams { get; }
 

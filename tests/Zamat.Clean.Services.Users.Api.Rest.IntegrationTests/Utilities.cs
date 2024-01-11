@@ -17,7 +17,7 @@ public static class Utilities
         db.SaveChanges();
     }
 
-    static List<User> GetSeedingUsers()
+    private static List<User> GetSeedingUsers()
     {
         return new List<User>() {
             new User("u100", "john.doe@constoso.com", new FullName("John", "Doe")),

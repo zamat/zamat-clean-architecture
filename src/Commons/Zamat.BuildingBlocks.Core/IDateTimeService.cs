@@ -5,7 +5,7 @@ public interface IDateTimeService
     DateTimeOffset GetDateTimeOffsetUtcNow();
 }
 
-class DateTimeService : IDateTimeService
+internal class DateTimeService : IDateTimeService
 {
     public DateTimeOffset GetDateTimeOffsetUtcNow()
     {

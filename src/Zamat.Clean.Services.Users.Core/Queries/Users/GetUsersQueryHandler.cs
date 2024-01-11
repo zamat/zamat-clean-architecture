@@ -2,7 +2,7 @@
 
 namespace Zamat.Clean.Services.Users.Core.Queries.Users;
 
-class GetUsersQueryHandler(IUsersQueries usersQueries) : IQueryHandler<GetUsersQuery, IEnumerable<UserDto>>
+internal class GetUsersQueryHandler(IUsersQueries usersQueries) : IQueryHandler<GetUsersQuery, IEnumerable<UserDto>>
 {
     private readonly IUsersQueries _usersQueries = usersQueries;
 

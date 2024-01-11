@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Zamat.AspNetCore.Grpc.Interceptors;
 
-class LoggerInterceptor(ILogger<LoggerInterceptor> logger) : Interceptor
+internal class LoggerInterceptor(ILogger<LoggerInterceptor> logger) : Interceptor
 {
     private readonly ILogger<LoggerInterceptor> _logger = logger;
 

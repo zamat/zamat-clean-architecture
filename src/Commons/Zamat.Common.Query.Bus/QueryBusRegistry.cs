@@ -2,7 +2,7 @@
 
 namespace Zamat.Common.Query.Bus;
 
-class QueryBusRegistry(IServiceProvider serviceProvider) : IQueryBusRegistry
+internal class QueryBusRegistry(IServiceProvider serviceProvider) : IQueryBusRegistry
 {
     private readonly IServiceProvider _serviceProvider = serviceProvider;
 

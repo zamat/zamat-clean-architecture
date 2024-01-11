@@ -2,7 +2,7 @@
 
 namespace Zamat.Clean.Services.Users.Core.Queries.Users;
 
-class GetUsersCountQueryHandler(IUsersQueries usersQueries) : IQueryHandler<GetUsersCountQuery, int>
+internal class GetUsersCountQueryHandler(IUsersQueries usersQueries) : IQueryHandler<GetUsersCountQuery, int>
 {
     private readonly IUsersQueries _usersQueries = usersQueries;
 

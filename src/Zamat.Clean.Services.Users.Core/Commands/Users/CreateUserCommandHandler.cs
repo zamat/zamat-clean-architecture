@@ -5,7 +5,7 @@ using Zamat.Common.Events.Bus;
 
 namespace Zamat.Clean.Services.Users.Core.Commands.Users;
 
-class CreateUserCommandHandler(IApplicationUnitOfWork unitOfWork, IEventBus eventBus, IUserFactory userFactory) : ICommandHandler<CreateUserCommand>
+internal class CreateUserCommandHandler(IApplicationUnitOfWork unitOfWork, IEventBus eventBus, IUserFactory userFactory) : ICommandHandler<CreateUserCommand>
 {
     private readonly IApplicationUnitOfWork _unitOfWork = unitOfWork;
     private readonly IEventBus _eventBus = eventBus;

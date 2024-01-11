@@ -2,7 +2,7 @@
 
 namespace Zamat.Clean.Services.Users.Core.Commands.Users;
 
-class UpdateUserCommandHandler(IApplicationUnitOfWork unitOfWork) : ICommandHandler<UpdateUserCommand>
+internal class UpdateUserCommandHandler(IApplicationUnitOfWork unitOfWork) : ICommandHandler<UpdateUserCommand>
 {
     private readonly IApplicationUnitOfWork _unitOfWork = unitOfWork;
 

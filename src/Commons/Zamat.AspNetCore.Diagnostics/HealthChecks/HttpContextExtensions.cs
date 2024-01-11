@@ -21,7 +21,7 @@ internal static class HttpContextExtensions
         return httpContext;
     }
 
-    static JsonSerializerOptions CreateJsonOptions()
+    private static JsonSerializerOptions CreateJsonOptions()
     {
         var options = new JsonSerializerOptions
         {

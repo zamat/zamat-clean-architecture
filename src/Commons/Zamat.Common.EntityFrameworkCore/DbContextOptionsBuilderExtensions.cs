@@ -18,7 +18,7 @@ public static class DbContextOptionsBuilderExtensions
         return optionsBuilder;
     }
 
-    static DbContextOptionsBuilder ConfigureDbProvider(this DbContextOptionsBuilder optionsBuilder, string connectionString, AssemblyMigrationContext assemblyMigrationContext)
+    private static DbContextOptionsBuilder ConfigureDbProvider(this DbContextOptionsBuilder optionsBuilder, string connectionString, AssemblyMigrationContext assemblyMigrationContext)
     {
         if (connectionString.StartsWith(Consts.PostgreSQLPrefix))
         {

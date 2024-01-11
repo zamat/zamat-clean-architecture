@@ -6,7 +6,7 @@ namespace Zamat.Clean.Services.Users.Api.Rest.Controllers;
 
 public abstract class ApiController : ControllerBase
 {
-    const string ValidationError = "One or more validation errors occurred.";
+    private const string ValidationError = "One or more validation errors occurred.";
 
     protected readonly IStringLocalizer _stringLocalizer;
     protected readonly ILogger _logger;

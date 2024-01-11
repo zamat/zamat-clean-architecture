@@ -7,9 +7,8 @@ namespace Zamat.Clean.Services.Users.Api.Rest.Controllers;
 public class ApiErrorController(IStringLocalizer<Translations> stringLocalizer) : ControllerBase
 {
     private readonly IStringLocalizer<Translations> _stringLocalizer = stringLocalizer;
-
-    const string ErrorTitle = "Unexpected error occured.";
-    const string ErrorDetail = "Operation cannot be performed. Contact with system admin.";
+    private const string ErrorTitle = "Unexpected error occured.";
+    private const string ErrorDetail = "Operation cannot be performed. Contact with system admin.";
 
     [Route("api/error")]
     public ActionResult Get()

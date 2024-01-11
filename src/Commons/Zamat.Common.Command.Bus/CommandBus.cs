@@ -1,6 +1,6 @@
 ﻿namespace Zamat.Common.Command.Bus;
 
-class CommandBus(ICommandBusRegistry commandBusRegistry) : ICommandBus
+internal class CommandBus(ICommandBusRegistry commandBusRegistry) : ICommandBus
 {
     private readonly ICommandBusRegistry _commandBusRegistry = commandBusRegistry;
 

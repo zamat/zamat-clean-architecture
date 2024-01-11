@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Zamat.AspNetCore.Diagnostics;
 
-class AddTraceIdMiddleware(RequestDelegate next)
+internal class AddTraceIdMiddleware(RequestDelegate next)
 {
     private readonly RequestDelegate _next = next;
 

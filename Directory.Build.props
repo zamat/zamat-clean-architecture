@@ -10,7 +10,10 @@
 		<CommonVersion>8.0.0</CommonVersion>
 		<RepositoryUrl>https://zamat.pl/</RepositoryUrl>
 	</PropertyGroup>
-	<PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Zamat.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
 		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 		<CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
 		<EnablePackageVersionOverride>true</EnablePackageVersionOverride>

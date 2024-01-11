@@ -36,7 +36,7 @@ public static class ApplicationBuilderExtensions
         return builder;
     }
 
-    static Task WriteHealthCheckResponse(HttpContext httpContext, HealthReport report)
+    private static Task WriteHealthCheckResponse(HttpContext httpContext, HealthReport report)
     {
         return httpContext.WriteHealthReportAsync(report);
     }

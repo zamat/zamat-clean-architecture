@@ -1,6 +1,6 @@
 ﻿namespace Zamat.Common.Command.Bus;
 
-class CommandBusRegistry(IServiceProvider serviceProvider) : ICommandBusRegistry
+internal class CommandBusRegistry(IServiceProvider serviceProvider) : ICommandBusRegistry
 {
     private readonly IServiceProvider _serviceProvider = serviceProvider;
 

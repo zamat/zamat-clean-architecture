@@ -2,7 +2,7 @@
 
 namespace Zamat.Clean.ApiGateway.DelegatingHandlers;
 
-class UsersDelegatingHandler(IHttpContextAccessor httpContextAccessor, ILogger<UsersDelegatingHandler> logger) : DelegatingHandler
+internal class UsersDelegatingHandler(IHttpContextAccessor httpContextAccessor, ILogger<UsersDelegatingHandler> logger) : DelegatingHandler
 {
     private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
     private readonly ILogger<UsersDelegatingHandler> _logger = logger;
@@ -29,7 +29,7 @@ class UsersDelegatingHandler(IHttpContextAccessor httpContextAccessor, ILogger<U
         return await base.SendAsync(request, cancellationToken);
     }
 
-    void DoSomethingWithRequest()
+    private void DoSomethingWithRequest()
     {
         var sub = _httpContextAccessor.HttpContext?.User?.FindFirst("sub")?.Value ?? "notset";
 

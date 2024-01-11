@@ -4,7 +4,7 @@ namespace Zamat.Common.Http.DelegatingHandlers;
 
 public class ProblemDelegatingHandler : DelegatingHandler
 {
-    const string ContentType = "application/problem+json";
+    private const string ContentType = "application/problem+json";
 
     public ProblemDelegatingHandler()
     {

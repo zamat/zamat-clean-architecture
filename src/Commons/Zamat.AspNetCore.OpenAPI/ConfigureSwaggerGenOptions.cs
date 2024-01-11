@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Zamat.AspNetCore.OpenAPI;
 
-class ConfigureSwaggerGenOptions(IApiVersionDescriptionProvider provider, IOptions<OpenAPIOptions> openAPIConfig) : IConfigureOptions<SwaggerGenOptions>
+internal class ConfigureSwaggerGenOptions(IApiVersionDescriptionProvider provider, IOptions<OpenAPIOptions> openAPIConfig) : IConfigureOptions<SwaggerGenOptions>
 {
     private readonly IApiVersionDescriptionProvider _provider = provider;
     private readonly IOptions<OpenAPIOptions> _openAPIConfig = openAPIConfig;

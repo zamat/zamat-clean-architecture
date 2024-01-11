@@ -9,7 +9,7 @@ using static OpenIddict.Validation.OpenIddictValidationHandlers.Protection;
 
 namespace Zamat.AspNetCore.OpenIddict.Handlers;
 
-class ValidateCustomJsonWebToken(TokenValidationParameters tokenValidationParameters) : IOpenIddictValidationHandler<ValidateTokenContext>
+internal class ValidateCustomJsonWebToken(TokenValidationParameters tokenValidationParameters) : IOpenIddictValidationHandler<ValidateTokenContext>
 {
     private readonly TokenValidationParameters _tokenValidationParameters = tokenValidationParameters;
 

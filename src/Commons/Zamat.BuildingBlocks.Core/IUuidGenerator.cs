@@ -5,7 +5,7 @@ public interface IUuidGenerator
     string Generate();
 }
 
-class UuidGenerator : IUuidGenerator
+internal class UuidGenerator : IUuidGenerator
 {
     public string Generate()
     {

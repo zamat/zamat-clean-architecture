@@ -8,7 +8,7 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Clean.Cli;
 
-class ConsoleCommands(UsersDbContext dbContext, ILogger<ConsoleCommands> logger) : ConsoleAppBase
+internal class ConsoleCommands(UsersDbContext dbContext, ILogger<ConsoleCommands> logger) : ConsoleAppBase
 {
     private readonly UsersDbContext _dbContext = dbContext;
     private readonly ILogger<ConsoleCommands> _logger = logger;
@@ -52,7 +52,7 @@ class ConsoleCommands(UsersDbContext dbContext, ILogger<ConsoleCommands> logger)
         _logger.LogInformation("Loading seed data completed.");
     }
 
-    async Task LoadUsersAsync(IEnumerable<SeedUser> users, CancellationToken cancellationToken = default)
+    private async Task LoadUsersAsync(IEnumerable<SeedUser> users, CancellationToken cancellationToken = default)
     {
         _logger.LogInformation("Loading users started.");
 
@@ -69,7 +69,7 @@ class ConsoleCommands(UsersDbContext dbContext, ILogger<ConsoleCommands> logger)
         _logger.LogInformation("Loading users completed.");
     }
 
-    static T Load<T>(string filename)
+    private static T Load<T>(string filename)
     {
         var opt = new JsonSerializerOptions();
         opt.Converters.Add(new JsonStringEnumConverter());

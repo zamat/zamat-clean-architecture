@@ -1,6 +1,6 @@
 ﻿namespace Zamat.Common.Query.Bus;
 
-class QueryWrapper<TQuery, TResult> : AbstractQueryWrapper<TResult> where TQuery : IQuery<TResult>
+internal class QueryWrapper<TQuery, TResult> : AbstractQueryWrapper<TResult> where TQuery : IQuery<TResult>
 {
     public override async Task<QueryResult<TResult>> HandleAsync(IQuery<TResult> query, IQueryBusRegistry queryRegistry, CancellationToken cancellationToken)
     {

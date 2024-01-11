@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Zamat.Clean.BuildingBlocks.Core;
+using Zamat.Clean.Core;
 using Zamat.Clean.Services.Users.Core.Domain;
 using Zamat.Common.Command.Bus;
 using Zamat.Common.DomainEventDispatcher;
@@ -11,7 +11,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddCore(this IServiceCollection services)
     {
-        services.AddCoreBuildingBlocks();
+        services.AddCoreCommon();
 
         services.AddQueryBus(o =>
         {

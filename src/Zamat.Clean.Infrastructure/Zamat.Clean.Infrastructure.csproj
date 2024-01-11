@@ -3,7 +3,13 @@
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>Infrastructure Package</Description>
 	</PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\Zamat.Clean.BuildingBlocks.Infrastructure\Zamat.Clean.BuildingBlocks.Infrastructure.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Commons\Zamat.AspNetCore.MassTransit.RabbitMQ\Zamat.AspNetCore.MassTransit.RabbitMQ.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
+    <ProjectReference Include="..\Commons\Zamat.Common.EntityFrameworkCore\Zamat.Common.EntityFrameworkCore.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
+    <ProjectReference Include="..\Commons\Zamat.Common.Events.Bus.MassTransit\Zamat.Common.Events.Bus.MassTransit.csproj" />
+  </ItemGroup>
 </Project>

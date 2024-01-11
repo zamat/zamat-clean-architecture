@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Zamat.Clean.BuildingBlocks.Core;
+namespace Zamat.BuildingBlocks.Core;
 
 public interface IUnitOfWork : IDisposable
 {

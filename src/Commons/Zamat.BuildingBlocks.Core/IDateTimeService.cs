@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Zamat.Clean.BuildingBlocks.Core;
+namespace Zamat.BuildingBlocks.Core;
 
 public interface IDateTimeService
 {

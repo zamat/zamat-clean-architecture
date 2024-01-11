@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Zamat.Clean.BuildingBlocks.Core;
+namespace Zamat.BuildingBlocks.Core;
 
 public static class ServiceCollectionExtensions
 {

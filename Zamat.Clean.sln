@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.BuildingBlocks.Infrastructure", "src\Zamat.Clean.BuildingBlocks.Infrastructure\Zamat.Clean.BuildingBlocks.Infrastructure.csproj", "{D089E4E4-B179-4BD3-A2DD-11B5C24F1465}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.Services.Users.Infrastructure", "src\Zamat.Clean.Services.Users.Infrastructure\Zamat.Clean.Services.Users.Infrastructure.csproj", "{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.ApiGateway", "src\Zamat.Clean.ApiGateway\Zamat.Clean.ApiGateway.csproj", "{5D702090-CBD2-4CD1-AE35-26022F29F099}"
@@ -54,8 +52,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Common.EntityFrameworkCore", "src\Commons\Zamat.Common.EntityFrameworkCore\Zamat.Common.EntityFrameworkCore.csproj", "{C1038236-22FF-4A1B-B309-D1C143FA3467}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.BuildingBlocks.Domain", "src\Commons\Zamat.BuildingBlocks.Domain\Zamat.BuildingBlocks.Domain.csproj", "{25FE4BF9-A91A-4BBB-9E5D-A4144249629B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.BuildingBlocks.Core", "src\Zamat.Clean.BuildingBlocks.Core\Zamat.Clean.BuildingBlocks.Core.csproj", "{3BB73DA6-DE52-4DE8-8487-706A2ADC0A36}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.Services.Users.Core", "src\Zamat.Clean.Services.Users.Core\Zamat.Clean.Services.Users.Core.csproj", "{7DA4B433-12EB-4B34-BB5E-0D2DE0C2685D}"
 EndProject
@@ -107,16 +103,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecksUI", "src\Healt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.Resources", "src\Zamat.Clean.Resources\Zamat.Clean.Resources.csproj", "{EDAA3DB7-5265-474D-9550-C873FEDEAAB0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.BuildingBlocks.Core", "src\Commons\Zamat.BuildingBlocks.Core\Zamat.BuildingBlocks.Core.csproj", "{03731FA8-15D6-4933-9D50-266B00276A8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D089E4E4-B179-4BD3-A2DD-11B5C24F1465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D089E4E4-B179-4BD3-A2DD-11B5C24F1465}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D089E4E4-B179-4BD3-A2DD-11B5C24F1465}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D089E4E4-B179-4BD3-A2DD-11B5C24F1465}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -193,10 +187,6 @@ Global
 		{25FE4BF9-A91A-4BBB-9E5D-A4144249629B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25FE4BF9-A91A-4BBB-9E5D-A4144249629B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25FE4BF9-A91A-4BBB-9E5D-A4144249629B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3BB73DA6-DE52-4DE8-8487-706A2ADC0A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3BB73DA6-DE52-4DE8-8487-706A2ADC0A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3BB73DA6-DE52-4DE8-8487-706A2ADC0A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3BB73DA6-DE52-4DE8-8487-706A2ADC0A36}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7DA4B433-12EB-4B34-BB5E-0D2DE0C2685D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7DA4B433-12EB-4B34-BB5E-0D2DE0C2685D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DA4B433-12EB-4B34-BB5E-0D2DE0C2685D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -289,12 +279,15 @@ Global
 		{EDAA3DB7-5265-474D-9550-C873FEDEAAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDAA3DB7-5265-474D-9550-C873FEDEAAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDAA3DB7-5265-474D-9550-C873FEDEAAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03731FA8-15D6-4933-9D50-266B00276A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03731FA8-15D6-4933-9D50-266B00276A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03731FA8-15D6-4933-9D50-266B00276A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03731FA8-15D6-4933-9D50-266B00276A8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D089E4E4-B179-4BD3-A2DD-11B5C24F1465} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{5D702090-CBD2-4CD1-AE35-26022F29F099} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{AC505FEC-0A36-4AEE-8379-B3BF116E7570} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
@@ -315,7 +308,6 @@ Global
 		{DEF9BFF3-E196-4368-99AD-B4CC055993C0} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{C1038236-22FF-4A1B-B309-D1C143FA3467} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 		{25FE4BF9-A91A-4BBB-9E5D-A4144249629B} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
-		{3BB73DA6-DE52-4DE8-8487-706A2ADC0A36} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{7DA4B433-12EB-4B34-BB5E-0D2DE0C2685D} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{FE07759E-EBFB-42EB-99E1-D0F26B1FC574} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{DF3048E9-657B-42DA-A3D4-A65785DE499A} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
@@ -339,6 +331,7 @@ Global
 		{FD40832B-CBE7-459B-B1B9-9CC1094CA588} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 		{55407CEE-879C-4483-9D24-ACDB8B1E3F20} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{EDAA3DB7-5265-474D-9550-C873FEDEAAB0} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
+		{03731FA8-15D6-4933-9D50-266B00276A8F} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10E0EEF8-A884-41A4-A98F-CA8E15CB9A16}

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Swashbuckle.AspNetCore.Annotations;
-using Zamat.Clean.BuildingBlocks.Core;
+using Zamat.BuildingBlocks.Core;
 using Zamat.Clean.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 using Zamat.Clean.Services.Users.Core.Commands.Users;
 using Zamat.Clean.Services.Users.Core.Queries.Users;

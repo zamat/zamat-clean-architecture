@@ -3,7 +3,21 @@
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>Core Package (SharedKernel)</Description>
 	</PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\Zamat.Clean.BuildingBlocks.Core\Zamat.Clean.BuildingBlocks.Core.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Commons\Zamat.BuildingBlocks.Core\Zamat.BuildingBlocks.Core.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
+    <ProjectReference Include="..\Commons\Zamat.Common.Command.Bus\Zamat.Common.Command.Bus.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
+    <ProjectReference Include="..\Commons\Zamat.Common.DomainEventDispatcher\Zamat.Common.DomainEventDispatcher.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
+    <ProjectReference Include="..\Commons\Zamat.Common.Events.Bus\Zamat.Common.Events.Bus.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
+    <ProjectReference Include="..\Commons\Zamat.Common.Query.Bus\Zamat.Common.Query.Bus.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

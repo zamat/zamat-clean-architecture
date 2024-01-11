@@ -5,6 +5,7 @@ using Zamat.AspNetCore.Localization;
 using Zamat.AspNetCore.Mvc.Rest;
 using Zamat.AspNetCore.OpenAPI;
 using Zamat.AspNetCore.OpenTelemetry;
+using Zamat.Clean.Core;
 using Zamat.Clean.Services.Users.Core;
 using Zamat.Clean.Services.Users.Infrastructure;
 

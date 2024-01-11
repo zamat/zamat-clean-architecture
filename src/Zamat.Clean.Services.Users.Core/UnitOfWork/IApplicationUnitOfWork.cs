@@ -1,4 +1,4 @@
-﻿using Zamat.Clean.BuildingBlocks.Core;
+﻿using Zamat.BuildingBlocks.Core;
 
 namespace Zamat.Clean.Services.Users.Core.UnitOfWork;
 

@@ -31,17 +31,20 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    public static IServiceCollection ConfigureMessageBroker(this IServiceCollection services, IConfiguration configuration)
+    private static IServiceCollection ConfigureMessageBroker(this IServiceCollection services, IConfiguration configuration)
     {
         var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
 
         var opt = new RabbitMQOptions()
         {
             Host = rabbitConnectionString,
-            Prefix = "users-svc"
+            Prefix = "zamat-users-svc"
         };
 
         services.ConfigureMassTransitWithOutbox<UsersDbContext>(opt, _ => { }, _ => { });
+
+        services.AddHealthChecks()
+            .AddRabbitMQ(rabbitConnectionString: rabbitConnectionString);
 
         return services;
     }
@@ -58,16 +61,8 @@ public static class ServiceCollectionExtensions
             });
         });
 
-        return services;
-    }
-
-    public static IServiceCollection ConfigureHealthChecks(this IServiceCollection services, IConfiguration configuration)
-    {
-        var rabbitConnectionString = configuration.GetConnectionString("RabbitMQ") ?? throw new InvalidOperationException("Connection string for rabbitMQ not set.");
-
         services.AddHealthChecks()
-            .AddDbContextCheck<UsersDbContext>(nameof(UsersDbContext))
-            .AddRabbitMQ(rabbitConnectionString: rabbitConnectionString);
+            .AddDbContextCheck<UsersDbContext>(nameof(UsersDbContext));
 
         return services;
     }

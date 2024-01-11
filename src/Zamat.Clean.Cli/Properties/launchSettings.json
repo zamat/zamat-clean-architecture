@@ -1,0 +1,17 @@
+{
+  "profiles": {
+    "Zamat.Clean.Cli": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Zamat.Clean.Cli.[Initialize]": {
+      "commandName": "Project",
+      "commandLineArgs": "initialize",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

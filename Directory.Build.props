@@ -1,11 +1,11 @@
 <Project>
 	<PropertyGroup>
-		<DefaultTargetFramework>net7.0</DefaultTargetFramework>
+		<DefaultTargetFramework>net8.0</DefaultTargetFramework>
 		<Nullable>enable</Nullable>
 		<Authors>Mateusz Zawada</Authors>
 		<Company>Zamat</Company>
 		<Copyright>Zamat</Copyright>
-		<CommonVersion>7.0.0</CommonVersion>
+		<CommonVersion>8.0.0</CommonVersion>
 		<RepositoryUrl>https://zamat.pl/</RepositoryUrl>
 	</PropertyGroup>
 	

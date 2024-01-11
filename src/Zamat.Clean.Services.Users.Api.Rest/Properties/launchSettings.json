@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Zamat.Clean.Services.Users.Api.Rest": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7209;http://localhost:5026"
+    }
+  }
+}

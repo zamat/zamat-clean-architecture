@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>UserService Core Package</Description>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Clean.Core\Zamat.Clean.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Clean.Services.Users.Core.IntegrationEvents\Zamat.Clean.Services.Users.Core.IntegrationEvents.csproj" />
+		<ProjectReference Include="..\Zamat.Clean.Services.Users.Core.Domain\Zamat.Clean.Services.Users.Core.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

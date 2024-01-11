@@ -22,25 +22,25 @@ If you like or are using this project to learn or start your solution, please gi
 |Commons|Contains common libraries (<b>Should be distributed as nuget package.</b>).|
 |EFCore.PostgreSQL|Contains PostgreSQL db migrations (<b>Only referenced by Cli tool</b>).|
 |HealthChecksUI|HealthChecks summary (<b>Spa web application</b>).|
-|Zamat.Sample.ApiGateway|ApiGateway based on <b>Ocelot</b> library.|
-|Zamat.Sample.BuildingBlocks.Core|Common core building blocks for the entire solution.|
-|Zamat.Sample.BuildingBlocks.Infrastructure|Common infrastructure building blocks for the entire solution.|
-|Zamat.Sample.Cli|Cli tools. <b>In Kubernetes environment can be used as db migration init container.</b>|
-|Zamat.Sample.Core|Solution Core package (<b>SkaredKernel</b>)|
-|Zamat.Sample.Infrastructure|Solution infrastructure package|
-|Zamat.Sample.Services.Audit.Worker|Sample Worker service. Consuming integration events published by User Service API.|
-|Zamat.Sample.Services.Content.Api.Rest|Sample REST Api service|
-|Zamat.Sample.Services.Content.Core|Application Core package with <b>CRUD</b> service definition.|
-|Zamat.Sample.Services.Content.Infrastructure|Service infrastructure package. Contains EFCore dbContext.|
-|Zamat.Sample.Services.Users.Api.Grpc|Sample Grpc Api service|
-|Zamat.Sample.Services.Users.Api.Grpc.Client|Standalone GRPC client package. Contains .proto definition (<b>Should be distributed as nuget package.</b>).|
-|Zamat.Sample.Services.Users.Api.Rest|Sample REST Api service|
-|Zamat.Sample.Services.Users.Api.Rest.Client|Standalone REST api client package based on NSwag code generator (<b>Should be distributed as nuget package.</b>).|
-|Zamat.Sample.Services.Users.Core|Application Core package. Contains CQRS commands,queries and handlers. Command handlers raise domain logic, query handlers are used only for user interface views.|
-|Zamat.Sample.Services.Users.Core.Domain|Domain model package. Contains business logic.|
-|Zamat.Sample.Services.Users.Core.IntegrationEvents|Integration events package (<b>Should be distributed as nuget package.</b>).</b>|
-|Zamat.Sample.Services.Users.Core.Infrastructure|Infrastructure package. Contains EFCore dbContext, application services implementation and message broker configuration.|
-|Zamat.Sample.SharedResources|Resource package. Contains .resx files.|
+|Zamat.Clean.ApiGateway|ApiGateway based on <b>Ocelot</b> library.|
+|Zamat.Clean.BuildingBlocks.Core|Common core building blocks for the entire solution.|
+|Zamat.Clean.BuildingBlocks.Infrastructure|Common infrastructure building blocks for the entire solution.|
+|Zamat.Clean.Cli|Cli tools. <b>In Kubernetes environment can be used as db migration init container.</b>|
+|Zamat.Clean.Core|Solution Core package (<b>SkaredKernel</b>)|
+|Zamat.Clean.Infrastructure|Solution infrastructure package|
+|Zamat.Clean.Services.Audit.Worker|Sample Worker service. Consuming integration events published by User Service API.|
+|Zamat.Clean.Services.Content.Api.Rest|Sample REST Api service|
+|Zamat.Clean.Services.Content.Core|Application Core package with <b>CRUD</b> service definition.|
+|Zamat.Clean.Services.Content.Infrastructure|Service infrastructure package. Contains EFCore dbContext.|
+|Zamat.Clean.Services.Users.Api.Grpc|Sample Grpc Api service|
+|Zamat.Clean.Services.Users.Api.Grpc.Client|Standalone GRPC client package. Contains .proto definition (<b>Should be distributed as nuget package.</b>).|
+|Zamat.Clean.Services.Users.Api.Rest|Sample REST Api service|
+|Zamat.Clean.Services.Users.Api.Rest.Client|Standalone REST api client package based on NSwag code generator (<b>Should be distributed as nuget package.</b>).|
+|Zamat.Clean.Services.Users.Core|Application Core package. Contains CQRS commands,queries and handlers. Command handlers raise domain logic, query handlers are used only for user interface views.|
+|Zamat.Clean.Services.Users.Core.Domain|Domain model package. Contains business logic.|
+|Zamat.Clean.Services.Users.Core.IntegrationEvents|Integration events package (<b>Should be distributed as nuget package.</b>).</b>|
+|Zamat.Clean.Services.Users.Core.Infrastructure|Infrastructure package. Contains EFCore dbContext, application services implementation and message broker configuration.|
+|Zamat.Clean.Resources|Resource package. Contains .resx files.|
 
 ## Technologies
 * [ASP.NET Core 7](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) (.net7)

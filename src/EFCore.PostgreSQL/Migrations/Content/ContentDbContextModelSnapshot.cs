@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Zamat.Sample.Services.Content.Infrastructure.EFCore;
+using Zamat.Clean.Services.Content.Infrastructure.EFCore;
 
 #nullable disable
 
@@ -21,7 +21,7 @@ namespace EFCore.PostgreSQL.Migrations.Content
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Zamat.Sample.Services.Content.Core.Entities.Article", b =>
+            modelBuilder.Entity("Zamat.Clean.Services.Content.Core.Entities.Article", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");

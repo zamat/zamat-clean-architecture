@@ -42,7 +42,7 @@ services:
     image: ${DOCKER_REGISTRY-}samplecli
     build:
       context: ../../
-      dockerfile: ./src/Zamat.Sample.Cli/Dockerfile
+      dockerfile: ./src/Zamat.Clean.Cli/Dockerfile
     depends_on:
       - postgresql
 
@@ -51,14 +51,14 @@ services:
     image: ${DOCKER_REGISTRY-}sampleapigateway
     build:
       context: ../../
-      dockerfile: src/Zamat.Sample.ApiGateway/Dockerfile
+      dockerfile: src/Zamat.Clean.ApiGateway/Dockerfile
 
   users.api.rest:
     container_name: users-api-rest
     image: ${DOCKER_REGISTRY-}usersapirest
     build:
       context: ../../
-      dockerfile: src/Zamat.Sample.Services.Users.Api.Rest/Dockerfile
+      dockerfile: src/Zamat.Clean.Services.Users.Api.Rest/Dockerfile
     depends_on:
       - sample.cli
       - rabbitmq
@@ -68,7 +68,7 @@ services:
     image: ${DOCKER_REGISTRY-}usersapigrpc
     build:
       context: ../../
-      dockerfile: src/Zamat.Sample.Services.Users.Api.Grpc/Dockerfile
+      dockerfile: src/Zamat.Clean.Services.Users.Api.Grpc/Dockerfile
     depends_on:
       - sample.cli
       - rabbitmq
@@ -78,7 +78,7 @@ services:
     image: ${DOCKER_REGISTRY-}contentapirest
     build:
       context: ../../
-      dockerfile: src/Zamat.Sample.Services.Content.Api.Rest/Dockerfile
+      dockerfile: src/Zamat.Clean.Services.Content.Api.Rest/Dockerfile
     depends_on:
       - sample.cli
 
@@ -87,7 +87,7 @@ services:
     image: ${DOCKER_REGISTRY-}auditworker
     build:
       context: ../../
-      dockerfile: src/Zamat.Sample.Services.Audit.Worker/Dockerfile
+      dockerfile: src/Zamat.Clean.Services.Audit.Worker/Dockerfile
     depends_on:
       - sample.cli
       - rabbitmq

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>Core Package (SharedKernel)</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Clean.BuildingBlocks.Core\Zamat.Clean.BuildingBlocks.Core.csproj" />
+	</ItemGroup>
+
+</Project>

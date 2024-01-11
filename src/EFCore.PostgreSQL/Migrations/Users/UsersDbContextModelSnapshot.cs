@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Zamat.Sample.Services.Users.Infrastructure.EFCore;
+using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 #nullable disable
 
@@ -188,7 +188,7 @@ namespace EFCore.PostgreSQL.Migrations.Users
                     b.ToTable("OutboxStates", "dbo");
                 });
 
-            modelBuilder.Entity("Zamat.Sample.Services.Users.Core.Domain.Entities.User", b =>
+            modelBuilder.Entity("Zamat.Clean.Services.Users.Core.Domain.Entities.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -202,9 +202,9 @@ namespace EFCore.PostgreSQL.Migrations.Users
                     b.ToTable("Users", "dbo");
                 });
 
-            modelBuilder.Entity("Zamat.Sample.Services.Users.Core.Domain.Entities.User", b =>
+            modelBuilder.Entity("Zamat.Clean.Services.Users.Core.Domain.Entities.User", b =>
                 {
-                    b.OwnsOne("Zamat.Sample.Services.Users.Core.Domain.ValueObjects.FullName", "FullName", b1 =>
+                    b.OwnsOne("Zamat.Clean.Services.Users.Core.Domain.ValueObjects.FullName", "FullName", b1 =>
                         {
                             b1.Property<string>("UserId")
                                 .HasColumnType("text");

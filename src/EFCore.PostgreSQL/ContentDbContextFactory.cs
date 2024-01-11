@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Zamat.Sample.Services.Content.Infrastructure.EFCore;
+using Zamat.Clean.Services.Content.Infrastructure.EFCore;
 
 namespace EFCore.PostgreSQL;
 

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<Description>Infrastructure Package</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zamat.Clean.BuildingBlocks.Infrastructure\Zamat.Clean.BuildingBlocks.Infrastructure.csproj" />
+	</ItemGroup>
+
+</Project>

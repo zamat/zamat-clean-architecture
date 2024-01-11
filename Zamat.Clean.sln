@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.Services.Users.Infrastructure", "src\Zamat.Clean.Services.Users.Infrastructure\Zamat.Clean.Services.Users.Infrastructure.csproj", "{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.ApiGateway", "src\Zamat.Clean.ApiGateway\Zamat.Clean.ApiGateway.csproj", "{5D702090-CBD2-4CD1-AE35-26022F29F099}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.Cli", "src\Zamat.Clean.Cli\Zamat.Clean.Cli.csproj", "{AC505FEC-0A36-4AEE-8379-B3BF116E7570}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.Services.Users.Api.Rest", "src\Zamat.Clean.Services.Users.Api.Rest\Zamat.Clean.Services.Users.Api.Rest.csproj", "{2DEDF5C9-A06F-4776-B3DD-7FD417D44512}"
@@ -104,6 +102,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.Resources", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.BuildingBlocks.Core", "src\Commons\Zamat.BuildingBlocks.Core\Zamat.BuildingBlocks.Core.csproj", "{03731FA8-15D6-4933-9D50-266B00276A8F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zamat.Clean.Api.Gateway", "src\Zamat.Clean.Api.Gateway\Zamat.Clean.Api.Gateway.csproj", "{6AA9AD68-DF4A-4B4B-8D10-67DD9D5C2477}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,10 +114,6 @@ Global
 		{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D702090-CBD2-4CD1-AE35-26022F29F099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D702090-CBD2-4CD1-AE35-26022F29F099}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D702090-CBD2-4CD1-AE35-26022F29F099}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D702090-CBD2-4CD1-AE35-26022F29F099}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC505FEC-0A36-4AEE-8379-B3BF116E7570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC505FEC-0A36-4AEE-8379-B3BF116E7570}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC505FEC-0A36-4AEE-8379-B3BF116E7570}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -278,13 +274,16 @@ Global
 		{03731FA8-15D6-4933-9D50-266B00276A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03731FA8-15D6-4933-9D50-266B00276A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03731FA8-15D6-4933-9D50-266B00276A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AA9AD68-DF4A-4B4B-8D10-67DD9D5C2477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA9AD68-DF4A-4B4B-8D10-67DD9D5C2477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA9AD68-DF4A-4B4B-8D10-67DD9D5C2477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA9AD68-DF4A-4B4B-8D10-67DD9D5C2477}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BD6E9B4A-DAFB-4726-AA38-72C37BD4C7E6} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
-		{5D702090-CBD2-4CD1-AE35-26022F29F099} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{AC505FEC-0A36-4AEE-8379-B3BF116E7570} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{2DEDF5C9-A06F-4776-B3DD-7FD417D44512} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
@@ -326,6 +325,7 @@ Global
 		{FD40832B-CBE7-459B-B1B9-9CC1094CA588} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
 		{EDAA3DB7-5265-474D-9550-C873FEDEAAB0} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 		{03731FA8-15D6-4933-9D50-266B00276A8F} = {FB1305D1-D464-4E6C-A4FF-0673FC1F0B5A}
+		{6AA9AD68-DF4A-4B4B-8D10-67DD9D5C2477} = {CC7A368A-6F5B-47C3-B9DB-677318A2F2FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10E0EEF8-A884-41A4-A98F-CA8E15CB9A16}

@@ -14,6 +14,6 @@ internal class GetUserQueryHandler(IUsersQueries usersQueries) : IQueryHandler<G
             return new QueryResult<UserDto>(new QueryError(QueryErrorCode.UserNotFound, "User with given id not found."));
         }
 
-        return new UserDto(user);
+        return user;
     }
 }

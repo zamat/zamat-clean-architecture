@@ -1,11 +1,8 @@
-﻿using Zamat.BuildingBlocks.Domain.Specifications;
+﻿namespace Zamat.BuildingBlocks.Domain;
 
-namespace Zamat.BuildingBlocks.Domain;
-
-public interface IRepository<T> where T : class, IAggregateRoot
+public interface IRepository<T, TKey> where T : class, IAggregateRoot
 {
-    Task<T> GetAsync(Specification<T> specification, CancellationToken cancellationToken);
-    Task<T?> GetOrDefaultAsync(Specification<T> specification, CancellationToken cancellationToken);
+    Task<T?> GetAsync(TKey id, CancellationToken cancellationToken);
     Task AddAsync(T user, CancellationToken cancellationToken);
     Task DeleteAsync(T user, CancellationToken cancellationToken);
 }

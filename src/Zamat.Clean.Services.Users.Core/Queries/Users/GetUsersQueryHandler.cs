@@ -8,15 +8,8 @@ internal class GetUsersQueryHandler(IUsersQueries usersQueries) : IQueryHandler<
 
     public async Task<QueryResult<IEnumerable<UserDto>>> HandleAsync(GetUsersQuery query, CancellationToken cancellationToken)
     {
-        var users = _usersQueries.GetAsync(query, cancellationToken);
+        var users = await _usersQueries.GetAsync(query, cancellationToken);
 
-        var dtos = new List<UserDto>();
-
-        await foreach (var user in users)
-        {
-            dtos.Add(new UserDto(user));
-        }
-
-        return dtos;
+        return new QueryResult<IEnumerable<UserDto>>() { Result = users };
     }
 }

@@ -1,13 +1,13 @@
 ﻿using MassTransit;
 using Microsoft.EntityFrameworkCore;
-using Zamat.Clean.Services.Users.Core.Domain.Entities;
+using Zamat.Clean.Services.Users.Infrastructure.EFCore.Entities;
 using Zamat.Clean.Services.Users.Infrastructure.EFCore.EntityConfiguration;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 public class UsersDbContext(DbContextOptions<UsersDbContext> dbContextOptions) : DbContext(dbContextOptions)
 {
-    public DbSet<User> Users { get; set; } = default!;
+    public DbSet<UserEntity> Users { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

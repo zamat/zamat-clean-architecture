@@ -8,7 +8,7 @@ internal class UpdateUserCommandHandler(IApplicationUnitOfWork unitOfWork) : ICo
 
     public async Task<CommandResult> HandleAsync(UpdateUserCommand command, CancellationToken cancellationToken = default)
     {
-        var user = await _unitOfWork.UserRepository.GetOrDefaultAsync(new UserWithIdSpec(command.Id), cancellationToken);
+        var user = await _unitOfWork.UserRepository.GetAsync(command.Id, cancellationToken);
         if (user is null)
         {
             return new CommandResult(new PreconditionError(CommandErrorCode.InvalidUser, "User with given id not found."));

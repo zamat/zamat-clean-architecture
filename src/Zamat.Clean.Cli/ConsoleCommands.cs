@@ -2,9 +2,8 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Zamat.Clean.Cli.SeedData;
-using Zamat.Clean.Services.Users.Core.Domain.Entities;
-using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
 using Zamat.Clean.Services.Users.Infrastructure.EFCore;
+using Zamat.Clean.Services.Users.Infrastructure.EFCore.Entities;
 
 namespace Zamat.Clean.Cli;
 
@@ -60,7 +59,13 @@ internal class ConsoleCommands(UsersDbContext dbContext, ILogger<ConsoleCommands
         {
             if (!await _dbContext.Users.AnyAsync(x => x.Id == user.Id, cancellationToken))
             {
-                _dbContext.Add(new User(user.Id, user.UserName, new FullName(user.FirstName, user.LastName)));
+                _dbContext.Add(new UserEntity()
+                {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                });
             }
         }
 

@@ -1,13 +1,13 @@
 ﻿using Zamat.BuildingBlocks.Domain;
+using Zamat.Clean.Services.Users.Core.Domain.DomainEvents;
+using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
 
-namespace Zamat.Clean.Services.Users.Core.Domain.Entities;
+namespace Zamat.Clean.Services.Users.Core.Domain.Aggregates;
 
 public class User : Entity<string>, IAggregateRoot
 {
     public string UserName { get; private set; } = default!;
     public FullName FullName { get; private set; } = default!;
-
-    private User() : base() { }
 
     public User(string id, string userName, FullName fullName)
     {

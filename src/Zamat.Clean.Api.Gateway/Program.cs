@@ -8,7 +8,7 @@ using Zamat.AspNetCore.Diagnostics;
 using Zamat.AspNetCore.Ocelot;
 using Zamat.AspNetCore.OpenIddict;
 using Zamat.AspNetCore.OpenTelemetry;
-using Zamat.Clean.ApiGateway.DelegatingHandlers;
+using Zamat.Clean.Api.Gateway.DelegatingHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 

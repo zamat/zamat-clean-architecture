@@ -1,4 +1,7 @@
-﻿namespace Zamat.Clean.Services.Users.Core.Domain.Factories;
+﻿using Zamat.Clean.Services.Users.Core.Domain.Aggregates;
+using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
+
+namespace Zamat.Clean.Services.Users.Core.Domain.Factories;
 
 public interface IUserFactory
 {

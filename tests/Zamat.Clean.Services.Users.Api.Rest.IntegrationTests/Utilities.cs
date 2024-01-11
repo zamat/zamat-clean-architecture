@@ -1,4 +1,4 @@
-﻿using Zamat.Clean.Services.Users.Core.Domain.Entities;
+﻿using Zamat.Clean.Services.Users.Core.Domain.Aggregates;
 using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
 using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 

@@ -1,6 +1,6 @@
 ﻿using Ocelot.Middleware;
 
-namespace Zamat.Clean.ApiGateway.DelegatingHandlers;
+namespace Zamat.Clean.Api.Gateway.DelegatingHandlers;
 
 internal class UsersDelegatingHandler(IHttpContextAccessor httpContextAccessor, ILogger<UsersDelegatingHandler> logger) : DelegatingHandler
 {

@@ -1,19 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Zamat.Clean.Services.Users.Core.Domain.Entities;
+using Zamat.Clean.Services.Users.Infrastructure.EFCore.Entities;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.EFCore.EntityConfiguration;
 
-internal class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
+internal class UserEntityTypeConfiguration : IEntityTypeConfiguration<UserEntity>
 {
-    public void Configure(EntityTypeBuilder<User> builder)
+    public void Configure(EntityTypeBuilder<UserEntity> builder)
     {
         _ = builder.ToTable("Users", "dbo");
         _ = builder.HasKey(x => x.Id);
-        _ = builder.OwnsOne(x => x.FullName, b =>
-        {
-            b.Property(y => y.FirstName).HasColumnName("FirstName");
-            b.Property(y => y.LastName).HasColumnName("LastName");
-        });
     }
 }

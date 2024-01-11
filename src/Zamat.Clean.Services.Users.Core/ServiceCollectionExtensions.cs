@@ -25,7 +25,7 @@ public static class ServiceCollectionExtensions
 
         services.AddDomainEventDispatcher(o =>
         {
-            o.AddDomainEventHandlers(UserCoreDomainAssembly.Assembly);
+            o.AddDomainEventHandlers(DomainAssembly.Assembly);
         });
 
         return services;

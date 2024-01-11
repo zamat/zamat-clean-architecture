@@ -1,6 +1,7 @@
 ﻿using Zamat.Clean.Services.Users.Core.Domain.Aggregates;
 using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
 using Zamat.Clean.Services.Users.Infrastructure.EFCore;
+using Zamat.Clean.Services.Users.Infrastructure.EFCore.Entities;
 
 namespace Zamat.Clean.Services.Users.Api.Rest.IntegrationTests;
 
@@ -17,12 +18,12 @@ public static class Utilities
         db.SaveChanges();
     }
 
-    private static List<User> GetSeedingUsers()
+    private static List<UserEntity> GetSeedingUsers()
     {
-        return new List<User>() {
-            new User("u100", "john.doe@constoso.com", new FullName("John", "Doe")),
-            new User("u101", "lucy.doe@constoso.com", new FullName("Lucy", "Doe")),
-            new User("u102", "jack.doe@constoso.com", new FullName("Jack", "Doe"))
-        };
+        return [
+            new() { Id = "u100", UserName = "john.doe@constoso.com", FirstName = "John", LastName = "Doe" },
+            new() { Id = "u101", UserName = "lucy.doe@constoso.com", FirstName = "Lucy", LastName = "Doe" },
+            new() { Id = "u102", UserName = "ben.doe@constoso.com", FirstName = "Ben", LastName = "Doe" },
+        ];
     }
 }

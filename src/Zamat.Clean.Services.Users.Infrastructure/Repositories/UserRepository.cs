@@ -6,7 +6,7 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.Repositories;
 
-class UserRepository(UsersDbContext dbContext) : IUserRepository
+internal class UserRepository(UsersDbContext dbContext) : IUserRepository
 {
     private readonly UsersDbContext _dbContext = dbContext;
 

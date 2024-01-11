@@ -5,16 +5,10 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Zamat.AspNetCore.OpenAPI;
 
-class ConfigureSwaggerUIOptions : IConfigureOptions<SwaggerUIOptions>
+class ConfigureSwaggerUIOptions(IApiVersionDescriptionProvider provider, IOptions<OpenAPIOptions> openAPIConfig) : IConfigureOptions<SwaggerUIOptions>
 {
-    private readonly IApiVersionDescriptionProvider _provider;
-    private readonly IOptions<OpenAPIOptions> _openAPIConfig;
-
-    public ConfigureSwaggerUIOptions(IApiVersionDescriptionProvider provider, IOptions<OpenAPIOptions> openAPIConfig)
-    {
-        _provider = provider;
-        _openAPIConfig = openAPIConfig;
-    }
+    private readonly IApiVersionDescriptionProvider _provider = provider;
+    private readonly IOptions<OpenAPIOptions> _openAPIConfig = openAPIConfig;
 
     public void Configure(SwaggerUIOptions options)
     {

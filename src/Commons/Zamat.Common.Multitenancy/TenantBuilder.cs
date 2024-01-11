@@ -2,14 +2,9 @@
 
 namespace Zamat.Common.Multitenancy;
 
-public class TenantBuilder
+public class TenantBuilder(IServiceCollection services)
 {
-    private readonly IServiceCollection _services;
-
-    public TenantBuilder(IServiceCollection services)
-    {
-        _services = services;
-    }
+    private readonly IServiceCollection _services = services;
 
     public TenantBuilder AddResolver<T>(ServiceLifetime lifetime = ServiceLifetime.Scoped) where T : class, ITenantResolver
     {

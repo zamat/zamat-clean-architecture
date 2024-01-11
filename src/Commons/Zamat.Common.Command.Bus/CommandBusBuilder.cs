@@ -4,14 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.Common.Command.Bus;
 
-class CommandBusBuilder : ICommandBusBuilder
+class CommandBusBuilder(IServiceCollection serviceCollection) : ICommandBusBuilder
 {
-    private readonly IServiceCollection _serviceCollection;
-
-    public CommandBusBuilder(IServiceCollection serviceCollection)
-    {
-        _serviceCollection = serviceCollection;
-    }
+    private readonly IServiceCollection _serviceCollection = serviceCollection;
 
     public ICommandBusBuilder AddCommandHandlers(Assembly assembly, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
     {

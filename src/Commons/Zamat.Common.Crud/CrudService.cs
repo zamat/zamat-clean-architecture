@@ -6,14 +6,9 @@ using Zamat.Common.FilterQuery;
 
 namespace Zamat.Common.Crud;
 
-public abstract class CrudService<T, TIdentifier>
+public abstract class CrudService<T, TIdentifier>(ICrudRepository<T, TIdentifier> repository)
 {
-    protected readonly ICrudRepository<T, TIdentifier> _repository;
-
-    public CrudService(ICrudRepository<T, TIdentifier> repository)
-    {
-        _repository = repository;
-    }
+    protected readonly ICrudRepository<T, TIdentifier> _repository = repository;
 
     internal enum Errors
     {

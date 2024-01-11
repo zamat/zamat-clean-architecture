@@ -12,18 +12,11 @@ namespace Zamat.Clean.Services.Users.Api.Rest.Controllers.Users.v1;
 
 [ApiVersion("1.0")]
 [Route("v{version:apiVersion}/users")]
-public class UsersController : ApiController
+public class UsersController(ICommandBus commandBus, IQueryBus queryBus, IUuidGenerator uuidGenerator, IStringLocalizer<Translations> stringLocalizer, ILogger<UsersController> logger) : ApiController(stringLocalizer, logger)
 {
-    private readonly ICommandBus _commandBus;
-    private readonly IQueryBus _queryBus;
-    private readonly IUuidGenerator _uuidGenerator;
-
-    public UsersController(ICommandBus commandBus, IQueryBus queryBus, IUuidGenerator uuidGenerator, IStringLocalizer<Translations> stringLocalizer, ILogger<UsersController> logger) : base(stringLocalizer, logger)
-    {
-        _commandBus = commandBus;
-        _queryBus = queryBus;
-        _uuidGenerator = uuidGenerator;
-    }
+    private readonly ICommandBus _commandBus = commandBus;
+    private readonly IQueryBus _queryBus = queryBus;
+    private readonly IUuidGenerator _uuidGenerator = uuidGenerator;
 
     [SwaggerOperation(
         Summary = "Create user",

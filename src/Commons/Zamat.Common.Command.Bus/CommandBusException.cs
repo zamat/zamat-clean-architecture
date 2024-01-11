@@ -2,7 +2,6 @@
 
 namespace Zamat.Common.Command.Bus;
 
-public class CommandBusException : Exception
+public class CommandBusException(string message) : Exception(message)
 {
-    public CommandBusException(string message) : base(message) { }
 }

@@ -2,9 +2,6 @@
 
 namespace Zamat.Common.Multitenancy;
 
-public class TenantNotFoundException : Exception
+public class TenantNotFoundException(string? message) : Exception(message)
 {
-    public TenantNotFoundException(string? message) : base(message)
-    {
-    }
 }

@@ -3,14 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.Common.Query.Bus;
 
-class QueryBusRegistry : IQueryBusRegistry
+class QueryBusRegistry(IServiceProvider serviceProvider) : IQueryBusRegistry
 {
-    private readonly IServiceProvider _serviceProvider;
-
-    public QueryBusRegistry(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider;
-    }
+    private readonly IServiceProvider _serviceProvider = serviceProvider;
 
     public THandler GetQueryHandler<THandler>()
     {

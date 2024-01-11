@@ -3,14 +3,9 @@ using Zamat.Clean.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 
 namespace Zamat.Clean.Services.Users.Api.Rest.IntegrationTests.Controllers.v1.Users;
 
-public class UsersControllerTests : IClassFixture<UsersWebApplicationFactory>
+public class UsersControllerTests(UsersWebApplicationFactory factory) : IClassFixture<UsersWebApplicationFactory>
 {
-    private readonly UsersWebApplicationFactory _factory;
-
-    public UsersControllerTests(UsersWebApplicationFactory factory)
-    {
-        _factory = factory;
-    }
+    private readonly UsersWebApplicationFactory _factory = factory;
 
     [Theory]
     [InlineData("/v1/users/u100")]

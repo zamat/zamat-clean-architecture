@@ -5,18 +5,11 @@ using Zamat.Common.Events.Bus;
 
 namespace Zamat.Clean.Services.Users.Core.Commands.Users;
 
-class CreateUserCommandHandler : ICommandHandler<CreateUserCommand>
+class CreateUserCommandHandler(IApplicationUnitOfWork unitOfWork, IEventBus eventBus, IUserFactory userFactory) : ICommandHandler<CreateUserCommand>
 {
-    private readonly IApplicationUnitOfWork _unitOfWork;
-    private readonly IEventBus _eventBus;
-    private readonly IUserFactory _userFactory;
-
-    public CreateUserCommandHandler(IApplicationUnitOfWork unitOfWork, IEventBus eventBus, IUserFactory userFactory)
-    {
-        _unitOfWork = unitOfWork;
-        _eventBus = eventBus;
-        _userFactory = userFactory;
-    }
+    private readonly IApplicationUnitOfWork _unitOfWork = unitOfWork;
+    private readonly IEventBus _eventBus = eventBus;
+    private readonly IUserFactory _userFactory = userFactory;
 
     public async Task<CommandResult> HandleAsync(CreateUserCommand command, CancellationToken cancellationToken = default)
     {

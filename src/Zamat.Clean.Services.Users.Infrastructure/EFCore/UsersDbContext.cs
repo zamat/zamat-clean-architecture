@@ -5,14 +5,9 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore.EntityConfiguration;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
-public class UsersDbContext : DbContext
+public class UsersDbContext(DbContextOptions<UsersDbContext> dbContextOptions) : DbContext(dbContextOptions)
 {
     public DbSet<User> Users { get; set; } = default!;
-
-    public UsersDbContext(DbContextOptions<UsersDbContext> dbContextOptions) : base(dbContextOptions)
-    {
-
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

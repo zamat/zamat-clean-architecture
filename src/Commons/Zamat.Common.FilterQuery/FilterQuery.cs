@@ -5,18 +5,13 @@ using LinqKit;
 
 namespace Zamat.Common.FilterQuery;
 
-public class FilterQuery<TSource>
+public class FilterQuery<TSource>(Enum? sort = null)
 {
     private Expression<Func<TSource, bool>> _filterExpression = (source) => true;
 
     private readonly Dictionary<Enum, OrderBy<TSource>> _orderBy = new();
 
-    public Enum? Sort { get; }
-
-    public FilterQuery(Enum? sort = null)
-    {
-        Sort = sort;
-    }
+    public Enum? Sort { get; } = sort;
 
     public void Filter(bool condition, Expression<Func<TSource, bool>> expression)
     {

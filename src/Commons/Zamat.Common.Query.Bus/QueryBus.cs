@@ -4,14 +4,9 @@ using System.Threading.Tasks;
 
 namespace Zamat.Common.Query.Bus;
 
-class QueryBus : IQueryBus
+class QueryBus(IQueryBusRegistry queryBusRegistry) : IQueryBus
 {
-    private readonly IQueryBusRegistry _queryBusRegistry;
-
-    public QueryBus(IQueryBusRegistry queryBusRegistry)
-    {
-        _queryBusRegistry = queryBusRegistry;
-    }
+    private readonly IQueryBusRegistry _queryBusRegistry = queryBusRegistry;
 
     public async Task<QueryResult<TResult>> ExecuteAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default)
     {

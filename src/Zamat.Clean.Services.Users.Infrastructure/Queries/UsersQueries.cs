@@ -10,14 +10,9 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.Queries;
 
-class UsersQueries : IUsersQueries
+class UsersQueries(UsersDbContext dbContext) : IUsersQueries
 {
-    private readonly UsersDbContext _dbContext;
-
-    public UsersQueries(UsersDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
+    private readonly UsersDbContext _dbContext = dbContext;
 
     public Task<int> CountAsync(CancellationToken cancellationToken)
     {

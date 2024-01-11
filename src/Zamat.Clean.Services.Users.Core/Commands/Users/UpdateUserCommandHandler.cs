@@ -2,14 +2,9 @@
 
 namespace Zamat.Clean.Services.Users.Core.Commands.Users;
 
-class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand>
+class UpdateUserCommandHandler(IApplicationUnitOfWork unitOfWork) : ICommandHandler<UpdateUserCommand>
 {
-    private readonly IApplicationUnitOfWork _unitOfWork;
-
-    public UpdateUserCommandHandler(IApplicationUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IApplicationUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<CommandResult> HandleAsync(UpdateUserCommand command, CancellationToken cancellationToken = default)
     {

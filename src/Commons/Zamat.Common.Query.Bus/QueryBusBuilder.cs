@@ -4,15 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.Common.Query.Bus;
 
-class QueryBusBuilder : IQueryBusBuilder
+class QueryBusBuilder(IServiceCollection serviceCollection) : IQueryBusBuilder
 {
-    private readonly IServiceCollection _serviceCollection;
-
-    public QueryBusBuilder(IServiceCollection serviceCollection)
-    {
-        _serviceCollection = serviceCollection;
-
-    }
+    private readonly IServiceCollection _serviceCollection = serviceCollection;
 
     public IQueryBusBuilder AddQueryHandlers(Assembly assembly)
     {

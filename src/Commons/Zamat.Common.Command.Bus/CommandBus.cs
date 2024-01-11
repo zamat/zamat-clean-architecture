@@ -3,14 +3,9 @@ using System.Threading.Tasks;
 
 namespace Zamat.Common.Command.Bus;
 
-class CommandBus : ICommandBus
+class CommandBus(ICommandBusRegistry commandBusRegistry) : ICommandBus
 {
-    private readonly ICommandBusRegistry _commandBusRegistry;
-
-    public CommandBus(ICommandBusRegistry commandBusRegistry)
-    {
-        _commandBusRegistry = commandBusRegistry;
-    }
+    private readonly ICommandBusRegistry _commandBusRegistry = commandBusRegistry;
 
     public async Task<CommandResult> ExecuteAsync<TCommand>(TCommand command, CancellationToken cancellationToken = default) where TCommand : class, ICommand
     {

@@ -1,11 +1,6 @@
 ﻿namespace Zamat.Common.Multitenancy;
 
-public class Tenant
+public class Tenant(string identifier)
 {
-    public string Identifier { get; }
-
-    public Tenant(string identifier)
-    {
-        Identifier = identifier;
-    }
+    public string Identifier { get; } = identifier;
 }

@@ -1,13 +1,8 @@
 ﻿namespace Zamat.Common.Multitenancy;
 
-public class TenantContextAccessor
+public class TenantContextAccessor(ITenantResolver tenantResolver)
 {
-    private readonly ITenantResolver _tenantResolver;
-
-    public TenantContextAccessor(ITenantResolver tenantResolver)
-    {
-        _tenantResolver = tenantResolver;
-    }
+    private readonly ITenantResolver _tenantResolver = tenantResolver;
 
     public Tenant GetCurrentTenant()
     {

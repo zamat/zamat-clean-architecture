@@ -2,7 +2,6 @@
 
 namespace Zamat.Common.Query.Bus;
 
-public class QueryBusException : Exception
+public class QueryBusException(string message) : Exception(message)
 {
-    public QueryBusException(string message) : base(message) { }
 }

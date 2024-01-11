@@ -4,14 +4,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace Zamat.AspNetCore.Diagnostics;
 
-class AddTraceIdMiddleware
+class AddTraceIdMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate _next;
-
-    public AddTraceIdMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
+    private readonly RequestDelegate _next = next;
 
     public async Task InvokeAsync(HttpContext context)
     {

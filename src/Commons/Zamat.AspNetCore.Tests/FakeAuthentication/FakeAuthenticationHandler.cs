@@ -7,13 +7,9 @@ using Microsoft.Extensions.Options;
 
 namespace Zamat.AspNetCore.Tests.FakeAuthentication;
 
-class FakeAuthenticationHandler : AuthenticationHandler<FakeAuthenticationSchemeOptions>
+class FakeAuthenticationHandler(IOptionsMonitor<FakeAuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock) : AuthenticationHandler<FakeAuthenticationSchemeOptions>(options, logger, encoder, clock)
 {
     internal const string AuthenticationType = "Test";
-
-    public FakeAuthenticationHandler(IOptionsMonitor<FakeAuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock) : base(options, logger, encoder, clock)
-    {
-    }
 
     protected override Task<AuthenticateResult> HandleAuthenticateAsync()
     {

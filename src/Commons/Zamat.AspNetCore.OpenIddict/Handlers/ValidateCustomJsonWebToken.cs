@@ -11,14 +11,9 @@ using static OpenIddict.Validation.OpenIddictValidationHandlers.Protection;
 
 namespace Zamat.AspNetCore.OpenIddict.Handlers;
 
-class ValidateCustomJsonWebToken : IOpenIddictValidationHandler<ValidateTokenContext>
+class ValidateCustomJsonWebToken(TokenValidationParameters tokenValidationParameters) : IOpenIddictValidationHandler<ValidateTokenContext>
 {
-    private readonly TokenValidationParameters _tokenValidationParameters;
-
-    public ValidateCustomJsonWebToken(TokenValidationParameters tokenValidationParameters)
-    {
-        _tokenValidationParameters = tokenValidationParameters;
-    }
+    private readonly TokenValidationParameters _tokenValidationParameters = tokenValidationParameters;
 
     public static OpenIddictValidationHandlerDescriptor Descriptor { get; }
         = OpenIddictValidationHandlerDescriptor.CreateBuilder<ValidateTokenContext>()

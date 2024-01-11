@@ -4,14 +4,9 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace EFCore.PostgreSQL;
 
-class UsersDbContextFactory : IDesignTimeDbContextFactory<UsersDbContext>
+class UsersDbContextFactory(string connectionString) : IDesignTimeDbContextFactory<UsersDbContext>
 {
-    private readonly string _connectionString;
-
-    public UsersDbContextFactory(string connectionString)
-    {
-        _connectionString = connectionString;
-    }
+    private readonly string _connectionString = connectionString;
 
     public UsersDbContextFactory() : this(@"Host=localhost;Database=Sample;Username=postgres;Password=postgres")
     {

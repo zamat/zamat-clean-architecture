@@ -2,16 +2,10 @@
 
 namespace Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
 
-public class FullName : ValueObject<FullName>
+public class FullName(string firstName, string lastName) : ValueObject<FullName>
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-
-    public FullName(string firstName, string lastName)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-    }
+    public string FirstName { get; set; } = firstName;
+    public string LastName { get; set; } = lastName;
 
     protected override IEnumerable<object?> GetEqualityComponents()
     {

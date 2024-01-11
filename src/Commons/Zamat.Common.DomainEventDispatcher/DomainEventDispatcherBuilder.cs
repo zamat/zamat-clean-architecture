@@ -5,14 +5,9 @@ using Zamat.BuildingBlocks.Domain;
 
 namespace Zamat.Common.DomainEventDispatcher;
 
-class DomainEventDispatcherBuilder : IDomainEventDispatcherBuilder
+class DomainEventDispatcherBuilder(IServiceCollection serviceCollection) : IDomainEventDispatcherBuilder
 {
-    private readonly IServiceCollection _serviceCollection;
-
-    public DomainEventDispatcherBuilder(IServiceCollection serviceCollection)
-    {
-        _serviceCollection = serviceCollection;
-    }
+    private readonly IServiceCollection _serviceCollection = serviceCollection;
 
     public IDomainEventDispatcherBuilder AddDomainEventHandlers(Assembly assembly, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
     {

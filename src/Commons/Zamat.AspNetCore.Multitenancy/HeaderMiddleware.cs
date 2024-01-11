@@ -4,14 +4,9 @@ using Zamat.Common.Multitenancy;
 
 namespace Zamat.AspNetCore.Multitenancy;
 
-class HeaderMiddleware
+class HeaderMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate _next;
-
-    public HeaderMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
+    private readonly RequestDelegate _next = next;
 
     public async Task Invoke(HttpContext context, ITenantStore tenantStore)
     {

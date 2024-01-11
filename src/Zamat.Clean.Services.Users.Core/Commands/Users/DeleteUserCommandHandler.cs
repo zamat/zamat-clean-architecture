@@ -2,14 +2,9 @@
 
 namespace Zamat.Clean.Services.Users.Core.Commands.Users;
 
-class DeleteUserCommandHandler : ICommandHandler<DeleteUserCommand>
+class DeleteUserCommandHandler(IApplicationUnitOfWork unitOfWork) : ICommandHandler<DeleteUserCommand>
 {
-    private readonly IApplicationUnitOfWork _unitOfWork;
-
-    public DeleteUserCommandHandler(IApplicationUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IApplicationUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<CommandResult> HandleAsync(DeleteUserCommand command, CancellationToken cancellationToken = default)
     {

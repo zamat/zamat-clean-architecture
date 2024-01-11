@@ -9,16 +9,10 @@ using Ocelot.Middleware;
 
 namespace Zamat.Clean.ApiGateway.DelegatingHandlers;
 
-class UsersDelegatingHandler : DelegatingHandler
+class UsersDelegatingHandler(IHttpContextAccessor httpContextAccessor, ILogger<UsersDelegatingHandler> logger) : DelegatingHandler
 {
-    private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly ILogger<UsersDelegatingHandler> _logger;
-
-    public UsersDelegatingHandler(IHttpContextAccessor httpContextAccessor, ILogger<UsersDelegatingHandler> logger)
-    {
-        _httpContextAccessor = httpContextAccessor;
-        _logger = logger;
-    }
+    private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+    private readonly ILogger<UsersDelegatingHandler> _logger = logger;
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {

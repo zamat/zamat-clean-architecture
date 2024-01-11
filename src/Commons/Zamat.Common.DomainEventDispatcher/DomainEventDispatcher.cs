@@ -8,7 +8,7 @@ using Zamat.BuildingBlocks.Domain;
 
 namespace Zamat.Common.DomainEventDispatcher;
 
-class DomainEventDispatcher : IDomainEventDispatcher
+class DomainEventDispatcher(IServiceProvider serviceProvider) : IDomainEventDispatcher
 {
     private static readonly ConcurrentDictionary<Type, Type> _handlerTypesCache = new();
 
@@ -19,12 +19,7 @@ class DomainEventDispatcher : IDomainEventDispatcher
     private static readonly Type EventHandlerFuncType = typeof(Func<Func<object, object, Task>>);
     private static readonly MethodInfo MakeDelegateMethod = typeof(DomainEventDispatcher).GetMethod(nameof(MakeDelegate), BindingFlags.Static | BindingFlags.NonPublic)!;
 
-    private readonly IServiceProvider _serviceProvider;
-
-    public DomainEventDispatcher(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider;
-    }
+    private readonly IServiceProvider _serviceProvider = serviceProvider;
 
     public async Task DispatchAsync(IDomainEvent domainEvent, CancellationToken cancellationToken = default)
     {

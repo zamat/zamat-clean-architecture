@@ -8,14 +8,9 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.Repositories;
 
-class UserRepository : IUserRepository
+class UserRepository(UsersDbContext dbContext) : IUserRepository
 {
-    private readonly UsersDbContext _dbContext;
-
-    public UserRepository(UsersDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
+    private readonly UsersDbContext _dbContext = dbContext;
 
     public async Task AddAsync(User user, CancellationToken cancellationToken)
     {

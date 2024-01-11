@@ -9,18 +9,11 @@ using Zamat.Clean.Services.Users.Infrastructure.Repositories;
 
 namespace Zamat.Clean.Services.Users.Infrastructure;
 
-class UnitOfWork : IApplicationUnitOfWork
+class UnitOfWork(UsersDbContext dbContext, IDomainEventDispatcher domainEventDispatcher) : IApplicationUnitOfWork
 {
-    private readonly IUserRepository _userRepository;
-    private readonly IDomainEventDispatcher _domainEventDispatcher;
-    private readonly UsersDbContext _dbContext;
-
-    public UnitOfWork(UsersDbContext dbContext, IDomainEventDispatcher domainEventDispatcher)
-    {
-        _userRepository = new UserRepository(dbContext);
-        _domainEventDispatcher = domainEventDispatcher;
-        _dbContext = dbContext;
-    }
+    private readonly IUserRepository _userRepository = new UserRepository(dbContext);
+    private readonly IDomainEventDispatcher _domainEventDispatcher = domainEventDispatcher;
+    private readonly UsersDbContext _dbContext = dbContext;
 
     public IUserRepository UserRepository => _userRepository;
 

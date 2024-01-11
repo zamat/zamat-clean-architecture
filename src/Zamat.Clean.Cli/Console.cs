@@ -13,16 +13,10 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Clean.Cli;
 
-class Console : ConsoleAppBase
+class Console(UsersDbContext dbContext, ILogger<Console> logger) : ConsoleAppBase
 {
-    private readonly UsersDbContext _dbContext;
-    private readonly ILogger<Console> _logger;
-
-    public Console(UsersDbContext dbContext, ILogger<Console> logger)
-    {
-        _dbContext = dbContext;
-        _logger = logger;
-    }
+    private readonly UsersDbContext _dbContext = dbContext;
+    private readonly ILogger<Console> _logger = logger;
 
     [Command("ef-core-migration", "Migrate EFCore database.")]
     public async Task MigrateAsync()

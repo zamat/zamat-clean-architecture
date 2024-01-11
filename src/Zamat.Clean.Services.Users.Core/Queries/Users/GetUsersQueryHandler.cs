@@ -2,14 +2,9 @@
 
 namespace Zamat.Clean.Services.Users.Core.Queries.Users;
 
-class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, IEnumerable<UserDto>>
+class GetUsersQueryHandler(IUsersQueries usersQueries) : IQueryHandler<GetUsersQuery, IEnumerable<UserDto>>
 {
-    private readonly IUsersQueries _usersQueries;
-
-    public GetUsersQueryHandler(IUsersQueries usersQueries)
-    {
-        _usersQueries = usersQueries;
-    }
+    private readonly IUsersQueries _usersQueries = usersQueries;
 
     public async Task<QueryResult<IEnumerable<UserDto>>> HandleAsync(GetUsersQuery query, CancellationToken cancellationToken)
     {

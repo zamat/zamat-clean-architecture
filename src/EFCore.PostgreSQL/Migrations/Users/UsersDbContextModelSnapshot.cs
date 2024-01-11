@@ -17,7 +17,7 @@ namespace EFCore.PostgreSQL.Migrations.Users
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.1")
+                .HasAnnotation("ProductVersion", "7.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -188,9 +188,17 @@ namespace EFCore.PostgreSQL.Migrations.Users
                     b.ToTable("OutboxStates", "dbo");
                 });
 
-            modelBuilder.Entity("Zamat.Clean.Services.Users.Core.Domain.Entities.User", b =>
+            modelBuilder.Entity("Zamat.Clean.Services.Users.Infrastructure.EFCore.Entities.UserEntity", b =>
                 {
                     b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("UserName")
@@ -200,35 +208,6 @@ namespace EFCore.PostgreSQL.Migrations.Users
                     b.HasKey("Id");
 
                     b.ToTable("Users", "dbo");
-                });
-
-            modelBuilder.Entity("Zamat.Clean.Services.Users.Core.Domain.Entities.User", b =>
-                {
-                    b.OwnsOne("Zamat.Clean.Services.Users.Core.Domain.ValueObjects.FullName", "FullName", b1 =>
-                        {
-                            b1.Property<string>("UserId")
-                                .HasColumnType("text");
-
-                            b1.Property<string>("FirstName")
-                                .IsRequired()
-                                .HasColumnType("text")
-                                .HasColumnName("FirstName");
-
-                            b1.Property<string>("LastName")
-                                .IsRequired()
-                                .HasColumnType("text")
-                                .HasColumnName("LastName");
-
-                            b1.HasKey("UserId");
-
-                            b1.ToTable("Users", "dbo");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.Navigation("FullName")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

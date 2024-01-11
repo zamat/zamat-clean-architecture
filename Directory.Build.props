@@ -3,7 +3,6 @@
 		<DefaultTargetFramework>net8.0</DefaultTargetFramework>
 		<Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
     <Authors>Mateusz Zawada</Authors>
 		<Company>Zamat</Company>
 		<Copyright>Zamat</Copyright>

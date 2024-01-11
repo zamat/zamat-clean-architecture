@@ -40,7 +40,18 @@ internal class UserRepository(UsersDbContext dbContext) : IUserRepository
         var entity = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
         if (entity is null)
         {
-            return null;
+            return default;
+        }
+
+        return new User(entity.Id, entity.UserName, new FullName(entity.FirstName, entity.LastName));
+    }
+
+    public async Task<User?> GetByUserNameAsync(string userName, CancellationToken cancellationToken)
+    {
+        var entity = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == userName, cancellationToken);
+        if (entity is null)
+        {
+            return default;
         }
 
         return new User(entity.Id, entity.UserName, new FullName(entity.FirstName, entity.LastName));

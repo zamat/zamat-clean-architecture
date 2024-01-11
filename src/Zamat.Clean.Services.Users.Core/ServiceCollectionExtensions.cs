@@ -15,12 +15,12 @@ public static class ServiceCollectionExtensions
 
         services.AddQueryBus(o =>
         {
-            o.AddQueryHandlers(UserCoreAssembly.Assembly);
+            o.AddQueryHandlers(CoreAssembly.Assembly);
         });
 
         services.AddCommandBus(o =>
         {
-            o.AddCommandHandlers(UserCoreAssembly.Assembly);
+            o.AddCommandHandlers(CoreAssembly.Assembly);
         });
 
         services.AddDomainEventDispatcher(o =>

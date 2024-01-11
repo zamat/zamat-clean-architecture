@@ -13,7 +13,7 @@ internal class CreateUserCommandHandler(IApplicationUnitOfWork unitOfWork, IEven
 
     public async Task<CommandResult> HandleAsync(CreateUserCommand command, CancellationToken cancellationToken = default)
     {
-        if (await _unitOfWork.UserRepository.GetAsync(command.UserName, cancellationToken) is not null)
+        if (await _unitOfWork.UserRepository.GetByUserNameAsync(command.UserName, cancellationToken) is not null)
         {
             return new CommandResult(new PreconditionError(CommandErrorCode.UserNameNotUnique, "User with given userName already exists."));
         }

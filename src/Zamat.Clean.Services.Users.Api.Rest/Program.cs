@@ -39,15 +39,6 @@ builder.Services
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseHttpLogging();
-}
-else
-{
-    app.UseExceptionHandler("/api/error");
-}
-
 app.UseSwagger();
 app.UseSwaggerUI();
 

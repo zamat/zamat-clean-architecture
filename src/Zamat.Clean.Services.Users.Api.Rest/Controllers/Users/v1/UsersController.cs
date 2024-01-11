@@ -94,7 +94,7 @@ public class UsersController(ICommandBus commandBus, IQueryBus queryBus, IUuidGe
         Tags = new[] { "Users" }
     )]
     [SwaggerResponse(200, "The user entity")]
-    [SwaggerResponse(204, "The user entity not found")]
+    [SwaggerResponse(404, "The user entity not found")]
     [HttpGet("{id}", Name = "GetUser")]
     public async Task<ActionResult<GetUserResponse>> GetAsync(string id)
     {
@@ -102,7 +102,7 @@ public class UsersController(ICommandBus commandBus, IQueryBus queryBus, IUuidGe
         if (!query.Succeeded)
         {
             _logger.LogWarning(UsersLogEvents.UserFetchError, "Get user problem ({Errors})", query.Errors);
-            return NoContent();
+            return NotFound();
         }
 
         return Ok(new GetUserResponse(query.Result));

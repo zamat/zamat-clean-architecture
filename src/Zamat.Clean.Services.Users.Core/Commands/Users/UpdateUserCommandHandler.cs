@@ -16,6 +16,8 @@ internal class UpdateUserCommandHandler(IApplicationUnitOfWork unitOfWork) : ICo
 
         user.ChangeFullName(command.FirstName, command.LastName);
 
+        await _unitOfWork.UserRepository.UpdateAsync(user, cancellationToken);
+
         _ = await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return new CommandResult();

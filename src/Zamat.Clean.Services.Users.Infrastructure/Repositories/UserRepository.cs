@@ -56,4 +56,16 @@ internal class UserRepository(UsersDbContext dbContext) : IUserRepository
 
         return new User(entity.Id, entity.UserName, new FullName(entity.FirstName, entity.LastName));
     }
+
+    public async Task UpdateAsync(User user, CancellationToken cancellationToken)
+    {
+        var entity = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == user.Id, cancellationToken);
+        if (entity is null)
+        {
+            return;
+        }
+
+        entity.FirstName = user.FullName.FirstName;
+        entity.LastName = user.FullName.LastName;
+    }
 }

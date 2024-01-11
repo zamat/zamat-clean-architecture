@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Zamat.Common.Multitenancy;
+﻿namespace Zamat.Common.Multitenancy;
 
 public interface ITenantStore
 {

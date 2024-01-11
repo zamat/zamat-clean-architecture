@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using MassTransit;
+﻿using MassTransit;
 
 namespace Zamat.Common.Events.Bus.MassTransit;
 

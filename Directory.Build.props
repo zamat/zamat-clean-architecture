@@ -2,7 +2,8 @@
 	<PropertyGroup>
 		<DefaultTargetFramework>net8.0</DefaultTargetFramework>
 		<Nullable>enable</Nullable>
-		<Authors>Mateusz Zawada</Authors>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Authors>Mateusz Zawada</Authors>
 		<Company>Zamat</Company>
 		<Copyright>Zamat</Copyright>
 		<CommonVersion>8.0.0</CommonVersion>

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Zamat.Common.OpenTelemetry;
+﻿namespace Zamat.Common.OpenTelemetry;
 
 public class OpenTelemetryServiceOptions
 {

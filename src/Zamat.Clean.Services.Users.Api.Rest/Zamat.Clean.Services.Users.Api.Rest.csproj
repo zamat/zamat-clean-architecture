@@ -2,7 +2,6 @@
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>UserService Api Package</Description>
-		<ImplicitUsings>enable</ImplicitUsings>
 		<IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
 		<UserSecretsId>93971a12-ee0b-446a-b5a2-69041c8b563d</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Zamat.Common.Command.Bus;
+﻿namespace Zamat.Common.Command.Bus;
 
 class CommandBusRegistry(IServiceProvider serviceProvider) : ICommandBusRegistry
 {

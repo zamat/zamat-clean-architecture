@@ -1,7 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-
-namespace Zamat.BuildingBlocks.Domain;
+﻿namespace Zamat.BuildingBlocks.Domain;
 
 public interface IDomainEventHandler<T> where T : class, IDomainEvent
 {

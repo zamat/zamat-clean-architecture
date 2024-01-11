@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Zamat.BuildingBlocks.Core;
+﻿namespace Zamat.BuildingBlocks.Core;
 
 public interface IUuidGenerator
 {

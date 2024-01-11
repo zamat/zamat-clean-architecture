@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Zamat.BuildingBlocks.Domain;
+﻿using Zamat.BuildingBlocks.Domain;
 using Zamat.Clean.Services.Users.Core.Domain.Repositories;
 using Zamat.Clean.Services.Users.Core.UnitOfWork;
 using Zamat.Clean.Services.Users.Infrastructure.EFCore;

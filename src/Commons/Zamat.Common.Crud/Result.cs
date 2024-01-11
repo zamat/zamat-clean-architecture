@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Zamat.Common.Crud;
+﻿namespace Zamat.Common.Crud;
 
 public sealed record Result
 {

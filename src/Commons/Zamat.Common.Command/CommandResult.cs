@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Zamat.Common.Command;
+﻿namespace Zamat.Common.Command;
 
 public sealed record CommandResult
 {

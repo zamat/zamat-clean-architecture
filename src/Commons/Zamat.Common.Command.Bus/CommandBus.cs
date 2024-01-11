@@ -1,7 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-
-namespace Zamat.Common.Command.Bus;
+﻿namespace Zamat.Common.Command.Bus;
 
 class CommandBus(ICommandBusRegistry commandBusRegistry) : ICommandBus
 {

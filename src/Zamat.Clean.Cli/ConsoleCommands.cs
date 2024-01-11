@@ -1,11 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Zamat.Clean.Cli.SeedData;
 using Zamat.Clean.Services.Users.Core.Domain.Entities;
 using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
@@ -13,10 +8,10 @@ using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Clean.Cli;
 
-class Console(UsersDbContext dbContext, ILogger<Console> logger) : ConsoleAppBase
+class ConsoleCommands(UsersDbContext dbContext, ILogger<ConsoleCommands> logger) : ConsoleAppBase
 {
     private readonly UsersDbContext _dbContext = dbContext;
-    private readonly ILogger<Console> _logger = logger;
+    private readonly ILogger<ConsoleCommands> _logger = logger;
 
     [Command("ef-core-migration", "Migrate EFCore database.")]
     public async Task MigrateAsync()

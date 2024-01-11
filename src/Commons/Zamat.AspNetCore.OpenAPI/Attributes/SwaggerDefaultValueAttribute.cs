@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Zamat.AspNetCore.OpenAPI.Attributes;
+﻿namespace Zamat.AspNetCore.OpenAPI.Attributes;
 
 [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.Field | AttributeTargets.Property)]
 public class SwaggerDefaultValueAttribute(string value) : Attribute

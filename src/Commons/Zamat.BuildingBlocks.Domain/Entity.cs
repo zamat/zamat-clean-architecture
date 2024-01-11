@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Zamat.BuildingBlocks.Domain;
 
 public abstract class Entity<TIdentifier> : IEntity where TIdentifier : notnull

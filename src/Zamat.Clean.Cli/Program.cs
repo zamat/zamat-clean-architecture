@@ -1,8 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
-using Zamat.Clean.Cli;
+﻿using Zamat.Clean.Cli;
 using Zamat.Clean.Services.Users.Infrastructure;
 
-var builder = ConsoleApp.CreateBuilder(args);
+var builder = ConsoleAppFramework.ConsoleApp.CreateBuilder(args);
 
 builder.ConfigureServices((host, services) =>
 {
@@ -16,6 +15,6 @@ builder.ConfigureLogging(configureLogging =>
 
 var app = builder.Build();
 
-app.AddCommands<Console>();
+app.AddCommands<ConsoleCommands>();
 
 app.Run();

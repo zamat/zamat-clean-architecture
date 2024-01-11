@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Zamat.AspNetCore.Ocelot;
+﻿namespace Zamat.AspNetCore.Ocelot;
 
 public class SwaggerDefinitionOverride
 {

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Zamat.Clean.Cli.SeedData;
+﻿namespace Zamat.Clean.Cli.SeedData;
 
 class Seed
 {

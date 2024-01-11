@@ -1,7 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-
-namespace Zamat.Common.Query.Bus;
+﻿namespace Zamat.Common.Query.Bus;
 
 class QueryWrapper<TQuery, TResult> : AbstractQueryWrapper<TResult> where TQuery : IQuery<TResult>
 {

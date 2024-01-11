@@ -1,7 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-
-namespace Zamat.Common.Query.Bus;
+﻿namespace Zamat.Common.Query.Bus;
 
 public interface IQueryBus
 {

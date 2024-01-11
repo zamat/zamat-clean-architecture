@@ -1,8 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Zamat.Common.Query.Bus;
+﻿namespace Zamat.Common.Query.Bus;
 
 class QueryBus(IQueryBusRegistry queryBusRegistry) : IQueryBus
 {

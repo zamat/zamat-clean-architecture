@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Zamat.AspNetCore.OpenIddict;
+﻿namespace Zamat.AspNetCore.OpenIddict;
 
 public class OidcAuthOptions
 {

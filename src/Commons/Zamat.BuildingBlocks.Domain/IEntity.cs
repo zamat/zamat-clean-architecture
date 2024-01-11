@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Zamat.BuildingBlocks.Domain;
+﻿namespace Zamat.BuildingBlocks.Domain;
 
 public interface IEntity
 {

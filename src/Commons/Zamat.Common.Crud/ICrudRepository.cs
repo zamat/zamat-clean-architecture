@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Zamat.Common.FilterQuery;
+﻿using Zamat.Common.FilterQuery;
 
 namespace Zamat.Common.Crud;
 

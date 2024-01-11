@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Zamat.Common.Events.Bus.MassTransit;
 
-namespace Zamat.Clean.BuildingBlocks.Infrastructure;
+namespace Zamat.Clean.Infrastructure;
 
 public static class ServiceCollectionExtensions
 {

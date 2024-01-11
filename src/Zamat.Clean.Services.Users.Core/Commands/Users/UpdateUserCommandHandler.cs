@@ -1,6 +1,4 @@
-﻿using Zamat.Clean.Services.Users.Core.Commands;
-using Zamat.Clean.Services.Users.Core.UnitOfWork;
-using Zamat.Common.Command;
+﻿using Zamat.Common.Command;
 
 namespace Zamat.Clean.Services.Users.Core.Commands.Users;
 

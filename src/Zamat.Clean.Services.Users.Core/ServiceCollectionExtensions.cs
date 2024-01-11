@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Zamat.Clean.BuildingBlocks.Core;
+using Zamat.Clean.Services.Users.Core.Domain;
 using Zamat.Common.Command.Bus;
 using Zamat.Common.DomainEventDispatcher;
 using Zamat.Common.Query.Bus;
-using Zamat.Clean.BuildingBlocks.Core;
-using Zamat.Clean.Services.Users.Core.Domain;
 
 namespace Zamat.Clean.Services.Users.Core;
 

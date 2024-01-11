@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Swashbuckle.AspNetCore.Annotations;
-using Zamat.Clean.Services.Users.Api.Rest;
-using Zamat.Clean.Services.Users.Api.Rest.Controllers;
-using Zamat.Clean.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
-using Zamat.Common.Command;
-using Zamat.Common.Query.Bus;
 using Zamat.Clean.BuildingBlocks.Core;
+using Zamat.Clean.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 using Zamat.Clean.Services.Users.Core.Commands.Users;
 using Zamat.Clean.Services.Users.Core.Queries.Users;
+using Zamat.Common.Command;
+using Zamat.Common.Query.Bus;
 
 namespace Zamat.Clean.Services.Users.Api.Rest.Controllers.Users.v1;
 

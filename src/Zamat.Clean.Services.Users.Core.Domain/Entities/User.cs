@@ -1,5 +1,4 @@
 ﻿using Zamat.BuildingBlocks.Domain;
-using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
 
 namespace Zamat.Clean.Services.Users.Core.Domain.Entities;
 

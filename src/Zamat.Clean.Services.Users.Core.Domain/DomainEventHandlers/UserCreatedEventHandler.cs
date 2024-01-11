@@ -1,5 +1,4 @@
 ﻿using Zamat.BuildingBlocks.Domain;
-using Zamat.Clean.Services.Users.Core.Domain.DomainEvents;
 
 namespace Zamat.Clean.Services.Users.Core.Domain.DomainEventHandlers;
 

@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Zamat.AspNetCore.MassTransit.RabbitMQ;
-using Zamat.Clean.Services.Users.Infrastructure.EFCore;
-using Zamat.Clean.Services.Users.Infrastructure.Factories;
-using Zamat.Clean.Services.Users.Infrastructure.Queries;
-using Zamat.Common.EntityFrameworkCore;
 using Zamat.Clean.BuildingBlocks.Infrastructure;
 using Zamat.Clean.Services.Users.Core.Domain.Factories;
 using Zamat.Clean.Services.Users.Core.Interfaces;
 using Zamat.Clean.Services.Users.Core.UnitOfWork;
+using Zamat.Clean.Services.Users.Infrastructure.EFCore;
+using Zamat.Clean.Services.Users.Infrastructure.Factories;
+using Zamat.Clean.Services.Users.Infrastructure.Queries;
+using Zamat.Common.EntityFrameworkCore;
 
 namespace Zamat.Clean.Services.Users.Infrastructure;
 

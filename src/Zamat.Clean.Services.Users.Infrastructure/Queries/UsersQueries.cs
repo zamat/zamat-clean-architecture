@@ -3,10 +3,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 using Zamat.Clean.Services.Users.Core.Domain.Entities;
 using Zamat.Clean.Services.Users.Core.Interfaces;
 using Zamat.Clean.Services.Users.Core.Queries.Users;
+using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 
 namespace Zamat.Clean.Services.Users.Infrastructure.Queries;
 

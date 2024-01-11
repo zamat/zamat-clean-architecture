@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Zamat.BuildingBlocks.Domain;
-using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 using Zamat.Clean.Services.Users.Core.Domain.Repositories;
 using Zamat.Clean.Services.Users.Core.UnitOfWork;
+using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 using Zamat.Clean.Services.Users.Infrastructure.Repositories;
 
 namespace Zamat.Clean.Services.Users.Infrastructure;

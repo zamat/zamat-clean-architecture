@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using Zamat.Clean.Services.Users.Api.Rest.IntegrationTests;
 using Zamat.Clean.Services.Users.Api.Rest.Controllers.Users.v1.ApiModel;
 
 namespace Zamat.Clean.Services.Users.Api.Rest.IntegrationTests.Controllers.v1.Users;

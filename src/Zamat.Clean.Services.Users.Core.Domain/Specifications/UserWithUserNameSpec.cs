@@ -1,6 +1,5 @@
 ﻿using System.Linq.Expressions;
 using Zamat.BuildingBlocks.Domain.Specifications;
-using Zamat.Clean.Services.Users.Core.Domain.Entities;
 
 namespace Zamat.Clean.Services.Users.Core.Domain.Specifications;
 

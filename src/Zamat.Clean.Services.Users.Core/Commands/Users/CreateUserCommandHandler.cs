@@ -1,9 +1,7 @@
-﻿using Zamat.Clean.Services.Users.Core.Commands;
-using Zamat.Clean.Services.Users.Core.UnitOfWork;
+﻿using Zamat.Clean.Services.Users.Core.Domain.Factories;
+using Zamat.Clean.Services.Users.Core.IntegrationEvents;
 using Zamat.Common.Command;
 using Zamat.Common.Events.Bus;
-using Zamat.Clean.Services.Users.Core.Domain.Factories;
-using Zamat.Clean.Services.Users.Core.IntegrationEvents;
 
 namespace Zamat.Clean.Services.Users.Core.Commands.Users;
 

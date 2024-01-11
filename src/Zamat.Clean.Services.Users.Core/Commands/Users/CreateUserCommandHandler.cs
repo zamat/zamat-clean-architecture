@@ -27,15 +27,11 @@ class CreateUserCommandHandler : ICommandHandler<CreateUserCommand>
 
         var user = _userFactory.Create(command.Id, command.UserName, new FullName(command.FirstName, command.LastName));
 
-        #region Using OutBox Pattern with EFCore store
-
         await _unitOfWork.UserRepository.AddAsync(user, cancellationToken);
 
         await _eventBus.PublishAsync(new UserCreated(user.Id, user.UserName), cancellationToken);
 
         _ = await _unitOfWork.SaveChangesAsync(cancellationToken);
-
-        #endregion
 
         return new CommandResult();
     }

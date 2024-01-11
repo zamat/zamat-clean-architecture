@@ -19,7 +19,4 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\..\src\Zamat.Clean.Services.Content.Api.Rest\Zamat.Clean.Services.Content.Api.Rest.csproj" />
-	</ItemGroup>
 </Project>

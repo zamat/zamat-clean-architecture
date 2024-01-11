@@ -1,17 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>APIGateway Package</Description>
 		<UserSecretsId>3675ae10-7973-4378-8537-e564a0414d2d</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenIddict\Zamat.AspNetCore.OpenIddict.csproj" />
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.OpenTelemetry\Zamat.AspNetCore.OpenTelemetry.csproj" />
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.Ocelot\Zamat.AspNetCore.Ocelot.csproj" />
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.Diagnostics\Zamat.AspNetCore.Diagnostics.csproj" />
 	</ItemGroup>
-
 </Project>

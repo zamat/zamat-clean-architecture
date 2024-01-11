@@ -1,14 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>UserService Infrastructure Package</Description>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\Zamat.Clean.Infrastructure\Zamat.Clean.Infrastructure.csproj" />
 		<ProjectReference Include="..\Zamat.Clean.Services.Users.Core\Zamat.Clean.Services.Users.Core.csproj" />
 	</ItemGroup>
-
 </Project>
 

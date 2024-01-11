@@ -1,10 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 		<Description>BuildingBlocks Infrastructure Package</Description>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\Commons\Zamat.AspNetCore.MassTransit.RabbitMQ\Zamat.AspNetCore.MassTransit.RabbitMQ.csproj">
 		  <TreatAsUsed>true</TreatAsUsed>
@@ -14,5 +12,4 @@
 		</ProjectReference>
 		<ProjectReference Include="..\Commons\Zamat.Common.Events.Bus.MassTransit\Zamat.Common.Events.Bus.MassTransit.csproj" />
 	</ItemGroup>
-
 </Project>

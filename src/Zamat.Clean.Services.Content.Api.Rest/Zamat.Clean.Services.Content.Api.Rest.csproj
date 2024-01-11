@@ -16,7 +16,6 @@
   </ItemGroup>
   
 	<ItemGroup>
-		<ProjectReference Include="..\Zamat.Clean.Services.Content.Infrastructure\Zamat.Clean.Services.Content.Infrastructure.csproj" />
 		<ProjectReference Include="..\Zamat.Clean.Resources\Zamat.Clean.Resources.csproj" />
 	</ItemGroup>
   

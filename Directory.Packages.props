@@ -10,12 +10,12 @@
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
     <PackageVersion Include="Microsoft.AspNetCore.Authorization" Version="6.0.9" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="7.0.0" />
-    <PackageVersion Include="Microsoft.OpenApi.Readers" Version="1.6.0" />
-    <PackageVersion Include="MMLib.Ocelot.Provider.AppConfiguration" Version="2.0.0" />
-    <PackageVersion Include="MMLib.SwaggerForOcelot" Version="6.2.0" />
-    <PackageVersion Include="Ocelot.Cache.CacheManager" Version="18.0.0" />
-    <PackageVersion Include="Ocelot.Provider.Polly" Version="18.0.0" />
-    <PackageVersion Include="Ocelot" Version="18.0.0" />
+    <PackageVersion Include="Microsoft.OpenApi.Readers" Version="1.6.11" />
+    <PackageVersion Include="MMLib.Ocelot.Provider.AppConfiguration" Version="3.0.0" />
+    <PackageVersion Include="MMLib.SwaggerForOcelot" Version="8.1.0" />
+    <PackageVersion Include="Ocelot.Cache.CacheManager" Version="20.0.0" />
+    <PackageVersion Include="Ocelot.Provider.Polly" Version="20.0.0" />
+    <PackageVersion Include="Ocelot" Version="20.0.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />

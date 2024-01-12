@@ -37,7 +37,7 @@ public static class ServiceCollectionExtensions
             throw new InvalidOperationException("Otlp endpoint should be configured.");
         }
 
-        var builder = services.AddOpenTelemetry(serviceOptions);
+        var builder = services.ConfigureOpenTelemetry(serviceOptions);
 
         builder.ConfigureTracing(instrumentation, configure =>
         {

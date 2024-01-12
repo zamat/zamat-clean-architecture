@@ -4,7 +4,7 @@ namespace Zamat.Common.OpenTelemetry;
 
 public static class ServiceCollectionExtensions
 {
-    public static OpenTelemetryBuilder AddOpenTelemetry(this IServiceCollection services, OpenTelemetryServiceOptions serviceOptions)
+    public static OpenTelemetryBuilder ConfigureOpenTelemetry(this IServiceCollection services, OpenTelemetryServiceOptions serviceOptions)
     {
         OpenTelemetryBuilder builder = new(services, serviceOptions);
         return builder;

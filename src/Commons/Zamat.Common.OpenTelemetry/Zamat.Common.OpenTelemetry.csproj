@@ -8,16 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.EntityFrameworkCore" />
-    <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.MassTransit"  />
-    <PackageReference Include="OpenTelemetry.Instrumentation.SqlClient"  />
-    <PackageReference Include="OpenTelemetry.Instrumentation.StackExchangeRedis"  />
-    <PackageReference Include="OpenTelemetry.Instrumentation.Http"  />
-    <PackageReference Include="OpenTelemetry.Exporter.Console"  />
+    <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.MassTransit" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.SqlClient" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.StackExchangeRedis" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Http" />
+    <PackageReference Include="OpenTelemetry.Exporter.Console" />
     <PackageReference Include="OpenTelemetry.Extensions.Hosting" />
-    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol"  />
-    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol.Logs"  />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis"  />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol.Logs" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" />
   </ItemGroup>
 
 </Project>

@@ -29,9 +29,8 @@ public class OpenTelemetryBuilder
     }
 
     public OpenTelemetryBuilder ConfigureTracing(Instrumentation instrumentation, Action<TracerProviderBuilder> configure, params string[] sources)
-    {
-        /*
-        _serviceCollection.AddOpenTelemetryTracing(builder =>
+    {     
+        _serviceCollection.AddOpenTelemetry().WithTracing(builder =>
         {
             builder.SetResourceBuilder(_resourceBuilder);
 
@@ -71,7 +70,7 @@ public class OpenTelemetryBuilder
 
             configure(builder);
         });
-        */
+
         return this;
     }
 
@@ -94,14 +93,13 @@ public class OpenTelemetryBuilder
 
     public OpenTelemetryBuilder ConfigureMetrics(Action<MeterProviderBuilder> configure)
     {
-        /*
-        _serviceCollection.AddOpenTelemetryMetrics(builder =>
+        _serviceCollection.AddOpenTelemetry().WithMetrics(builder =>
         {
             builder.SetResourceBuilder(_resourceBuilder);
             builder.AddHttpClientInstrumentation();
             configure(builder);
         });
-        */
+
         return this;
     }
 }

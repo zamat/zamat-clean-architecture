@@ -14,7 +14,9 @@
     <PackageVersion Include="Ocelot.Cache.CacheManager" Version="22.0.1" />
     <PackageVersion Include="Ocelot.Provider.Polly" Version="22.0.1" />
     <PackageVersion Include="MMLib.Ocelot.Provider.AppConfiguration" Version="3.0.0" />
-    <PackageVersion Include="MMLib.SwaggerForOcelot" Version="8.1.0" /><PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageVersion Include="MMLib.SwaggerForOcelot" Version="8.1.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta.9" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
     <PackageVersion Include="Unchase.Swashbuckle.AspNetCore.Extensions" Version="2.7.1" />

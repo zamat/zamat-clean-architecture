@@ -59,7 +59,7 @@ public static class ServiceCollectionExtensions
 
         builder.ConfigureLogging(configure =>
         {
-            configure.AddOtlpExporter(options =>
+            configure.AddOtlpExporter(null, options =>
             {
                 options.Endpoint = serviceOptions.OtlpEndpoint;
             });

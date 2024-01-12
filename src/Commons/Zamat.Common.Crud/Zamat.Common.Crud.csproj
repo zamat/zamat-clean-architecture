@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Version>$(CommonVersion)</Version>
     <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-    <Description>Zamat Common Crud Package</Description>
+    <Description>AUMS Common Crud Package</Description>
     <PackageTags>Crud</PackageTags>
   </PropertyGroup>
 

@@ -1,10 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Zamat.Common.Multitenancy;
+namespace AUMS.Common.Multitenancy;
 
-public class TenantBuilder(IServiceCollection services)
+public class TenantBuilder
 {
-    private readonly IServiceCollection _services = services;
+    private readonly IServiceCollection _services;
+
+    public TenantBuilder(IServiceCollection services)
+    {
+        _services = services;
+    }
 
     public TenantBuilder AddResolver<T>(ServiceLifetime lifetime = ServiceLifetime.Scoped) where T : class, ITenantResolver
     {

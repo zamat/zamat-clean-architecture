@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
+using Zamat.AspNetCore.Authorization;
 
 namespace Zamat.AspNetCore.Authorization;
 
@@ -15,6 +16,7 @@ public static class ServiceCollectionExtensions
                     .RequireAuthenticatedUser()
                     .Build();
             }
+
             if (configureOptions is not null)
             {
                 configureOptions(options);

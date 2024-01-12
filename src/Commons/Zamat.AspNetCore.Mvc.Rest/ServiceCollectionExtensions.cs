@@ -11,12 +11,12 @@ public static class ServiceCollectionExtensions
     {
         builder.AddJsonOptions(o =>
         {
+            o.AllowInputFormatterExceptionMessages = false;
             o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         });
 
         builder.ConfigureApiBehaviorOptions(o =>
         {
-            o.DisableImplicitFromServicesParameters = true;
             var builtInFactory = o.InvalidModelStateResponseFactory;
 
             o.InvalidModelStateResponseFactory = context =>

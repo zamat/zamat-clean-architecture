@@ -1,10 +1,15 @@
-﻿using MassTransit;
+using MassTransit;
 
 namespace Zamat.Common.Events.Bus.MassTransit;
 
-internal class EventBus(IPublishEndpoint publishEndpoint) : IEventBus
+internal class EventBus : IEventBus
 {
-    private readonly IPublishEndpoint _publishEndpoint = publishEndpoint;
+    private readonly IPublishEndpoint _publishEndpoint;
+
+    public EventBus(IPublishEndpoint publishEndpoint)
+    {
+        _publishEndpoint = publishEndpoint;
+    }
 
     public Task PublishAsync<T>(T @event, CancellationToken cancellationToken = default) where T : class, IEvent
     {

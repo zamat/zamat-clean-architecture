@@ -2,9 +2,14 @@
 
 namespace Zamat.Common.Crud;
 
-public abstract class CrudService<T, TIdentifier>(ICrudRepository<T, TIdentifier> repository)
+public abstract class CrudService<T, TIdentifier> : ReadService<T, TIdentifier>
 {
-    protected readonly ICrudRepository<T, TIdentifier> _repository = repository;
+    protected readonly ICrudRepository<T, TIdentifier> _repository;
+
+    public CrudService(ICrudRepository<T, TIdentifier> repository) : base(repository)
+    {
+        _repository = repository;
+    }
 
     internal enum Errors
     {

@@ -1,11 +1,16 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
 
 namespace Zamat.AspNetCore.Diagnostics;
 
-internal class AddTraceIdMiddleware(RequestDelegate next)
+internal class AddTraceIdMiddleware
 {
-    private readonly RequestDelegate _next = next;
+    private readonly RequestDelegate _next;
+
+    public AddTraceIdMiddleware(RequestDelegate next)
+    {
+        _next = next;
+    }
 
     public async Task InvokeAsync(HttpContext context)
     {

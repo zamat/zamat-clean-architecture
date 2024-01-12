@@ -1,7 +1,11 @@
-﻿namespace Zamat.AspNetCore.Multitenancy;
+﻿namespace AUMS.AspNetCore.Multitenancy;
 
 public enum ResolvingStategy
 {
     Host,
-    Header
+    Header,
+    Subdomain,
+    Query,
+    CookieOrQuery,
+    PathBase
 }

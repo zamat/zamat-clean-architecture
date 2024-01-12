@@ -1,11 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
-using Zamat.Common.Multitenancy;
+using System.Threading.Tasks;
+using AUMS.Common.Multitenancy;
+using Microsoft.AspNetCore.Http;
 
-namespace Zamat.AspNetCore.Multitenancy;
+namespace AUMS.AspNetCore.Multitenancy;
 
-internal class HeaderMiddleware(RequestDelegate next)
+internal class HeaderMiddleware
 {
-    private readonly RequestDelegate _next = next;
+    private readonly RequestDelegate _next;
+
+    public HeaderMiddleware(RequestDelegate next)
+    {
+        _next = next;
+    }
 
     public async Task Invoke(HttpContext context, ITenantStore tenantStore)
     {
@@ -22,14 +28,11 @@ internal class HeaderMiddleware(RequestDelegate next)
         }
 
         var tenant = await tenantStore.GetTenantAsync(value.ToString());
-        if (tenant is null)
+        if (tenant is not null)
         {
-            throw new TenantNotFoundException($"Tenant for given header not found. (header: {value})");
+            context.Items.Add(Constants.TenantKey, tenant);
         }
-
-        context.Items.Add(Constants.TenantKey, tenant.Identifier);
 
         await _next(context);
     }
 }
-

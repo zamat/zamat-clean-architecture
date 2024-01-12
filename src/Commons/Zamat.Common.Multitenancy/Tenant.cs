@@ -1,6 +1,5 @@
-﻿namespace Zamat.Common.Multitenancy;
+﻿namespace AUMS.Common.Multitenancy;
 
-public class Tenant(string identifier)
+public record Tenant(string Realm, string Identifier)
 {
-    public string Identifier { get; } = identifier;
 }

@@ -1,4 +1,4 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 
 namespace Zamat.Common.FilterQuery;
 
@@ -8,8 +8,9 @@ internal class BinaryExpressionVisitor : ExpressionVisitor
 
     public BinaryExpressionVisitor()
     {
-        QueryParams = new QueryParams();
+        QueryParams = [];
     }
+
     protected override Expression VisitBinary(BinaryExpression node)
     {
         QueryParamOperator? queryParamOperator = node.NodeType switch
@@ -27,11 +28,15 @@ internal class BinaryExpressionVisitor : ExpressionVisitor
         {
             string value = string.Empty;
             if (node.Right is ConstantExpression constantExpression)
+            {
                 value = (string)constantExpression.Value!;
+            }
+
             var nodeLeft = node.Left.ToString();
             int lastDotPosition = nodeLeft.LastIndexOf('.') + 1;
             QueryParams.Add(new QueryParam(nodeLeft[lastDotPosition..], queryParamOperator.Value, value));
         }
+
         return base.VisitBinary(node);
     }
 }

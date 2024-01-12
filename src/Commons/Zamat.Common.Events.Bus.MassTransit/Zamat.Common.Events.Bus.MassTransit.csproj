@@ -1,12 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>Common Events Bus MassTransit Package</Description>
-		<PackageTags>Events;EventsBus</PackageTags>
-	</PropertyGroup>
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS Common Events Bus MassTransit Package</Description>
+    <PackageTags>Events;Bus;MassTransit</PackageTags>
+  </PropertyGroup>
 
-	<ItemGroup>
+
+  <ItemGroup>
 		<PackageReference Include="MassTransit" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
 	</ItemGroup>

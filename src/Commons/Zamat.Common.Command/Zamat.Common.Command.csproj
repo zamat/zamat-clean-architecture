@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>Common Command Package</Description>
-		<PackageTags>Command;CQRS</PackageTags>
-	</PropertyGroup>
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS Common Command Package</Description>
+    <PackageTags>Command;CQRS</PackageTags>
+  </PropertyGroup>
 
 </Project>

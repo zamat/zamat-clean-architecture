@@ -1,4 +1,4 @@
-﻿namespace Zamat.Common.Query.Bus;
+namespace Zamat.Common.Query.Bus;
 
 internal class QueryWrapper<TQuery, TResult> : AbstractQueryWrapper<TResult> where TQuery : IQuery<TResult>
 {

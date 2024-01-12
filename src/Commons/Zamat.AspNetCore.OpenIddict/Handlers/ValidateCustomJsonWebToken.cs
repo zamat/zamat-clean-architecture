@@ -1,4 +1,4 @@
-﻿using System.Security.Claims;
+using System.Security.Claims;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using OpenIddict.Abstractions;
@@ -9,9 +9,14 @@ using static OpenIddict.Validation.OpenIddictValidationHandlers.Protection;
 
 namespace Zamat.AspNetCore.OpenIddict.Handlers;
 
-internal class ValidateCustomJsonWebToken(TokenValidationParameters tokenValidationParameters) : IOpenIddictValidationHandler<ValidateTokenContext>
+internal class ValidateCustomJsonWebToken : IOpenIddictValidationHandler<ValidateTokenContext>
 {
-    private readonly TokenValidationParameters _tokenValidationParameters = tokenValidationParameters;
+    private readonly TokenValidationParameters _tokenValidationParameters;
+
+    public ValidateCustomJsonWebToken(TokenValidationParameters tokenValidationParameters)
+    {
+        _tokenValidationParameters = tokenValidationParameters;
+    }
 
     public static OpenIddictValidationHandlerDescriptor Descriptor { get; }
         = OpenIddictValidationHandlerDescriptor.CreateBuilder<ValidateTokenContext>()

@@ -1,11 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
-using Zamat.Common.Multitenancy;
+using System.Threading.Tasks;
+using AUMS.Common.Multitenancy;
+using Microsoft.AspNetCore.Http;
 
-namespace Zamat.AspNetCore.Multitenancy;
+namespace AUMS.AspNetCore.Multitenancy;
 
-internal class HostMiddleware(RequestDelegate next)
+internal class HostMiddleware
 {
-    private readonly RequestDelegate _next = next;
+    private readonly RequestDelegate _next;
+
+    public HostMiddleware(RequestDelegate next)
+    {
+        _next = next;
+    }
 
     public async Task Invoke(HttpContext context, ITenantStore tenantStore)
     {
@@ -17,13 +23,11 @@ internal class HostMiddleware(RequestDelegate next)
 
         string host = context.Request.Host.Host;
 
-        var tenant = await tenantStore.GetTenantAsync(host);
-        if (tenant is null)
+        var tenant = await tenantStore.GetTenantByRealmAsync(host);
+        if (tenant is not null)
         {
-            throw new TenantNotFoundException($"Tenant for given host not found. (hostname: {host})");
+            context.Items.Add(Constants.TenantKey, tenant);
         }
-
-        context.Items.Add(Constants.TenantKey, tenant.Identifier);
 
         await _next(context);
     }

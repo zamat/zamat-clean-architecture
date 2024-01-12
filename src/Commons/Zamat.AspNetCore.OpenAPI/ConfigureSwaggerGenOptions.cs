@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -6,10 +6,17 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Zamat.AspNetCore.OpenAPI;
 
-internal class ConfigureSwaggerGenOptions(IApiVersionDescriptionProvider provider, IOptions<OpenAPIOptions> openAPIConfig) : IConfigureOptions<SwaggerGenOptions>
+internal class ConfigureSwaggerGenOptions : IConfigureOptions<SwaggerGenOptions>
 {
-    private readonly IApiVersionDescriptionProvider _provider = provider;
-    private readonly IOptions<OpenAPIOptions> _openAPIConfig = openAPIConfig;
+    private readonly IApiVersionDescriptionProvider _provider;
+
+    private readonly IOptions<OpenAPIOptions> _openAPIConfig;
+
+    public ConfigureSwaggerGenOptions(IApiVersionDescriptionProvider provider, IOptions<OpenAPIOptions> openAPIConfig)
+    {
+        _provider = provider;
+        _openAPIConfig = openAPIConfig;
+    }
 
     public void Configure(SwaggerGenOptions options)
     {
@@ -24,5 +31,38 @@ internal class ConfigureSwaggerGenOptions(IApiVersionDescriptionProvider provide
                 License = _openAPIConfig.Value.License
             });
         }
+
+        if (_openAPIConfig.Value.AuthenticationScheme == "Bearer")
+        {
+            AddOpenApiBearerScheme(options);
+        }
+    }
+
+    internal static void AddOpenApiBearerScheme(SwaggerGenOptions options)
+    {
+        var jwtSecurityScheme = new OpenApiSecurityScheme
+        {
+            BearerFormat = "OpenID Connect",
+            Name = "OpenID Connect Authentication",
+            In = ParameterLocation.Header,
+            Type = SecuritySchemeType.Http,
+            Scheme = "Bearer",
+            Description = "Paste your OpenID Connect (OIDC) token below",
+            Reference = new OpenApiReference
+            {
+                Id = "Bearer",
+                Type = ReferenceType.SecurityScheme
+            }
+        };
+
+        options.AddSecurityDefinition(
+            jwtSecurityScheme.Reference.Id,
+            jwtSecurityScheme);
+
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement {
+            {
+                jwtSecurityScheme, Array.Empty<string>()
+            }
+        });
     }
 }

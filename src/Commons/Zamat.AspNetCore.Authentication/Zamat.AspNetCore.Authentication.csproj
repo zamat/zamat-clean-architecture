@@ -1,15 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>Common AspNetCore Authentication</Description>
-		<PackageTags>Authentication</PackageTags>
-	</PropertyGroup>
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS Common AspNetCore Authentication</Description>
+    <PackageTags>aums asseco aspnetcore asp net authentication</PackageTags>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" />
+  </ItemGroup>
 
 </Project>

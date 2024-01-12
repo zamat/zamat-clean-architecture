@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace Zamat.AspNetCore.Diagnostics.HealthChecks;
 

@@ -10,7 +10,7 @@ public abstract class Entity<TIdentifier> : IEntity where TIdentifier : notnull
 
     public void AddDomainEvent(IDomainEvent eventItem)
     {
-        _domainEvents ??= new List<IDomainEvent>();
+        _domainEvents ??= [];
         _domainEvents.Add(eventItem);
     }
 

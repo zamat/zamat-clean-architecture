@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>Common FilterQuery Package</Description>
-		<PackageTags>FilterQuery</PackageTags>
-	</PropertyGroup>
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS Common FilterQuery Package</Description>
+    <PackageTags>FilterQuery</PackageTags>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="LinqKit" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="LinqKit" />
+  </ItemGroup>
 
 </Project>

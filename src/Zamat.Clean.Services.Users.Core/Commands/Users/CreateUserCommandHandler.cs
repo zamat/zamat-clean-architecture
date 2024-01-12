@@ -26,6 +26,6 @@ internal class CreateUserCommandHandler(IApplicationUnitOfWork unitOfWork, IEven
 
         _ = await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        return new CommandResult();
+        return new CommandResult() { EventData = new { UserId = user.Id } };
     }
 }

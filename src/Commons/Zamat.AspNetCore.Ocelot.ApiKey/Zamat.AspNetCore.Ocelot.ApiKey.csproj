@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS Common AspNetCore Ocelot.ApiKey</Description>
+    <PackageTags>aums asseco aspnetcore asp net ocelot api key</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Ocelot" />
+  </ItemGroup>
+</Project>

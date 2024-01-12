@@ -1,8 +1,13 @@
-﻿namespace Zamat.Common.Command.Bus;
+namespace Zamat.Common.Command.Bus;
 
-internal class CommandBusRegistry(IServiceProvider serviceProvider) : ICommandBusRegistry
+internal class CommandBusRegistry : ICommandBusRegistry
 {
-    private readonly IServiceProvider _serviceProvider = serviceProvider;
+    private readonly IServiceProvider _serviceProvider;
+
+    public CommandBusRegistry(IServiceProvider serviceProvider)
+    {
+        _serviceProvider = serviceProvider;
+    }
 
     public ICommandHandler<TCommand> GetCommandHandler<TCommand>(TCommand command) where TCommand : class, ICommand
     {

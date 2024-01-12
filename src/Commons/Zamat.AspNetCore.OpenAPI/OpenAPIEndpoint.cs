@@ -1,4 +1,4 @@
-﻿namespace Zamat.AspNetCore.OpenAPI;
+namespace Zamat.AspNetCore.OpenAPI;
 
 public class OpenAPIEndpoint
 {

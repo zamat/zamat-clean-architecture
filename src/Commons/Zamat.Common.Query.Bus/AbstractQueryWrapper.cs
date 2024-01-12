@@ -1,4 +1,4 @@
-﻿namespace Zamat.Common.Query.Bus;
+namespace Zamat.Common.Query.Bus;
 
 internal abstract class AbstractQueryWrapper<TResult>
 {

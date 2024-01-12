@@ -1,6 +1,6 @@
-﻿namespace Zamat.Common.Multitenancy;
+﻿namespace AUMS.Common.Multitenancy;
 
 public interface ITenantResolver
 {
-    string Resolve();
+    Tenant Resolve();
 }

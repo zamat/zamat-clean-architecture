@@ -5,8 +5,6 @@ using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
 using Zamat.AspNetCore.Diagnostics;
-using Zamat.AspNetCore.Ocelot;
-using Zamat.AspNetCore.OpenIddict;
 using Zamat.AspNetCore.OpenTelemetry;
 using Zamat.Clean.Api.Gateway.DelegatingHandlers;
 
@@ -33,10 +31,7 @@ builder.Services
     .AddEndpointsApiExplorer()
     .AddOpenTelemetry(builder.Configuration);
 
-builder.Services.AddSwaggerForOcelot(builder.Configuration, o =>
-{
-    o.RemoveParams("X-Tenant-Id");
-});
+builder.Services.AddSwaggerForOcelot(builder.Configuration);
 
 builder.Services.AddCors(options =>
 {
@@ -47,10 +42,6 @@ builder.Services.AddCors(options =>
         .AllowCredentials());
 });
 
-builder.Services.AddOidcAuthentication(o =>
-{
-    builder.Configuration.GetSection(nameof(OidcAuthOptions)).Bind(o);
-});
 
 var app = builder.Build();
 

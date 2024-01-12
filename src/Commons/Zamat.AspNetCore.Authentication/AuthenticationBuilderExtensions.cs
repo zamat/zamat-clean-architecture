@@ -1,93 +1,60 @@
-﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication.Twitter;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Zamat.AspNetCore.Authentication;
 
 namespace Zamat.AspNetCore.Authentication;
 
 public static class AuthenticationBuilderExtensions
 {
-    public static AuthenticationBuilder ConfigureExternalProviders(this AuthenticationBuilder builder, IConfiguration configuration)
+    public static AuthenticationBuilder AddBearer(this AuthenticationBuilder builder, IConfiguration configuration)
     {
-        var providers = new AuthenticationProviders();
-        configuration.GetSection(nameof(AuthenticationProviders)).Bind(providers);
-
-        if (providers.Google is not null)
+        builder.AddJwtBearer(o =>
         {
-            builder.AddGoogle(googleOptions =>
-             {
-                 googleOptions.ClientId = providers.Google.ClientId;
-                 googleOptions.ClientSecret = providers.Google.ClientSecret;
-             });
-        }
-        if (providers.Twitter is not null)
-        {
-            builder.AddTwitter(twitterOptions =>
-            {
-                twitterOptions.ConsumerKey = providers.Twitter.ConsumerKey;
-                twitterOptions.ConsumerSecret = providers.Twitter.ConsumerSecret;
-            });
-        }
-        if (providers.OpenIdConnect is not null)
-        {
-            var openIdConnectProvider = providers.OpenIdConnect;
-            builder.AddOpenIdConnect("OpenIdConnect", openIdConnectProvider.DisplayName, options =>
-            {
-                if (!string.IsNullOrEmpty(openIdConnectProvider.Authority))
-                {
-                    options.Authority = openIdConnectProvider.Authority;
-                }
-                options.ClientId = openIdConnectProvider.ClientId;
-                options.ClientSecret = openIdConnectProvider.ClientSecret;
-                options.ResponseType = openIdConnectProvider.ResponseType;
-                options.GetClaimsFromUserInfoEndpoint = openIdConnectProvider.GetClaimsFromUserInfoEndpoint;
-                options.SaveTokens = openIdConnectProvider.SaveTokens;
-                options.Scope.Clear();
+            configuration.GetSection(nameof(JwtBearerOptions)).Bind(o);
+        });
 
-                if (!string.IsNullOrEmpty(openIdConnectProvider.Scopes))
-                {
-                    foreach (var scope in openIdConnectProvider.Scopes.Split(" "))
-                        options.Scope.Add(scope);
-                }
-
-                if (openIdConnectProvider.TokenValidationParameters is not null)
-                {
-                    options.TokenValidationParameters = openIdConnectProvider.TokenValidationParameters;
-                }
-                if (openIdConnectProvider.Configuration is not null)
-                {
-                    options.Configuration = openIdConnectProvider.Configuration;
-                }
-
-                options.Events.OnUserInformationReceived = (ctx) =>
-                {
-                    return Task.CompletedTask;
-                };
-                options.Events.OnTokenValidated = (ctx) =>
-                {
-                    return Task.CompletedTask;
-                };
-                options.Events.OnTokenResponseReceived = (ctx) =>
-                {
-                    return Task.CompletedTask;
-                };
-            });
-        }
         return builder;
     }
 
-    private class AuthenticationProviders
+    public static AuthenticationBuilder AddBearer(this AuthenticationBuilder builder, Action<JwtBearerOptions> configureOptions)
     {
-        public GoogleOptions? Google { get; set; }
-        public TwitterOptions? Twitter { get; set; }
-        public CustomOpenIdConnectOptions? OpenIdConnect { get; set; }
+        builder.AddJwtBearer(configureOptions);
+
+        return builder;
     }
 
-    private class CustomOpenIdConnectOptions : OpenIdConnectOptions
+    public static AuthenticationBuilder AddGoogle(this AuthenticationBuilder builder, IConfiguration configuration)
     {
-        public string? DisplayName { get; set; }
-        public string Scopes { get; set; } = "oidc email";
+        builder.AddGoogle(o =>
+        {
+            configuration.GetSection(nameof(GoogleOptions)).Bind(o);
+        });
+
+        return builder;
+    }
+
+    public static AuthenticationBuilder AddTwitter(this AuthenticationBuilder builder, IConfiguration configuration)
+    {
+        builder.AddTwitter(o =>
+        {
+            configuration.GetSection(nameof(TwitterOptions)).Bind(o);
+        });
+
+        return builder;
+    }
+
+    public static AuthenticationBuilder AddOpenIdConnect(this AuthenticationBuilder builder, string displayName, IConfiguration configuration)
+    {
+        builder.AddOpenIdConnect("OpenIdConnect", displayName, o =>
+        {
+            configuration.GetSection(nameof(OpenIdConnectOptions)).Bind(o);
+        });
+
+        return builder;
     }
 }

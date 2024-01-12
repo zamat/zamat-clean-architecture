@@ -1,11 +1,16 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.Common.Command.Bus;
 
-internal class CommandBusBuilder(IServiceCollection serviceCollection) : ICommandBusBuilder
+internal class CommandBusBuilder : ICommandBusBuilder
 {
-    private readonly IServiceCollection _serviceCollection = serviceCollection;
+    private readonly IServiceCollection _serviceCollection;
+
+    public CommandBusBuilder(IServiceCollection serviceCollection)
+    {
+        _serviceCollection = serviceCollection;
+    }
 
     public ICommandBusBuilder AddCommandHandlers(Assembly assembly, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
     {

@@ -1,6 +1,9 @@
-﻿namespace Zamat.Common.Multitenancy;
+﻿using System.Threading.Tasks;
+
+namespace AUMS.Common.Multitenancy;
 
 public interface ITenantStore
 {
-    Task<Tenant?> GetTenantAsync(string tenantIdentifier);
+    Task<Tenant?> GetTenantAsync(string tenantId);
+    Task<Tenant?> GetTenantByRealmAsync(string realm);
 }

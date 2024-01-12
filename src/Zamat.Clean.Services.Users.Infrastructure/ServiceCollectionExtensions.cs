@@ -26,7 +26,7 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IUsersQueries, UsersQueries>();
 
-        services.AddScoped<IApplicationUnitOfWork, UnitOfWork>();
+        services.AddScoped<IApplicationUnitOfWork, UnitOfWork.UnitOfWork>();
 
         return services;
     }
@@ -43,8 +43,7 @@ public static class ServiceCollectionExtensions
 
         services.ConfigureMassTransitWithOutbox<UsersDbContext>(opt, _ => { }, _ => { });
 
-        services.AddHealthChecks()
-            .AddRabbitMQ(rabbitConnectionString: rabbitConnectionString);
+        services.AddHealthChecks().AddRabbitMQ(rabbitConnectionString: rabbitConnectionString);
 
         return services;
     }
@@ -58,11 +57,11 @@ public static class ServiceCollectionExtensions
             options.UseAutoDbProvider(dbConnectionString, migrationCtx =>
             {
                 migrationCtx.PostgreSQL = "EFCore.PostgreSQL";
+                migrationCtx.Schema = Consts.DefaultDatabaseSchema;
             });
         });
 
-        services.AddHealthChecks()
-            .AddDbContextCheck<UsersDbContext>(nameof(UsersDbContext));
+        services.AddHealthChecks().AddDbContextCheck<UsersDbContext>(nameof(UsersDbContext));
 
         return services;
     }

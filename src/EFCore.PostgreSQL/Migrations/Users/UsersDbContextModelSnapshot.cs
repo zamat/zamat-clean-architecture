@@ -17,6 +17,7 @@ namespace EFCore.PostgreSQL.Migrations.Users
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("clean")
                 .HasAnnotation("ProductVersion", "7.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -68,7 +69,7 @@ namespace EFCore.PostgreSQL.Migrations.Users
 
                     b.HasIndex("Delivered");
 
-                    b.ToTable("InboxStates", "dbo");
+                    b.ToTable("InboxStates", "clean");
                 });
 
             modelBuilder.Entity("MassTransit.EntityFrameworkCoreIntegration.OutboxMessage", b =>
@@ -155,7 +156,7 @@ namespace EFCore.PostgreSQL.Migrations.Users
                     b.HasIndex("InboxMessageId", "InboxConsumerId", "SequenceNumber")
                         .IsUnique();
 
-                    b.ToTable("OutboxMessages", "dbo");
+                    b.ToTable("OutboxMessages", "clean");
                 });
 
             modelBuilder.Entity("MassTransit.EntityFrameworkCoreIntegration.OutboxState", b =>
@@ -185,7 +186,7 @@ namespace EFCore.PostgreSQL.Migrations.Users
 
                     b.HasIndex("Created");
 
-                    b.ToTable("OutboxStates", "dbo");
+                    b.ToTable("OutboxStates", "clean");
                 });
 
             modelBuilder.Entity("Zamat.Clean.Services.Users.Infrastructure.EFCore.Entities.UserEntity", b =>
@@ -207,7 +208,7 @@ namespace EFCore.PostgreSQL.Migrations.Users
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", "dbo");
+                    b.ToTable("Users", "clean");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,9 +1,10 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace Zamat.AspNetCore.Diagnostics.HealthChecks;
+
 internal static class HttpContextExtensions
 {
     public static async Task<HttpContext> WriteHealthReportAsync(this HttpContext httpContext, HealthReport report)
@@ -21,7 +22,7 @@ internal static class HttpContextExtensions
         return httpContext;
     }
 
-    private static JsonSerializerOptions CreateJsonOptions()
+    internal static JsonSerializerOptions CreateJsonOptions()
     {
         var options = new JsonSerializerOptions
         {

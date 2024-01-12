@@ -1,12 +1,17 @@
-﻿using Grpc.Core;
+using Grpc.Core;
 using Grpc.Core.Interceptors;
 using Microsoft.Extensions.Logging;
 
 namespace Zamat.AspNetCore.Grpc.Interceptors;
 
-internal class LoggerInterceptor(ILogger<LoggerInterceptor> logger) : Interceptor
+internal class LoggerInterceptor : Interceptor
 {
-    private readonly ILogger<LoggerInterceptor> _logger = logger;
+    private readonly ILogger<LoggerInterceptor> _logger;
+
+    public LoggerInterceptor(ILogger<LoggerInterceptor> logger)
+    {
+        _logger = logger;
+    }
 
     public override async Task<TResponse> UnaryServerHandler<TRequest, TResponse>(
         TRequest request,

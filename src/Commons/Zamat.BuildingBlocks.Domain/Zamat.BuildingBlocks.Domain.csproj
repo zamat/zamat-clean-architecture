@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>BuildingBlocks Domain Package</Description>
-	</PropertyGroup>
-
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS BuildingBlocks Domain Package</Description>
+  </PropertyGroup>
+  
 </Project>

@@ -1,9 +1,10 @@
-﻿using System.Globalization;
+using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
+using Zamat.AspNetCore.Localization;
 
 namespace Zamat.AspNetCore.Localization;
 
@@ -18,6 +19,7 @@ public static class ServiceCollectionExtensions
         {
             throw new ArgumentException("SupportedCultures are required.");
         }
+
         if (string.IsNullOrEmpty(opt.DefaultCulture))
         {
             throw new ArgumentException("DefaultCulture is required.");

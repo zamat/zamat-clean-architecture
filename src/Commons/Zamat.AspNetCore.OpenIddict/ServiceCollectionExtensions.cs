@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.AspNetCore.OpenIddict;
 
 public static class ServiceCollectionExtensions
 {
-    private const string Schema = "OpenIddict.Validation.AspNetCore";
+    internal const string Schema = "OpenIddict.Validation.AspNetCore";
 
     public static IServiceCollection AddOidcAuthentication(this IServiceCollection services, Action<OidcAuthOptions> configureOptions)
     {

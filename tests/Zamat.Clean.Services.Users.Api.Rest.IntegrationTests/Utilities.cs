@@ -1,6 +1,4 @@
-﻿using Zamat.Clean.Services.Users.Core.Domain.Aggregates;
-using Zamat.Clean.Services.Users.Core.Domain.ValueObjects;
-using Zamat.Clean.Services.Users.Infrastructure.EFCore;
+﻿using Zamat.Clean.Services.Users.Infrastructure.EFCore;
 using Zamat.Clean.Services.Users.Infrastructure.EFCore.Entities;
 
 namespace Zamat.Clean.Services.Users.Api.Rest.IntegrationTests;

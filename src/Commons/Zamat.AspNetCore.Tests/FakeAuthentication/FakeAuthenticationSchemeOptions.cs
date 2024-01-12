@@ -5,5 +5,5 @@ namespace Zamat.AspNetCore.Tests.FakeAuthentication;
 
 public class FakeAuthenticationSchemeOptions : AuthenticationSchemeOptions
 {
-    public List<Claim> Claims { get; set; } = new List<Claim>();
+    public List<Claim> Claims { get; set; } = [];
 }

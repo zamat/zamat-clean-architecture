@@ -65,7 +65,10 @@ internal class UserRepository(UsersDbContext dbContext) : IUserRepository
             return;
         }
 
-        entity.FirstName = user.FullName.FirstName;
-        entity.LastName = user.FullName.LastName;
+        if (user.FullName is not null)
+        {
+            entity.FirstName = user.FullName.FirstName;
+            entity.LastName = user.FullName.LastName;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Zamat.Common.Query;
+namespace Zamat.Common.Query;
 
 public interface IQuery<TResult>
 {

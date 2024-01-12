@@ -1,25 +1,30 @@
-﻿using Microsoft.AspNetCore.Http;
-using Zamat.Common.Multitenancy;
+using AUMS.Common.Multitenancy;
+using Microsoft.AspNetCore.Http;
 
-namespace Zamat.AspNetCore.Multitenancy;
+namespace AUMS.AspNetCore.Multitenancy;
 
-internal class HttpContextTenantResolver(IHttpContextAccessor httpContextAccessor) : ITenantResolver
+internal class HttpContextTenantResolver : ITenantResolver
 {
-    private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public string Resolve()
+    public HttpContextTenantResolver(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpContextAccessor = httpContextAccessor;
+    }
+
+    public Tenant Resolve()
     {
         var context = _httpContextAccessor.HttpContext!;
         if (!context.Items.TryGetValue(Constants.TenantKey, out object? item))
         {
-            throw new TenantNotFoundException("Tenant context is required.");
+            throw new TenantNotFoundException("Tenant context is missing.");
         }
 
         if (item is null)
         {
-            throw new TenantNotFoundException("Tenant context is required.");
+            throw new TenantNotFoundException("Tenant context is missing.");
         }
 
-        return (string)item;
+        return (Tenant)item;
     }
 }

@@ -1,8 +1,13 @@
-﻿namespace Zamat.Common.Query.Bus;
+namespace Zamat.Common.Query.Bus;
 
-internal class QueryBus(IQueryBusRegistry queryBusRegistry) : IQueryBus
+internal class QueryBus : IQueryBus
 {
-    private readonly IQueryBusRegistry _queryBusRegistry = queryBusRegistry;
+    private readonly IQueryBusRegistry _queryBusRegistry;
+
+    public QueryBus(IQueryBusRegistry queryBusRegistry)
+    {
+        _queryBusRegistry = queryBusRegistry;
+    }
 
     public async Task<QueryResult<TResult>> ExecuteAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default)
     {

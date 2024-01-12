@@ -1,6 +1,6 @@
-﻿using Zamat.Common.Multitenancy;
+﻿using AUMS.Common.Multitenancy;
 
-namespace Zamat.AspNetCore.Multitenancy;
+namespace AUMS.AspNetCore.Multitenancy;
 
 public static class TenantBuilderExtensions
 {

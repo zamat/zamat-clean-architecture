@@ -1,24 +1,31 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 using LinqKit;
 
 namespace Zamat.Common.FilterQuery;
 
-public class FilterQuery<TSource>(Enum? sort = null)
+public class FilterQuery<TSource>
 {
     private Expression<Func<TSource, bool>> _filterExpression = (source) => true;
 
-    private readonly Dictionary<Enum, OrderBy<TSource>> _orderBy = new();
+    private readonly Dictionary<Enum, OrderBy<TSource>> _orderBy = [];
 
-    public Enum? Sort { get; } = sort;
+    public Enum? Sort { get; }
+
+    public FilterQuery(Enum? sort = null)
+    {
+        Sort = sort;
+    }
 
     public void Filter(bool condition, Expression<Func<TSource, bool>> expression)
     {
         _filterExpression = _filterExpression.And(condition, expression);
     }
+
     public void Filter(Expression<Func<TSource, bool>> expression)
     {
         _filterExpression = _filterExpression.And(1 == 1, expression);
     }
+
     public void SortMap(Enum sortStrategy, Expression<Func<TSource, object>> expression, bool isDescending)
     {
         _orderBy[sortStrategy] = new OrderBy<TSource>(isDescending, expression);
@@ -31,9 +38,15 @@ public class FilterQuery<TSource>(Enum? sort = null)
         get
         {
             if (Sort is null)
+            {
                 return e => true;
+            }
+
             if (_orderBy.ContainsKey(Sort))
+            {
                 return _orderBy[Sort].Expression.Expand();
+            }
+
             throw new InvalidOperationException("Missing sort strategy for given key");
         }
     }
@@ -43,9 +56,15 @@ public class FilterQuery<TSource>(Enum? sort = null)
         get
         {
             if (Sort is null)
+            {
                 return false;
+            }
+
             if (_orderBy.ContainsKey(Sort))
+            {
                 return _orderBy[Sort].Descending;
+            }
+
             throw new InvalidOperationException("Missing sort strategy for given key");
         }
     }

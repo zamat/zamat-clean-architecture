@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Zamat.Common.EntityFrameworkCore;
 
@@ -18,7 +18,7 @@ public static class DbContextOptionsBuilderExtensions
         return optionsBuilder;
     }
 
-    private static DbContextOptionsBuilder ConfigureDbProvider(this DbContextOptionsBuilder optionsBuilder, string connectionString, AssemblyMigrationContext assemblyMigrationContext)
+    internal static DbContextOptionsBuilder ConfigureDbProvider(this DbContextOptionsBuilder optionsBuilder, string connectionString, AssemblyMigrationContext assemblyMigrationContext)
     {
         if (connectionString.StartsWith(Consts.PostgreSQLPrefix))
         {
@@ -28,18 +28,51 @@ public static class DbContextOptionsBuilderExtensions
                 {
                     opt.MigrationsAssembly(assemblyMigrationContext.PostgreSQL);
                 }
+
+                if (!string.IsNullOrEmpty(assemblyMigrationContext.MigrationsHistoryTable))
+                {
+                    opt.MigrationsHistoryTable(assemblyMigrationContext.MigrationsHistoryTable, assemblyMigrationContext.Schema);
+                }
             });
             return optionsBuilder;
         }
 
-        optionsBuilder.UseSqlServer(connectionString, (opt) =>
+        if (connectionString.StartsWith(Consts.OraclePrefix))
         {
-            if (!string.IsNullOrEmpty(assemblyMigrationContext.SqlServer))
+            optionsBuilder.UseOracle(connectionString[Consts.OraclePrefix.Length..], (opt) =>
             {
-                opt.MigrationsAssembly(assemblyMigrationContext.SqlServer);
-            }
-        });
+                if (!string.IsNullOrEmpty(assemblyMigrationContext.Oracle))
+                {
+                    opt.MigrationsAssembly(assemblyMigrationContext.Oracle);
+                }
 
-        return optionsBuilder;
+                if (!string.IsNullOrEmpty(assemblyMigrationContext.MigrationsHistoryTable))
+                {
+                    opt.MigrationsHistoryTable(assemblyMigrationContext.MigrationsHistoryTable, assemblyMigrationContext.Schema);
+                }
+            });
+
+            return optionsBuilder;
+        }
+
+        if (connectionString.StartsWith(Consts.MSSQLPrefix))
+        {
+            optionsBuilder.UseSqlServer(connectionString[Consts.MSSQLPrefix.Length..], (opt) =>
+            {
+                if (!string.IsNullOrEmpty(assemblyMigrationContext.MSSQL))
+                {
+                    opt.MigrationsAssembly(assemblyMigrationContext.MSSQL);
+                }
+
+                if (!string.IsNullOrEmpty(assemblyMigrationContext.MigrationsHistoryTable))
+                {
+                    opt.MigrationsHistoryTable(assemblyMigrationContext.MigrationsHistoryTable, assemblyMigrationContext.Schema);
+                }
+            });
+
+            return optionsBuilder;
+        }
+
+        throw new Exception("Unsupported dbprovider. Connection string should contains valid prefix (e.g. postgresql:// or oracle://)");
     }
 }

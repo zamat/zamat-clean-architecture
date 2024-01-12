@@ -1,4 +1,4 @@
-﻿using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Models;
 
 namespace Zamat.AspNetCore.OpenAPI;
 
@@ -10,6 +10,7 @@ public static class OpenApiDocumentExtensions
         {
             path.Value.RemoveParam(paramName);
         }
+
         return doc;
     }
 
@@ -21,6 +22,7 @@ public static class OpenApiDocumentExtensions
             parameters.RemoveAll(x => x.Name.Equals(paramName, StringComparison.InvariantCultureIgnoreCase));
             operation.Value.Parameters = parameters;
         }
+
         return path;
     }
 }

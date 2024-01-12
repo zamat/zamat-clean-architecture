@@ -1,11 +1,11 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Zamat.BuildingBlocks.Domain;
 
 namespace Zamat.Common.DomainEventDispatcher;
 
-internal class DomainEventDispatcher(IServiceProvider serviceProvider) : IDomainEventDispatcher
+internal class DomainEventDispatcher : IDomainEventDispatcher
 {
     private static readonly ConcurrentDictionary<Type, Type> _handlerTypesCache = new();
 
@@ -14,9 +14,15 @@ internal class DomainEventDispatcher(IServiceProvider serviceProvider) : IDomain
     private static readonly Type _handlerType = typeof(IDomainEventHandler<>);
 
     private static readonly Type EventHandlerFuncType = typeof(Func<Func<object, object, Task>>);
+
     private static readonly MethodInfo MakeDelegateMethod = typeof(DomainEventDispatcher).GetMethod(nameof(MakeDelegate), BindingFlags.Static | BindingFlags.NonPublic)!;
 
-    private readonly IServiceProvider _serviceProvider = serviceProvider;
+    private readonly IServiceProvider _serviceProvider;
+
+    public DomainEventDispatcher(IServiceProvider serviceProvider)
+    {
+        _serviceProvider = serviceProvider;
+    }
 
     public async Task DispatchAsync(IDomainEvent domainEvent, CancellationToken cancellationToken = default)
     {
@@ -41,5 +47,5 @@ internal class DomainEventDispatcher(IServiceProvider serviceProvider) : IDomain
         }
     }
 
-    private static Func<object, object, Task> MakeDelegate<TEvent, TEventHandler>() where TEvent : class, IDomainEvent where TEventHandler : class, IDomainEventHandler<TEvent> => (domainEvent, eventHandler) => ((TEventHandler)eventHandler).HandleAsync((TEvent)domainEvent);
+    internal static Func<object, object, Task> MakeDelegate<TEvent, TEventHandler>() where TEvent : class, IDomainEvent where TEventHandler : class, IDomainEventHandler<TEvent> => (domainEvent, eventHandler) => ((TEventHandler)eventHandler).HandleAsync((TEvent)domainEvent);
 }

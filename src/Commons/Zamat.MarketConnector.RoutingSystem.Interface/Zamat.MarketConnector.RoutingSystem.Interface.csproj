@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>Interfaces to exchange data between AUMS MarketConnector and it's routing systems</Description>
+    <PackageTags>AMC</PackageTags>
+  </PropertyGroup>
+
+</Project>

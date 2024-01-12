@@ -1,12 +1,17 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Zamat.BuildingBlocks.Domain;
 
 namespace Zamat.Common.DomainEventDispatcher;
 
-internal class DomainEventDispatcherBuilder(IServiceCollection serviceCollection) : IDomainEventDispatcherBuilder
+internal class DomainEventDispatcherBuilder : IDomainEventDispatcherBuilder
 {
-    private readonly IServiceCollection _serviceCollection = serviceCollection;
+    private readonly IServiceCollection _serviceCollection;
+
+    public DomainEventDispatcherBuilder(IServiceCollection serviceCollection)
+    {
+        _serviceCollection = serviceCollection;
+    }
 
     public IDomainEventDispatcherBuilder AddDomainEventHandlers(Assembly assembly, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
     {

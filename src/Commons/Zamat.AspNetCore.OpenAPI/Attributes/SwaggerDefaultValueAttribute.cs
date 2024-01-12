@@ -1,7 +1,12 @@
-﻿namespace Zamat.AspNetCore.OpenAPI.Attributes;
+namespace Zamat.AspNetCore.OpenAPI.Attributes;
 
 [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.Field | AttributeTargets.Property)]
-public class SwaggerDefaultValueAttribute(string value) : Attribute
+public class SwaggerDefaultValueAttribute : Attribute
 {
-    public string Value { get; set; } = value;
+    public SwaggerDefaultValueAttribute(string value)
+    {
+        Value = value;
+    }
+
+    public string Value { get; set; }
 }

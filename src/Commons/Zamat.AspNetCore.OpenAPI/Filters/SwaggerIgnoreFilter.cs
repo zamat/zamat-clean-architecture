@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Zamat.AspNetCore.OpenAPI.Attributes;
@@ -12,6 +12,7 @@ internal class SwaggerIgnoreFilter : IOperationFilter, ISchemaFilter
         var parametersToRemove = operation.Parameters
             .Where(parameter => context.ApiDescription.ParameterDescriptions.Any(e => string.Compare(e.Name, parameter.Name, true) == 0 && e.CustomAttributes().OfType<SwaggerIgnoreAttribute>().Any()))
             .ToList();
+
         parametersToRemove.ForEach(parameter => operation.Parameters.Remove(parameter));
         parametersToRemove.Clear();
     }
@@ -26,6 +27,7 @@ internal class SwaggerIgnoreFilter : IOperationFilter, ISchemaFilter
             )
             .Select(property => property.Key)
             .ToList();
+
         propertiesToRemove.ForEach(propertyKey => schema.Properties.Remove(propertyKey));
         propertiesToRemove.Clear();
     }

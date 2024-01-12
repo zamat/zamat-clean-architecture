@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Zamat.AspNetCore.Diagnostics;
 using Zamat.AspNetCore.Diagnostics.HealthChecks;
 
 namespace Zamat.AspNetCore.Diagnostics;
@@ -29,14 +30,16 @@ public static class ApplicationBuilderExtensions
     {
         var opt = new DiagnosticsOptions();
         optionsConfigure(opt);
+
         if (opt.UseTraceIdResponseHeader)
         {
             builder.UseMiddleware<AddTraceIdMiddleware>();
         }
+
         return builder;
     }
 
-    private static Task WriteHealthCheckResponse(HttpContext httpContext, HealthReport report)
+    internal static Task WriteHealthCheckResponse(HttpContext httpContext, HealthReport report)
     {
         return httpContext.WriteHealthReportAsync(report);
     }

@@ -1,5 +1,6 @@
 ﻿using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Zamat.Clean.Infrastructure;
 using Zamat.Clean.Services.Users.Infrastructure.EFCore.Entities;
 using Zamat.Clean.Services.Users.Infrastructure.EFCore.EntityConfiguration;
 
@@ -13,9 +14,11 @@ public class UsersDbContext(DbContextOptions<UsersDbContext> dbContextOptions) :
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.AddInboxStateEntity(c => c.ToTable("InboxStates", "dbo"));
-        modelBuilder.AddOutboxMessageEntity(c => c.ToTable("OutboxMessages", "dbo"));
-        modelBuilder.AddOutboxStateEntity(c => c.ToTable("OutboxStates", "dbo"));
+        modelBuilder.HasDefaultSchema(Consts.DefaultDatabaseSchema);
+
+        modelBuilder.AddInboxStateEntity(c => c.ToTable("InboxStates", Consts.DefaultDatabaseSchema));
+        modelBuilder.AddOutboxMessageEntity(c => c.ToTable("OutboxMessages", Consts.DefaultDatabaseSchema));
+        modelBuilder.AddOutboxStateEntity(c => c.ToTable("OutboxStates", Consts.DefaultDatabaseSchema));
 
         modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
     }

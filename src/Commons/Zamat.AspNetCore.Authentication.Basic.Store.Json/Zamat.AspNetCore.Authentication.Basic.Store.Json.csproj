@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS Common AspNetCore Authentication Basic Store Json</Description>
+    <PackageTags>Authentication;Basic</PackageTags>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AUMS.AspNetCore.Authentication.Basic\AUMS.AspNetCore.Authentication.Basic.csproj" />
+  </ItemGroup>
+
+</Project>

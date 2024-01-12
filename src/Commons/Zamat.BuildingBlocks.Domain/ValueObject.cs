@@ -8,7 +8,9 @@ public abstract class ValueObject<T> where T : ValueObject<T>
     public override bool Equals(object? obj)
     {
         if (obj is not T valueObject)
+        {
             return false;
+        }
 
         return EqualsCore(valueObject);
     }
@@ -16,11 +18,15 @@ public abstract class ValueObject<T> where T : ValueObject<T>
     protected abstract IEnumerable<object?> GetEqualityComponents();
 
     private bool EqualsCore(T other)
-        => GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+    {
+        return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+    }
 
     public override int GetHashCode()
-        => GetEqualityComponents()
+    {
+        return GetEqualityComponents()
             .Aggregate(1, (current, obj) => current * 23 + (obj?.GetHashCode() ?? 0));
+    }
 
     public static bool operator ==(ValueObject<T> a, ValueObject<T> b)
     {
@@ -28,6 +34,8 @@ public abstract class ValueObject<T> where T : ValueObject<T>
     }
 
     public static bool operator !=(ValueObject<T> a, ValueObject<T> b)
-        => !(a == b);
+    {
+        return !(a == b);
+    }
 
 }

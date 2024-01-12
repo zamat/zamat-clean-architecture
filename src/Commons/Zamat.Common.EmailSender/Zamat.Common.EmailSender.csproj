@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS Common EmailSender Package</Description>
+    <PackageTags>Email;Mail;</PackageTags>
+  </PropertyGroup>
+
+</Project>

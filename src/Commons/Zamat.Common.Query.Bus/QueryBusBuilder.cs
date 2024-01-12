@@ -1,11 +1,17 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Zamat.Common.Query.Bus;
 
-internal class QueryBusBuilder(IServiceCollection serviceCollection) : IQueryBusBuilder
+internal class QueryBusBuilder : IQueryBusBuilder
 {
-    private readonly IServiceCollection _serviceCollection = serviceCollection;
+    private readonly IServiceCollection _serviceCollection;
+
+    public QueryBusBuilder(IServiceCollection serviceCollection)
+    {
+        _serviceCollection = serviceCollection;
+
+    }
 
     public IQueryBusBuilder AddQueryHandlers(Assembly assembly)
     {

@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
-		<Description>Common Events Bus Package</Description>
-		<PackageTags>Events;EventsBus</PackageTags>
-	</PropertyGroup>
+  <PropertyGroup>
+    <Version>$(CommonVersion)</Version>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+    <Description>AUMS Common Events Bus Package</Description>
+    <PackageTags>Events;Bus</PackageTags>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Zamat.Common.Events\Zamat.Common.Events.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zamat.Common.Events\Zamat.Common.Events.csproj" />
+  </ItemGroup>
 
 </Project>

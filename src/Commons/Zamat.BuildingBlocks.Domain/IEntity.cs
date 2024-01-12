@@ -3,6 +3,8 @@
 public interface IEntity
 {
     IReadOnlyList<IDomainEvent> DomainEvents { get; }
+
     void RemoveDomainEvent(IDomainEvent eventItem);
+
     void ClearDomainEvents();
 }

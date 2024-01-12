@@ -21,11 +21,11 @@
     <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
     <PackageVersion Include="Unchase.Swashbuckle.AspNetCore.Extensions" Version="2.7.1" />
-    <PackageVersion Include="OpenIddict.AspNetCore" Version="4.0.0" />
+    <PackageVersion Include="OpenIddict.AspNetCore" Version="5.0.1" />
     <PackageVersion Include="Grpc.AspNetCore" Version="2.60.0" />
     <PackageVersion Include="Oracle.EntityFrameworkCore" Version="8.21.121" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-    <PackageVersion Include="OpenIddict.Validation.SystemNetHttp" Version="4.0.0" />
+    <PackageVersion Include="OpenIddict.Validation.SystemNetHttp" Version="5.0.1" />
     <PackageVersion Include="OpenTelemetry.Contrib.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta2" />
     <PackageVersion Include="OpenTelemetry.Contrib.Instrumentation.MassTransit" Version="1.0.0-beta2" />
     <PackageVersion Include="OpenTelemetry.Exporter.Console" Version="1.7.0" />
